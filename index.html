@@ -3,14 +3,561 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SLNC Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SLNC 镍矿到货仪表盘</title>
+
+    <style>
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #f5f7f8;
+            margin: 0;
+            padding: 30px;
+            color: #17201f;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        #status {
+            color: #60706c;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .card span {
+            color: #60706c;
+            font-size: 14px;
+        }
+
+        .card strong {
+            display: block;
+            font-size: 28px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #0f766e;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background: #0b5f59;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #eef3f2;
+        }
+
+        .num {
+            text-align: right;
+        }
+
+        @media(max-width: 700px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <h1>SLNC 镍矿到货仪表盘</h1>
+<h1>SLNC 镍矿到货仪表盘</h1>
 
-    <p>网站运行正常。</p>
+<p id="status">
+    正在连接 Google Sheets...
+</p>
+
+<button onclick="loadData()">
+    🔄 刷新数据
+</button>
+
+
+<div class="cards">
+
+    <div class="card">
+
+        <span>累计到货量</span>
+
+        <strong id="totalWeight">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="card">
+
+        <span>加权 Ni</span>
+
+        <strong id="avgNi">
+            -
+        </strong>
+
+    </div>
+
+
+    <div class="card">
+
+        <span>加权 MgO</span>
+
+        <strong id="avgMgo">
+            -
+        </strong>
+
+    </div>
+
+</div>
+
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>日期</th>
+
+            <th>内部编号</th>
+
+            <th>供应商</th>
+
+            <th>矿区</th>
+
+            <th class="num">到货湿吨</th>
+
+            <th class="num">Ni</th>
+
+            <th class="num">MgO</th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody id="tableBody">
+
+    </tbody>
+
+</table>
+
+
+
+<script>
+
+/* ==============================
+   这里填写你的 Google Sheet ID
+   ============================== */
+
+const SPREADSHEET_ID =1xOws_gfS5-Bs1L4rcUqxBs6Xj9UYBCs5EJksMroc78A
+"把你的Spreadsheet ID粘贴到这里";
+
+
+/* ==============================
+   Google Sheet 工作表名称
+   ============================== */
+
+const SHEET_NAME =
+"到货数据";
+
+
+/* ==============================
+   读取 Google Sheets
+   ============================== */
+
+async function loadData() {
+
+    const status =
+        document.getElementById("status");
+
+    status.innerText =
+        "🔄 正在读取 Google Sheets...";
+
+
+    const url =
+        `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+
+    try {
+
+        const response =
+            await fetch(url);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "无法读取 Google Sheets"
+            );
+
+        }
+
+
+        const text =
+            await response.text();
+
+
+        const rows =
+            parseCSV(text);
+
+
+        if (rows.length <= 1) {
+
+            throw new Error(
+                "Google Sheet 没有数据"
+            );
+
+        }
+
+
+        /* 去掉第一行标题 */
+
+        const data =
+            rows.slice(1);
+
+
+        renderTable(data);
+
+        calculateStats(data);
+
+
+        status.innerText =
+            `✅ 数据读取成功，共 ${data.length} 条记录`;
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        status.innerText =
+            "❌ 读取失败：" + error.message;
+
+    }
+
+}
+
+
+/* ==============================
+   CSV解析
+   ============================== */
+
+function parseCSV(text) {
+
+    const rows = [];
+
+    let row = [];
+    let value = "";
+    let insideQuotes = false;
+
+
+    for (let i = 0; i < text.length; i++) {
+
+        const char = text[i];
+
+
+        if (char === '"') {
+
+            if (
+                insideQuotes &&
+                text[i + 1] === '"'
+            ) {
+
+                value += '"';
+
+                i++;
+
+            }
+
+            else {
+
+                insideQuotes =
+                    !insideQuotes;
+
+            }
+
+        }
+
+        else if (
+            char === "," &&
+            !insideQuotes
+        ) {
+
+            row.push(value);
+
+            value = "";
+
+        }
+
+        else if (
+            (char === "\n" ||
+             char === "\r") &&
+            !insideQuotes
+        ) {
+
+            if (char === "\r" &&
+                text[i + 1] === "\n") {
+
+                i++;
+
+            }
+
+
+            row.push(value);
+
+            rows.push(row);
+
+            row = [];
+
+            value = "";
+
+        }
+
+        else {
+
+            value += char;
+
+        }
+
+    }
+
+
+    if (
+        value.length > 0 ||
+        row.length > 0
+    ) {
+
+        row.push(value);
+
+        rows.push(row);
+
+    }
+
+
+    return rows;
+
+}
+
+
+/* ==============================
+   数字转换
+   ============================== */
+
+function num(value) {
+
+    if (!value) return 0;
+
+
+    const n =
+        parseFloat(
+            String(value)
+            .replace(/,/g, "")
+            .replace("%", "")
+        );
+
+
+    return isNaN(n)
+        ? 0
+        : n;
+
+}
+
+
+/* ==============================
+   显示表格
+   ============================== */
+
+function renderTable(data) {
+
+    const body =
+        document.getElementById(
+            "tableBody"
+        );
+
+
+    body.innerHTML = "";
+
+
+    data.forEach(row => {
+
+        /*
+        Google Sheet：
+
+        A 日期
+        B 内部编号
+        C 供应商
+        D 矿区
+        E 到货湿吨
+        F Ni
+        G MgO
+        */
+
+
+        const tr =
+            document.createElement("tr");
+
+
+        tr.innerHTML = `
+
+            <td>${row[0] || ""}</td>
+
+            <td>${row[1] || ""}</td>
+
+            <td>${row[2] || ""}</td>
+
+            <td>${row[3] || ""}</td>
+
+            <td class="num">
+                ${num(row[4]).toLocaleString()}
+            </td>
+
+            <td class="num">
+                ${num(row[5]).toFixed(2)}%
+            </td>
+
+            <td class="num">
+                ${num(row[6]).toFixed(2)}%
+            </td>
+
+        `;
+
+
+        body.appendChild(tr);
+
+    });
+
+}
+
+
+/* ==============================
+   计算核心指标
+   ============================== */
+
+function calculateStats(data) {
+
+    let totalWeight = 0;
+
+    let totalNi = 0;
+
+    let totalMgo = 0;
+
+
+    data.forEach(row => {
+
+        const weight =
+            num(row[4]);
+
+        const ni =
+            num(row[5]);
+
+        const mgo =
+            num(row[6]);
+
+
+        totalWeight +=
+            weight;
+
+
+        totalNi +=
+            weight * ni;
+
+
+        totalMgo +=
+            weight * mgo;
+
+    });
+
+
+    const avgNi =
+        totalWeight > 0
+            ? totalNi / totalWeight
+            : 0;
+
+
+    const avgMgo =
+        totalWeight > 0
+            ? totalMgo / totalWeight
+            : 0;
+
+
+    document.getElementById(
+        "totalWeight"
+    ).innerText =
+        totalWeight.toLocaleString()
+        + " WMT";
+
+
+    document.getElementById(
+        "avgNi"
+    ).innerText =
+        avgNi.toFixed(2)
+        + "%";
+
+
+    document.getElementById(
+        "avgMgo"
+    ).innerText =
+        avgMgo.toFixed(2)
+        + "%";
+
+}
+
+
+/* ==============================
+   网页打开自动读取
+   ============================== */
+
+loadData();
+
+
+/* 每30秒自动更新 */
+
+setInterval(
+    loadData,
+    30000
+);
+
+</script>
+
 
 </body>
 
