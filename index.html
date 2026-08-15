@@ -1044,6 +1044,52 @@ body.v4-ready .chart-wrap{animation:v5ChartReveal .48s var(--v4-ease) both}
   .chart-insight{flex:0 0 auto}.layout .chart-wrap,.layout #echarts-container{height:292px;min-height:292px}
 }
 
+/* V7 · EXECUTIVE MINERAL — 克制、精确、有质感 */
+body{background:#f2f5f7;color:#18263b}
+.app{width:min(1580px,100%);padding:16px 28px 34px}
+.topbar{min-height:72px;padding:12px 20px;margin-bottom:5px;border-radius:12px;background:linear-gradient(105deg,#0d2237 0%,#102f3c 66%,#08766f 100%);box-shadow:0 12px 32px rgba(13,34,55,.14)}
+.topbar:after{width:240px;height:240px;right:-80px;top:-125px}
+.topbar .eyebrow,.topbar .page-subtitle,.topbar #source-note{display:none!important}
+.title-block h1{font-size:22px;font-weight:760;letter-spacing:.005em}
+.topbar .actions{gap:9px}.project-selector{min-height:40px;padding:0 9px 0 12px;border-radius:9px}.project-selector select{height:34px}
+.topbar .button.primary{height:40px;padding:0 17px;border-radius:9px;background:#0d8d84;color:#fff;border-color:rgba(255,255,255,.12);box-shadow:0 7px 18px rgba(0,0,0,.12)}
+#sync-status-bar{margin:0 3px 7px}.sync-status{font-size:9px!important;color:#708090!important}.sync-dot{width:6px;height:6px;animation:none}
+.v3-toolbar{position:relative;top:auto;border-radius:10px;box-shadow:none;border-color:#e1e7ec;background:rgba(255,255,255,.94)}
+
+.stats{gap:0;margin:0 0 10px;border:1px solid #dfe6eb;border-radius:11px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(25,43,66,.045)}
+.stats .stat{min-height:112px;padding:17px 18px;border:0;border-right:1px solid #e7ecef;border-radius:0;background:#fff;box-shadow:none}
+.stats .stat:last-child{border-right:0}.stats .stat:before{display:none}.stats .stat:hover{transform:none;border-color:#e7ecef;box-shadow:none;background:#fbfdfd}
+.stats .stat strong{margin-top:10px;font-size:26px;font-weight:720;line-height:1.05;letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:#142239}
+.stats .stat small{margin-top:9px;color:#8290a2}.stats .v5-stat-top span{font-size:11px;font-weight:720;color:#526176}
+
+.smart-center{display:block;margin:0 0 10px}.smart-summary-card{position:relative;min-height:48px;padding:0 18px 0 54px;display:flex;align-items:center;border:1px solid rgba(11,128,118,.24);border-radius:9px;background:linear-gradient(90deg,#f7fbfb,#fff);box-shadow:none}
+.smart-summary-card:before{content:"↗";position:absolute;left:17px;top:50%;transform:translateY(-50%);width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#0b8076;color:#fff;font-size:12px;font-weight:800}
+.smart-summary-text{width:100%;padding:0;border:0!important;background:transparent!important;box-shadow:none!important;font-size:12px;line-height:1.55;color:#28384d}
+
+.layout>.card{padding:19px;border-radius:10px;border-color:#dde5ea;box-shadow:0 8px 26px rgba(25,43,66,.045)}
+.layout .panel-header{margin-bottom:12px}.layout .panel-header h2{font-size:17px;font-weight:760}.layout .panel-header p{margin-top:4px;color:#8591a2}
+.layout .chart-wrap{height:372px;min-height:372px;border-radius:8px;border-color:#e6ebef;background:#fff;box-shadow:none}
+.layout #echarts-container{height:372px}
+.v5-chart-tabs{border-radius:7px;background:#f3f6f8}.v5-chart-tab{border-radius:5px}.v5-chart-tab.active{box-shadow:0 2px 7px rgba(31,48,73,.07)}
+
+.supplier-overview{padding:16px 18px;margin-top:10px;border-radius:10px;box-shadow:0 7px 23px rgba(25,43,66,.04)}
+.supplier-overview .supplier-row{grid-template-columns:30px minmax(220px,.65fr) minmax(0,1fr) auto;gap:10px 14px;padding:9px 3px}
+.supplier-overview .track{grid-column:3;height:4px;align-self:center}.supplier-overview .supplier-value{grid-column:4;grid-row:1;text-align:right;min-width:112px}.supplier-overview .supplier-share{display:inline;margin-left:9px}
+.supplier-rank{width:25px;height:25px;border-radius:6px;background:#e8f5f3}.supplier-meta{display:none}
+.supplier-expand{display:flex;align-items:center;gap:6px;margin:8px auto 0;padding:5px 10px;border:0;background:transparent;color:#748196;font-size:10px;font-weight:750}.supplier-expand:hover{color:#08736a}
+
+@media(max-width:980px){
+  .stats{grid-template-columns:repeat(3,1fr)}.stats .stat:nth-child(3){border-right:0}.stats .stat:nth-child(-n+3){border-bottom:1px solid #e7ecef}
+  .supplier-overview .supplier-row{grid-template-columns:28px minmax(0,1fr) auto}.supplier-overview .track{grid-column:2/-1}.supplier-overview .supplier-value{grid-column:3}
+}
+@media(max-width:760px){
+  .app{padding:9px}.topbar{min-height:64px;padding:11px 13px}.title-block h1{font-size:18px}.topbar .actions{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.project-selector label{display:none}.project-selector{width:100%;padding-left:6px}.project-selector select{width:100%}.topbar .button.primary{width:100%;padding:0 11px}
+  .stats{grid-template-columns:1fr 1fr}.stats .stat{min-height:96px;padding:13px 14px;border-bottom:1px solid #e7ecef}.stats .stat:nth-child(2n){border-right:0}.stats .stat:nth-last-child(-n+2){border-bottom:0}.stats .stat strong{font-size:21px}.stats .stat:nth-child(3){border-right:1px solid #e7ecef}
+  .smart-summary-card{min-height:52px;padding:8px 11px 8px 44px}.smart-summary-card:before{left:11px}.smart-summary-text{font-size:11px}
+  .layout>.card{padding:12px}.layout .chart-wrap,.layout #echarts-container{height:312px;min-height:312px}
+  .supplier-overview{padding:13px 12px}.supplier-overview .supplier-row{grid-template-columns:26px minmax(0,1fr) auto;padding:8px 1px}.supplier-overview .supplier-value{min-width:auto}.supplier-overview .supplier-share{display:block;margin-left:0}.supplier-overview .track{grid-column:2/-1}
+}
+
 
 /* V6 decision-first refinements */
 .alert-item[data-alert-filter]{cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
@@ -1060,7 +1106,7 @@ body.v4-ready .chart-wrap{animation:v5ChartReveal .48s var(--v4-ease) both}
   <section class="topbar" aria-labelledby="page-title">
     <div class="title-block">
       <div class="eyebrow">NIKELTRAK · FLAGSHIP PROCUREMENT INTELLIGENCE</div>
-      <h1 id="page-title">SLNC - 镍矿到货仪表盘</h1>
+      <h1 id="page-title">SLNC · 镍矿运营驾驶舱</h1>
       <p class="page-subtitle">到货 · 品质 · 消耗 · 库存 · 供应商，一屏掌握关键经营数据</p>
       <p id="source-note">正在连接 Google Sheets 数据源…</p>
     </div>
@@ -1178,14 +1224,14 @@ body.v4-ready .chart-wrap{animation:v5ChartReveal .48s var(--v4-ease) both}
         </div>
         <div class="v5-chart-actions">
           <div class="v5-chart-tabs" role="tablist" aria-label="生产与库存切换">
-            <button class="v5-chart-tab active" type="button" data-chart-mode="arrival">每日到货</button>
-            <button class="v5-chart-tab" type="button" data-chart-mode="production">累计消耗</button>
+            <button class="v5-chart-tab" type="button" data-chart-mode="arrival">每日到货</button>
+            <button class="v5-chart-tab active" type="button" data-chart-mode="production">累计消耗</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="inventory">库存余量</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="quality">品位波动</button>
           </div>
           <div class="v5-chart-tabs v5-chart-range" role="group" aria-label="图表时间范围">
-            <button class="v5-chart-tab active" type="button" data-chart-range="30">30天</button>
-            <button class="v5-chart-tab" type="button" data-chart-range="90">90天</button>
+            <button class="v5-chart-tab" type="button" data-chart-range="30">30天</button>
+            <button class="v5-chart-tab active" type="button" data-chart-range="90">90天</button>
             <button class="v5-chart-tab" type="button" data-chart-range="all">全部</button>
           </div>
         </div>
@@ -1201,7 +1247,7 @@ body.v4-ready .chart-wrap{animation:v5ChartReveal .48s var(--v4-ease) both}
     <div class="panel-header">
       <div>
         <h2 id="supplier-overview-title">供应商结构</h2>
-        <p>当前筛选范围 · 到货湿吨前5名</p>
+        <p>当前筛选范围 · 到货湿吨前3名</p>
       </div>
       <button class="v5-chart-export" id="supplier-reset-btn" type="button">全部供应商</button>
     </div>
@@ -2199,7 +2245,7 @@ const NikelTrak = (function() {
   const PROJECTS = {
     SLNC: {
       id: 'SLNC',
-      name: 'SLNC - 镍矿到货仪表盘',
+      name: 'SLNC · 镍矿运营驾驶舱',
       spreadsheetId: '1pbiEezIxzBvY-lhnP9ZyqAgN56fEL0ib8RwQ52I6UD8',
       sheetRange: '陆运总表!A:AE',
       paymentSheetRange: '陆运付款明细!A:P',
@@ -2210,7 +2256,7 @@ const NikelTrak = (function() {
     },
     HYNC: {
       id: 'HYNC',
-      name: 'HYNC - 镍矿到货仪表盘',
+      name: 'HYNC · 镍矿运营驾驶舱',
       spreadsheetId: '1eLXibQgi_nh8VcZG_3NpRfJsexxJbERyBdcncC65Qm4',
       sheetRange: '陆运总表!A:AE',
       paymentSheetRange: '陆运付款明细!A:P',
@@ -2221,7 +2267,7 @@ const NikelTrak = (function() {
     },
     HXNI: {
     id: 'HXNI',
-    name: 'HXNI - 镍矿到货仪表盘',
+    name: 'HXNI · 镍矿运营驾驶舱',
     spreadsheetId: '1emOj4djnh_rHGNVynQZspO-JnQTzPEk-j_tP7zBU56o',
     sheetRange: '陆运总表!A:AE',
     paymentSheetRange: '陆运付款明细!A:P',
@@ -2258,8 +2304,9 @@ const NikelTrak = (function() {
   let chartRenderer = null;
   let supplierChart = null;
   let supplierChartResizeBound = false;
-  let chartViewMode = 'arrival';
-  let chartRange = '30';
+  let chartViewMode = 'production';
+  let chartRange = '90';
+  let supplierExpanded = false;
 
   // 防抖渲染
   const debouncedRender = debounce(render, 160);
@@ -3269,22 +3316,27 @@ const NikelTrak = (function() {
     }
 
     {
-      const totalWet = rows.reduce((sum, row) => sum + (row.weight || 0), 0);
       const ni = weightedAverageWithDryWeight(rows, 'ni');
       const mgo = weightedAverageWithDryWeight(rows, 'mgo');
-      const inventoryText = Number.isFinite(inventorySnapshot.wetTons)
-        ? `${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(inventorySnapshot.wetTons)} 湿吨`
-        : '暂无数据';
-      const latestProduction = [...(inventorySnapshot.history || [])].reverse().find(item => Number.isFinite(item.production));
-      const productionText = latestProduction
-        ? `${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(latestProduction.production)} 湿吨`
-        : '暂无数据';
-      els.smartSummaryText.textContent =
-        `累计到货 ${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(totalWet)} 湿吨` +
-        `｜最新消耗 ${productionText}` +
-        `｜库存 ${inventoryText}` +
-        `｜Ni ${ni == null ? '-' : ni.toFixed(2)+'%'}` +
-        `｜MgO ${mgo == null ? '-' : mgo.toFixed(2)+'%'}`;
+      const history = inventorySnapshot.history || [];
+      const inventoryRows = history.filter(item => Number.isFinite(item.inventory));
+      const productionRows = history.filter(item => Number.isFinite(item.production));
+      const latestInventory = inventoryRows.at(-1)?.inventory;
+      const previousInventory = inventoryRows.at(-2)?.inventory;
+      const inventoryChange = Number.isFinite(latestInventory) && Number.isFinite(previousInventory) && previousInventory !== 0
+        ? ((latestInventory - previousInventory) / Math.abs(previousInventory)) * 100 : null;
+      const inventorySentence = inventoryChange == null ? '库存已更新'
+        : Math.abs(inventoryChange) <= 3 ? '库存保持稳定'
+        : inventoryChange > 0 ? '库存较前值回升' : '库存较前值下降';
+      const recentProduction = productionRows.slice(-7).map(item => item.production);
+      const productionAverage = recentProduction.length ? recentProduction.reduce((sum,value)=>sum+value,0) / recentProduction.length : null;
+      const latestProduction = recentProduction.at(-1);
+      const productionSentence = !Number.isFinite(latestProduction) || !Number.isFinite(productionAverage) ? '消耗数据待补充'
+        : latestProduction > productionAverage * 1.05 ? '最新消耗处于近期均值上方'
+        : latestProduction < productionAverage * .95 ? '最新消耗处于近期均值下方' : '最新消耗接近近期均值';
+      const qualitySentence = (ni == null || ni >= niTarget) && (mgo == null || mgo <= mgoLimit)
+        ? '品位总体可控' : ni != null && ni < niTarget ? 'Ni 品位需要关注' : 'MgO 指标需要关注';
+      els.smartSummaryText.textContent = `${inventorySentence}，${productionSentence}，${qualitySentence}。`;
       els.smartMetrics.innerHTML = '';
       els.smartAlertList.innerHTML = '';
       els.smartAlertCount.textContent = '0';
@@ -3455,12 +3507,12 @@ const NikelTrak = (function() {
     const consumptionNote = latestConsumption?.date || '暂无消耗数据';
 
     const items = [
-      { label:'最新日到货量', value:latest ? formatTons(latest.weight,0) : '-', note:latest ? latest.date : '无数据', focus:'arrival' },
-      { label:'累计到货量', value:formatTons(totalWet,0), note:`${daily.length} 个到货日`, focus:'arrival' },
+      { label:'最新到货', value:latest ? formatTons(latest.weight,0) : '-', note:latest ? latest.date : '无数据', focus:'arrival' },
+      { label:'累计到货', value:formatTons(totalWet,0), note:`${daily.length} 个到货日`, focus:'arrival' },
       { label:'最新消耗', value:consumptionValue, note:consumptionNote, focus:'production' },
       { label:'库存余量', value:inventoryValue, note:inventoryNote, focus:'inventory' },
-      { label:'加权 Ni', value:ni === null ? '-' : formatNumber(ni,2), note:'到货干吨加权', focus:'quality' },
-      { label:'加权 MgO', value:mgo === null ? '-' : formatNumber(mgo,2), note:'到货干吨加权', focus:'quality' }
+      { label:'Ni 品位', value:ni === null ? '-' : formatNumber(ni,2), note:'到货干吨加权', focus:'quality' },
+      { label:'MgO 品位', value:mgo === null ? '-' : formatNumber(mgo,2), note:'到货干吨加权', focus:'quality' }
     ];
 
     els.stats.innerHTML = items.map((item, i) =>
@@ -3559,7 +3611,8 @@ const NikelTrak = (function() {
     }
 
     const total = items.reduce((sum, item) => sum + (Number(item.weight) || 0), 0);
-    els.supplierList.innerHTML = items.slice(0,5).map((item, index) => {
+    const visibleItems = items.slice(0, supplierExpanded ? items.length : 3);
+    const rowsHtml = visibleItems.map((item, index) => {
       const pct = total ? (item.weight / total) * 100 : 0;
       const quality = `Ni ${item.ni == null ? '-' : Number(item.ni).toFixed(2)+'%'} · MgO ${item.mgo == null ? '-' : Number(item.mgo).toFixed(2)+'%'}`;
       return `<div class="supplier-row" data-supplier="${escapeHtml(item.supplier)}" title="点击筛选 ${escapeHtml(item.supplier)}">
@@ -3569,6 +3622,14 @@ const NikelTrak = (function() {
         <div class="track"><div class="fill" style="width:${pct.toFixed(1)}%"></div></div>
       </div>`;
     }).join('');
+    const expandHtml = items.length > 3
+      ? `<button class="supplier-expand" id="supplier-expand-btn" type="button">${supplierExpanded ? '收起' : '展开更多'} <span>${supplierExpanded ? '⌃' : '⌄'}</span></button>`
+      : '';
+    els.supplierList.innerHTML = rowsHtml + expandHtml;
+    document.getElementById('supplier-expand-btn')?.addEventListener('click', () => {
+      supplierExpanded = !supplierExpanded;
+      renderSuppliers(items);
+    });
   }
 
   function renderTablePage(pageData) {
@@ -4286,6 +4347,7 @@ const NikelTrak = (function() {
     if (projectId === currentProject && records.length) return;
 
     currentProject = projectId;
+    supplierExpanded = false;
     arrivalDedupeStats = { projectId, raw: 0, unique: 0, removed: 0, samples: [], source: '' };
     const project = PROJECTS[projectId];
     document.getElementById('page-title').textContent = project.name;
