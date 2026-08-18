@@ -1037,11 +1037,29 @@ body.v4-ready .chart-wrap{animation:v5ChartReveal .48s var(--v4-ease) both}
 .chart-insight.amber::before{background:#e39a22;box-shadow:0 0 0 3px rgba(227,154,34,.09)}
 .chart-insight.blue::before{background:#3772e6;box-shadow:0 0 0 3px rgba(55,114,230,.08)}
 .chart-insight strong{color:#24344b;font-size:12px;font-variant-numeric:tabular-nums}
+.chart-insight.primary{min-height:34px;padding:0 12px;border-color:#d8e8e5;background:linear-gradient(90deg,#f6fbfa,#fff)}
+.chart-insight.primary strong{font-size:14px;color:#15314b}.chart-insight.primary small{color:#8290a2;font-size:9px;font-weight:650}
+.balance-series-legend{display:flex;align-items:center;justify-content:center;gap:28px;min-height:34px;margin:0 0 7px;color:#536176;font-size:11px;font-weight:750}
+.balance-series-legend:empty{display:none}
+.balance-legend-item{display:inline-flex;align-items:center;gap:9px;padding:6px 9px;border:1px solid transparent;border-radius:8px;background:transparent;color:#536176;font:inherit;white-space:nowrap;cursor:pointer;transition:background .16s ease,border-color .16s ease,opacity .16s ease,transform .16s ease}
+.balance-legend-item:hover{border-color:#e2e9ef;background:#f8fafb;transform:translateY(-1px)}
+.balance-legend-item:focus-visible{outline:2px solid rgba(11,128,118,.28);outline-offset:2px}
+.balance-legend-item.is-off{opacity:.42;background:#f5f7f9}
+.balance-legend-item.is-off .balance-legend-mark{filter:grayscale(1)}
+.balance-legend-item.is-off strong{text-decoration:line-through;text-decoration-thickness:1px}
+.balance-legend-mark{display:inline-block;flex:0 0 auto}
+.balance-legend-mark.arrival{width:17px;height:9px;border-radius:3px;background:linear-gradient(90deg,#0b8076,#55b3aa);box-shadow:0 3px 8px rgba(11,128,118,.17)}
+.balance-legend-mark.consumption{position:relative;width:23px;height:10px}
+.balance-legend-mark.consumption:before{content:"";position:absolute;left:0;right:0;top:4px;height:2px;border-radius:99px;background:#173f68}
+.balance-legend-mark.consumption:after{content:"";position:absolute;right:1px;top:1px;width:6px;height:6px;border-radius:50%;background:#173f68;border:2px solid #fff;box-shadow:0 0 0 1px #173f68}
+.balance-legend-item strong{margin-left:2px;color:#1f3047;font-size:12px;font-weight:820;font-variant-numeric:tabular-nums}
+.balance-legend-item small{padding-left:1px;color:#8a96a6;font-size:9px;font-weight:680;font-variant-numeric:tabular-nums}
 .layout .chart-wrap{min-height:330px;background:linear-gradient(180deg,rgba(250,252,253,.94),#fff)}
 .layout #echarts-container{height:330px}
 @media(max-width:760px){
   .chart-insights{justify-content:flex-start;overflow-x:auto;padding-bottom:1px;margin-top:1px;scrollbar-width:none}.chart-insights::-webkit-scrollbar{display:none}
-  .chart-insight{flex:0 0 auto}.chart-insight:nth-child(n+3){display:none}.layout .chart-wrap,.layout #echarts-container{height:292px;min-height:292px}
+  .chart-insight{flex:0 0 auto}.chart-insight:nth-child(n+3){display:none}.chart-insight.primary{max-width:100%;display:grid;grid-template-columns:auto auto;gap:2px 8px}.chart-insight.primary small{grid-column:1/-1;overflow:hidden;text-overflow:ellipsis}
+  .balance-series-legend{justify-content:stretch;gap:7px;min-height:44px;margin-bottom:3px;overflow-x:auto;scrollbar-width:none}.balance-series-legend::-webkit-scrollbar{display:none}.balance-legend-item{flex:1 0 calc(50% - 4px);min-height:44px;justify-content:center;gap:5px;padding:5px 7px}.balance-legend-label{font-size:10px}.balance-legend-item strong{margin-left:0;font-size:10px}.balance-legend-item small{font-size:8px}.balance-legend-mark.arrival{width:13px}.balance-legend-mark.consumption{width:18px}.layout .chart-wrap,.layout #echarts-container{height:276px;min-height:276px}
 }
 
 /* V7 · EXECUTIVE MINERAL — 克制、精确、有质感 */
@@ -1053,6 +1071,7 @@ body{background:#f2f5f7;color:#18263b}
 .title-block h1{font-size:22px;font-weight:760;letter-spacing:.005em}
 .topbar .actions{gap:9px}.project-selector{min-height:40px;padding:0 9px 0 12px;border-radius:9px}.project-selector select{height:34px}
 .topbar .button.primary{height:40px;padding:0 17px;border-radius:9px;background:#0d8d84;color:#fff;border-color:rgba(255,255,255,.12);box-shadow:0 7px 18px rgba(0,0,0,.12)}
+.topbar .overview-trigger{height:40px;padding:0 14px;border-radius:9px;background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.18);font-weight:750}.topbar .overview-trigger:hover{background:rgba(255,255,255,.18)}
 #sync-status-bar{margin:0 3px 7px}.sync-status{font-size:9px!important;color:#708090!important}.sync-dot{width:6px;height:6px;animation:none}
 .v3-toolbar{position:relative;top:auto;border-radius:10px;box-shadow:none;border-color:#e1e7ec;background:rgba(255,255,255,.94)}
 
@@ -1066,6 +1085,7 @@ body{background:#f2f5f7;color:#18263b}
 .smart-center{display:block;margin:0 0 10px}.smart-summary-card{position:relative;min-height:48px;padding:0 18px 0 54px;display:flex;align-items:center;border:1px solid rgba(11,128,118,.24);border-radius:9px;background:linear-gradient(90deg,#f7fbfb,#fff);box-shadow:none}
 .smart-summary-card:before{content:"↗";position:absolute;left:17px;top:50%;transform:translateY(-50%);width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#0b8076;color:#fff;font-size:12px;font-weight:800}
 .smart-summary-text{width:100%;padding:0;border:0!important;background:transparent!important;box-shadow:none!important;font-size:12px;line-height:1.55;color:#28384d}
+.data-freshness{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:16px;padding:6px 9px;border:1px solid #e1e8ed;border-radius:7px;background:#fff;color:#758296;font-size:9px;font-weight:700;white-space:nowrap}.data-freshness:before{content:"";width:6px;height:6px;border-radius:50%;background:#22a06b}.data-freshness.partial:before{background:#e39a22}.data-freshness.stale:before{background:#d34e4e}.data-freshness strong{color:#314157}
 
 .layout>.card{padding:19px;border-radius:10px;border-color:#dde5ea;box-shadow:0 8px 26px rgba(25,43,66,.045)}
 .layout .panel-header{margin-bottom:12px}.layout .panel-header h2{font-size:17px;font-weight:760}.layout .panel-header p{margin-top:4px;color:#8591a2}
@@ -1081,16 +1101,22 @@ body{background:#f2f5f7;color:#18263b}
 .table-lazy-placeholder td{height:110px;text-align:center!important;color:#8190a2!important;background:#fbfcfd!important}
 .v3-toolbar.is-detail-toolbar{margin:16px 0 8px;position:relative;top:auto}
 
+.overview-overlay{display:none;position:fixed;inset:0;z-index:10020;align-items:center;justify-content:center;padding:22px;background:rgba(11,25,40,.56);backdrop-filter:blur(7px)}.overview-overlay.open{display:flex}
+.overview-dialog{width:min(1220px,100%);max-height:min(86vh,760px);overflow:auto;border:1px solid rgba(255,255,255,.42);border-radius:16px;background:#f7f9fb;box-shadow:0 32px 90px rgba(10,25,42,.32);animation:modalIn .2s ease}
+.overview-header{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 22px 16px;background:linear-gradient(105deg,#10263d,#0c5d59);color:#fff}.overview-header h2{margin:0;font-size:19px}.overview-header p{margin:5px 0 0;color:rgba(255,255,255,.66);font-size:10px}.overview-close{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:18px}.overview-close:hover{background:rgba(255,255,255,.22)}
+.overview-status{margin:16px 18px 0;padding:9px 11px;border:1px solid #dfe7ec;border-radius:8px;background:#fff;color:#738095;font-size:10px}.overview-table-wrap{margin:10px 18px 0;overflow:auto;border:1px solid #dfe6eb;border-radius:10px;background:#fff}.overview-table{width:100%;min-width:920px;border-collapse:collapse}.overview-table th{padding:11px 13px;background:#f3f6f8;color:#6f7d90;font-size:9px;font-weight:800;text-align:right;white-space:nowrap}.overview-table th:first-child{text-align:left}.overview-table td{padding:16px 13px;border-top:1px solid #e8edf1;color:#26364b;font-size:12px;font-weight:700;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.overview-table td:first-child{text-align:left}.overview-project{display:flex;align-items:center;gap:9px}.overview-project-badge{width:34px;height:34px;display:grid;place-items:center;border-radius:8px;background:#e8f5f3;color:#08736a;font-size:10px;font-weight:850}.overview-project button{padding:0;background:transparent;color:#1d3048;font-size:12px;font-weight:850}.overview-project button:hover{color:#08736a}.overview-date{font-size:9px;color:#8692a2}.overview-value-sub{display:block;margin-top:3px;font-size:8px;font-weight:650;color:#8995a5}.overview-risk{color:#bd7114!important}.overview-loading{height:150px!important;text-align:center!important;color:#8591a2!important}.overview-foot{padding:11px 20px 16px;color:#7e8a9b;font-size:9px;text-align:right}
+
 @media(max-width:980px){
   .stats{grid-template-columns:repeat(3,1fr)}.stats .stat:nth-child(3){border-right:0}.stats .stat:nth-child(-n+3){border-bottom:1px solid #e7ecef}
   .supplier-overview .supplier-row{grid-template-columns:28px minmax(0,1fr) auto}.supplier-overview .track{grid-column:2/-1}.supplier-overview .supplier-value{grid-column:3}
 }
 @media(max-width:760px){
-  .app{padding:9px}.topbar{min-height:64px;padding:11px 13px}.title-block h1{font-size:18px}.topbar .actions{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.project-selector label{display:none}.project-selector{width:100%;padding-left:6px}.project-selector select{width:100%}.topbar .button.primary{width:100%;padding:0 11px}
+  .app{padding:9px}.topbar{min-height:64px;padding:11px 13px}.title-block h1{font-size:18px}.topbar .actions{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.project-selector label{display:none}.project-selector{width:100%;padding-left:6px}.project-selector select{width:100%}.topbar .button.primary{width:100%;padding:0 11px}.topbar .overview-trigger{grid-column:1/-1;width:100%;height:34px}
   .stats{grid-template-columns:1fr 1fr}.stats .stat{min-height:96px;padding:13px 14px;border-bottom:1px solid #e7ecef}.stats .stat:nth-child(2n){border-right:0}.stats .stat:nth-last-child(-n+2){border-bottom:0}.stats .stat strong{font-size:21px}.stats .stat:nth-child(3){border-right:1px solid #e7ecef}
-  .smart-summary-card{min-height:52px;padding:8px 11px 8px 44px}.smart-summary-card:before{left:11px}.smart-summary-text{font-size:11px}
-  .layout>.card{padding:12px}.layout .chart-wrap,.layout #echarts-container{height:312px;min-height:312px}
+  .smart-summary-card{min-height:52px;padding:8px 11px 8px 44px;flex-wrap:wrap}.smart-summary-card:before{left:11px}.smart-summary-text{font-size:11px}.data-freshness{width:100%;margin:6px 0 0;padding:5px 7px;white-space:normal;line-height:1.45}
+  .layout>.card{padding:12px}.layout .chart-wrap,.layout #echarts-container{height:276px;min-height:276px}
   .supplier-overview{padding:13px 12px}.supplier-overview .supplier-row{grid-template-columns:26px minmax(0,1fr) auto;padding:8px 1px}.supplier-overview .supplier-value{min-width:auto}.supplier-overview .supplier-share{display:block;margin-left:0}.supplier-overview .track{grid-column:2/-1}
+  .overview-overlay{padding:8px}.overview-dialog{max-height:94vh;border-radius:12px}.overview-header{padding:15px 14px}.overview-header h2{font-size:16px}.overview-status{margin:10px 10px 0}.overview-table-wrap{margin:8px 10px 0}.overview-foot{padding:9px 12px 12px}
 }
 
 
@@ -1123,6 +1149,7 @@ body{background:#f2f5f7;color:#18263b}
         </select>
       </div>
       <button class="button primary" id="refresh-btn" type="button">同步数据</button>
+      <button class="button overview-trigger" id="project-overview-btn" type="button">项目总览</button>
       <button class="button" id="export-csv" type="button">导出 CSV</button>
       <button class="button" id="export-json" type="button">导出 JSON</button>
       <button class="button" id="fullscreen-btn" type="button" title="全屏展示">全屏</button>
@@ -1201,10 +1228,11 @@ body{background:#f2f5f7;color:#18263b}
         <div><h2>智能结论</h2><p>自动识别趋势与品质风险</p></div>
       </div>
       <div class="smart-summary-text" id="smart-summary-text">正在分析当前数据…</div>
+      <div class="data-freshness" id="data-freshness">正在核对数据日期…</div>
       <div class="smart-metrics" id="smart-metrics"></div>
       <div class="smart-params" id="smart-params">
         <label class="smart-param">Ni目标 ≥ <input id="ni-target" type="number" min="0" step="0.01" value="1.15"><small>%</small></label>
-        <label class="smart-param">MgO预警 &gt; <input id="mgo-limit" type="number" min="0" step="0.10" value="4.00"><small>%</small></label>
+        <label class="smart-param">MgO上限 &gt; <input id="mgo-limit" type="number" min="0" step="0.10" value="3.50"><small>%</small></label>
         <div class="smart-actions">
           <button class="smart-mini-btn" id="copy-summary-btn" type="button">复制结论</button>
           <button class="smart-mini-btn" id="reset-smart-settings" type="button">恢复默认阈值</button>
@@ -1228,19 +1256,18 @@ body{background:#f2f5f7;color:#18263b}
         <div class="v5-chart-actions">
           <div class="v5-chart-tabs" role="tablist" aria-label="生产与库存切换">
             <button class="v5-chart-tab active" type="button" data-chart-mode="balance">供耗平衡</button>
-            <button class="v5-chart-tab" type="button" data-chart-mode="arrival">每日到货</button>
-            <button class="v5-chart-tab" type="button" data-chart-mode="production">消耗趋势</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="inventory">库存余量</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="quality">品位波动</button>
           </div>
           <div class="v5-chart-tabs v5-chart-range" role="group" aria-label="图表时间范围">
-            <button class="v5-chart-tab" type="button" data-chart-range="30">30天</button>
-            <button class="v5-chart-tab active" type="button" data-chart-range="90">90天</button>
+            <button class="v5-chart-tab" type="button" data-chart-range="7">7天</button>
+            <button class="v5-chart-tab active" type="button" data-chart-range="30">30天</button>
             <button class="v5-chart-tab" type="button" data-chart-range="all">全部</button>
           </div>
         </div>
       </div>
       <div class="chart-insights" id="chart-insights" aria-live="polite"></div>
+      <div class="balance-series-legend" id="balance-series-legend" aria-live="polite"></div>
       <div class="chart-wrap">
         <div id="echarts-container"></div>
       </div>
@@ -1511,6 +1538,23 @@ body{background:#f2f5f7;color:#18263b}
   <div class="modal-box">
     <div class="modal-header"><h3 id="payment-modal-title">付款结算详情</h3><button class="modal-close" type="button" onclick="NikelTrak.closePaymentDetail()" aria-label="关闭">×</button></div>
     <div class="modal-body" id="payment-modal-body"></div>
+  </div>
+</div>
+
+<div class="overview-overlay" id="project-overview-modal" role="dialog" aria-modal="true" aria-labelledby="project-overview-title">
+  <div class="overview-dialog">
+    <div class="overview-header">
+      <div><h2 id="project-overview-title">三项目经营总览</h2><p>统一口径对比最新到货、消耗、库存与品位</p></div>
+      <button class="overview-close" id="project-overview-close" type="button" aria-label="关闭项目总览">×</button>
+    </div>
+    <div class="overview-status" id="project-overview-status">正在准备项目数据…</div>
+    <div class="overview-table-wrap">
+      <table class="overview-table">
+        <thead><tr><th>项目</th><th>最新到货</th><th>最新消耗</th><th>库存余量</th><th>理论库存天数</th><th>Ni</th><th>MgO</th><th>数据日期</th></tr></thead>
+        <tbody id="project-overview-body"><tr><td colspan="8" class="overview-loading">正在汇总三个项目…</td></tr></tbody>
+      </table>
+    </div>
+    <div class="overview-foot">理论库存天数按每日 30,000 湿吨统一测算</div>
   </div>
 </div>
 
@@ -1873,8 +1917,23 @@ class ChartRenderer {
     this.chart = null;
     this.lastSignature = '';
     this.lastDaily = [];
+    this.balanceSourceRows = [];
     this.operationHistory = [];
     this.mode = 'balance';
+    this.legendProject = '';
+    this.balanceSeriesVisible = { arrival:true, consumption:true };
+    this.seriesLegendElement = document.getElementById('balance-series-legend');
+    this.seriesLegendHandler = event => {
+      const button = event.target.closest('[data-balance-series]');
+      if (!button) return;
+      const key = button.dataset.balanceSeries;
+      if (!(key in this.balanceSeriesVisible)) return;
+      this.balanceSeriesVisible[key] = !this.balanceSeriesVisible[key];
+      this.saveBalanceSeriesState();
+      this.lastSignature = '';
+      this.updateBalance(this.balanceSourceRows || []);
+    };
+    EventManager.add(this.seriesLegendElement,'click',this.seriesLegendHandler);
     this.init();
   }
 
@@ -1902,6 +1961,27 @@ class ChartRenderer {
     });
   }
 
+  setProject(projectId) {
+    const next = String(projectId || 'default');
+    if (next === this.legendProject) return;
+    this.legendProject = next;
+    this.balanceSeriesVisible = { arrival:true, consumption:true };
+    try {
+      const saved = JSON.parse(localStorage.getItem(`nikeltrak-${next}-balance-series`) || 'null');
+      if (saved && typeof saved === 'object') {
+        this.balanceSeriesVisible.arrival = saved.arrival !== false;
+        this.balanceSeriesVisible.consumption = saved.consumption !== false;
+      }
+    } catch (error) {}
+    this.lastSignature = '';
+  }
+
+  saveBalanceSeriesState() {
+    if (!this.legendProject) return;
+    try { localStorage.setItem(`nikeltrak-${this.legendProject}-balance-series`,JSON.stringify(this.balanceSeriesVisible)); }
+    catch (error) {}
+  }
+
   setMode(mode) {
     const next = ['balance','arrival','production','inventory','quality'].includes(mode) ? mode : 'balance';
     if (next === this.mode) return;
@@ -1921,7 +2001,15 @@ class ChartRenderer {
     const el = document.getElementById('chart-insights');
     if (!el) return;
     el.innerHTML = items.map(item =>
-      `<span class="chart-insight ${item.tone || ''}"><span>${item.label}</span><strong>${item.value}</strong></span>`
+      `<span class="chart-insight ${item.tone || ''}"><span>${item.label}</span><strong>${item.value}</strong>${item.note?`<small>${item.note}</small>`:''}</span>`
+    ).join('');
+  }
+
+  setSeriesLegend(items = []) {
+    const el = document.getElementById('balance-series-legend');
+    if (!el) return;
+    el.innerHTML = items.map(item =>
+      `<button type="button" class="balance-legend-item ${item.active===false?'is-off':''}" data-balance-series="${item.key}" aria-pressed="${item.active!==false}" title="点击${item.active===false?'显示':'隐藏'}${item.label}"><i class="balance-legend-mark ${item.type}" aria-hidden="true"></i><span class="balance-legend-label">${item.label}</span><strong>${item.value}</strong><small>${item.date||'日期待补'}</small></button>`
     ).join('');
   }
 
@@ -1931,6 +2019,7 @@ class ChartRenderer {
       this.updateBalance(daily || []);
       return;
     }
+    this.setSeriesLegend([]);
     if (this.mode === 'production' || this.mode === 'inventory') {
       this.operationHistory = daily || [];
       this.updateOperations(daily || []);
@@ -2016,6 +2105,12 @@ class ChartRenderer {
         lineStyle: { color:'rgba(55,114,230,.52)', type:'dashed', width:1 },
         data: [{ yAxis: niTarget }]
       },
+      markArea: this.mode === 'quality' ? {
+        silent:true,label:{show:false},data:[
+          [{yAxis:0,itemStyle:{color:'rgba(239,91,91,.045)'}},{yAxis:niTarget}],
+          [{yAxis:mgoLimit,itemStyle:{color:'rgba(227,154,34,.055)'}},{yAxis:100}]
+        ]
+      } : undefined,
       markPoint: {
         silent:true, symbol:'circle', symbolSize:7, label:{show:false},
         itemStyle:{color:'#ef5b5b',borderColor:'#fff',borderWidth:2,shadowBlur:8,shadowColor:'rgba(239,91,91,.28)'},
@@ -2033,7 +2128,7 @@ class ChartRenderer {
       areaStyle: this.mode === 'quality' ? { color: amberArea, opacity: .65 } : undefined,
       markLine: {
         silent: true, symbol:'none', precision:2,
-        label: { show:true, formatter:`MgO预警 ${mgoLimit.toFixed(2)}%`, position:'insideEndBottom', color:'#b37a18', fontSize:9, backgroundColor:'rgba(255,255,255,.86)', padding:[2,5], borderRadius:4 },
+        label: { show:true, formatter:`MgO上限 ${mgoLimit.toFixed(2)}%`, position:'insideEndBottom', color:'#b37a18', fontSize:9, backgroundColor:'rgba(255,255,255,.86)', padding:[2,5], borderRadius:4 },
         lineStyle: { color:'rgba(208,149,44,.50)', type:'dashed', width:1 },
         data: [{ yAxis: mgoLimit }]
       },
@@ -2157,59 +2252,109 @@ class ChartRenderer {
   }
 
   updateBalance(history) {
-    const rows = (history || []).filter(item => item?.date && (Number.isFinite(item.weight) || Number.isFinite(item.production)));
-    this.lastDaily = rows;
-    const signature = 'balance|' + rows.map(item => `${item.date}:${item.weight ?? ''}:${item.production ?? ''}`).join('|');
+    const sourceRows = (history || []).map(item => ({
+      ...item,
+      weight:Number.isFinite(item?.weight) && item.weight > 0 ? Number(item.weight) : null,
+      production:Number.isFinite(item?.production) && item.production > 0 ? Number(item.production) : null
+    })).filter(item => item?.date && (Number.isFinite(item.weight) || Number.isFinite(item.production)));
+    this.balanceSourceRows = sourceRows;
+    const selectedRange = this.container?.dataset?.chartRange || '30';
+    const signature = `balance|range:${selectedRange}|${this.balanceSeriesVisible.arrival?'1':'0'}${this.balanceSeriesVisible.consumption?'1':'0'}|` + sourceRows.map(item => `${item.date}:${item.weight ?? ''}:${item.production ?? ''}`).join('|');
     if (signature === this.lastSignature) return;
     this.lastSignature = signature;
 
-    if (!this.chart) { this.renderFallback(rows); return; }
-    if (!rows.length) {
+    if (!sourceRows.length) {
+      this.lastDaily = [];
       this.setInsights([]);
+      this.setSeriesLegend([]);
+      if (!this.chart) { this.renderFallback([]); return; }
       this.chart.clear();
       this.chart.setOption({title:{text:'暂无供耗数据',left:'center',top:'middle',textStyle:{color:'#94a0af',fontSize:13,fontWeight:600}}});
       return;
     }
 
+    const comparable = sourceRows.filter(item => Number.isFinite(item.weight) && Number.isFinite(item.production));
+    const latestDataDate = sourceRows.at(-1)?.date || '';
+    const latestDataTime = Date.parse(`${latestDataDate}T00:00:00Z`);
+    const DAY_MS = 86400000;
+    const withinRecentDays = (item,days) => {
+      const time = Date.parse(`${item.date}T00:00:00Z`);
+      return Number.isFinite(time) && Number.isFinite(latestDataTime) && time >= latestDataTime - (days - 1) * DAY_MS && time <= latestDataTime;
+    };
+    const recent7 = comparable.filter(item => withinRecentDays(item,7));
+    const recent30 = comparable.filter(item => withinRecentDays(item,30));
+    const recent7Gap = recent7.length ? recent7.reduce((sum,item)=>sum+item.weight-item.production,0) : null;
+    const recent30Gap = recent30.length ? recent30.reduce((sum,item)=>sum+item.weight-item.production,0) : null;
+    const fmt = value => new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value);
+    const signed = value => `${value>=0?'+':''}${fmt(value)}`;
+    const latestArrivalRow = [...sourceRows].reverse().find(item=>Number.isFinite(item.weight));
+    const latestConsumptionRow = [...sourceRows].reverse().find(item=>Number.isFinite(item.production));
+    const datesAligned = !!latestArrivalRow && !!latestConsumptionRow && latestArrivalRow.date === latestConsumptionRow.date;
+    const latestGap = datesAligned ? latestArrivalRow.weight - latestConsumptionRow.production : null;
+    const shortDate = date => date ? date.slice(5) : '待补';
+
+    this.setSeriesLegend([
+      {key:'arrival',type:'arrival',label:'每日到货',value:Number.isFinite(latestArrivalRow?.weight)?`${fmt(latestArrivalRow.weight)} 湿吨`:'—',date:shortDate(latestArrivalRow?.date),active:this.balanceSeriesVisible.arrival},
+      {key:'consumption',type:'consumption',label:'每日消耗',value:Number.isFinite(latestConsumptionRow?.production)?`${fmt(latestConsumptionRow.production)} 湿吨`:'—',date:shortDate(latestConsumptionRow?.date),active:this.balanceSeriesVisible.consumption}
+    ]);
+
+    const alignmentNote = datesAligned
+      ? `同日 ${latestArrivalRow.date}`
+      : `到货 ${shortDate(latestArrivalRow?.date)} · 消耗 ${shortDate(latestConsumptionRow?.date)} · 日期待对齐`;
+    const rollingNote = `共同数据日净差：近7天 ${Number.isFinite(recent7Gap)?signed(recent7Gap):'—'} · 近30天 ${Number.isFinite(recent30Gap)?signed(recent30Gap):'—'}`;
+    this.setInsights([
+      {label:'最新供耗差',value:Number.isFinite(latestGap)?`${signed(latestGap)} 湿吨`:'待补齐',note:`${alignmentNote} · ${rollingNote}`,tone:`primary ${Number.isFinite(latestGap)&&latestGap<0?'amber':''}`.trim()}
+    ]);
+
+    const bothHidden = !this.balanceSeriesVisible.arrival && !this.balanceSeriesVisible.consumption;
+    let rows = bothHidden ? sourceRows : sourceRows.filter(item =>
+      (this.balanceSeriesVisible.arrival && Number.isFinite(item.weight)) ||
+      (this.balanceSeriesVisible.consumption && Number.isFinite(item.production))
+    );
+    const rangeLimit = selectedRange === 'all' ? Infinity : Number(selectedRange || 30);
+    if (Number.isFinite(rangeLimit)) rows = rows.slice(-rangeLimit);
+    this.lastDaily = rows;
+    const chartNote = document.getElementById('chart-note');
+    if (chartNote) {
+      const modeNote = this.container?.dataset?.consumptionMode === 'cumulative-derived' ? ' · 消耗由累计差值换算' : '';
+      chartNote.textContent = bothHidden ? '已隐藏全部系列 · 点击上方图例恢复数据'
+        : rows.length ? `${rows[0].date} 至 ${rows.at(-1).date} · ${rows.length} 个有效日期 · 供耗平衡${modeNote}`
+        : '当前图例没有可展示数据';
+    }
+    if (!this.chart) { this.renderFallback(rows); return; }
     const dates = rows.map(item => item.date.slice(5));
     const arrivals = rows.map(item => Number.isFinite(item.weight) ? Number(item.weight) : null);
     const consumptions = rows.map(item => Number.isFinite(item.production) ? Number(item.production) : null);
-    const comparable = rows.filter(item => Number.isFinite(item.weight) && Number.isFinite(item.production));
-    const latestComparable = comparable.at(-1);
-    const latestGap = latestComparable ? latestComparable.weight - latestComparable.production : null;
-    const recentComparable = comparable.slice(-7);
-    const recentGap = recentComparable.length
-      ? recentComparable.reduce((sum,item)=>sum+item.weight-item.production,0) / recentComparable.length : null;
-    const shortageDays = comparable.filter(item => item.weight < item.production).length;
-    const fmt = value => new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value);
 
-    this.setInsights([
-      {label:'最新供耗差',value:Number.isFinite(latestGap)?`${latestGap>=0?'+':''}${fmt(latestGap)} 湿吨`:'—',tone:Number.isFinite(latestGap)&&latestGap<0?'amber':''},
-      {label:'近7日均差',value:Number.isFinite(recentGap)?`${recentGap>=0?'+':''}${fmt(recentGap)} 湿吨`:'—',tone:Number.isFinite(recentGap)&&recentGap<0?'amber':''},
-      {label:'到货低于消耗',value:`${shortageDays} 天`,tone:shortageDays?'amber':''}
-    ]);
-
-    const values = [...arrivals,...consumptions].filter(Number.isFinite);
+    const values = [
+      ...(this.balanceSeriesVisible.arrival ? arrivals : []),
+      ...(this.balanceSeriesVisible.consumption ? consumptions : [])
+    ].filter(Number.isFinite);
     const maximum = values.length ? Math.max(...values) : 1;
     const axisMax = Math.ceil((maximum * 1.12) / 1000) * 1000;
-    const endIndex = [...consumptions].map((value,index)=>Number.isFinite(value)?index:-1).filter(index=>index>=0).at(-1);
-    const endValue = Number.isInteger(endIndex) ? consumptions[endIndex] : null;
-
     this.chart.setOption({
       backgroundColor:'transparent',animation:true,animationDuration:360,animationEasing:'cubicOut',
-      legend:{show:true,left:12,top:2,itemWidth:12,itemHeight:7,textStyle:{color:'#64748b',fontSize:10},data:['每日到货','每日消耗']},
-      grid:{left:18,right:window.innerWidth<=760?112:132,top:38,bottom:30,containLabel:true},
+      legend:{show:false},
+      grid:{left:18,right:18,top:24,bottom:30,containLabel:true},
       tooltip:{trigger:'axis',confine:true,backgroundColor:'rgba(255,255,255,.98)',borderColor:'#e4eaf0',padding:[9,11],textStyle:{color:'#26364c',fontSize:10},formatter:params=>{
         const list=Array.isArray(params)?params:[params];const index=list[0]?.dataIndex??0;const row=rows[index];
         const arrival=Number.isFinite(row?.weight)?`${fmt(row.weight)} 湿吨`:'—';const consumption=Number.isFinite(row?.production)?`${fmt(row.production)} 湿吨`:'—';
         const gap=Number.isFinite(row?.weight)&&Number.isFinite(row?.production)?`${row.weight-row.production>=0?'+':''}${fmt(row.weight-row.production)} 湿吨`:'—';
-        return `<b>${row?.date||''}</b><br>每日到货：<b>${arrival}</b><br>每日消耗：<b>${consumption}</b><br>供耗差：<b>${gap}</b>`;
+        const lines=[];
+        if(this.balanceSeriesVisible.arrival) lines.push(`每日到货：<b>${arrival}</b>`);
+        if(this.balanceSeriesVisible.consumption) lines.push(`每日消耗：<b>${consumption}</b>`);
+        if(this.balanceSeriesVisible.arrival&&this.balanceSeriesVisible.consumption) {
+          const shortage = Number.isFinite(row?.weight)&&Number.isFinite(row?.production)&&row.weight<row.production;
+          lines.push(`供耗差：<b style="color:${shortage?'#bd7114':'#08736a'}">${gap}</b>${shortage?' · 到货低于消耗':''}`);
+        }
+        return `<b>${row?.date||''}</b>${lines.length?'<br>'+lines.join('<br>'):''}`;
       }},
       xAxis:{type:'category',data:dates,boundaryGap:true,axisTick:{show:false},axisLine:{lineStyle:{color:'#dfe6ed'}},axisLabel:{color:'#8b96a6',fontSize:9,hideOverlap:true,interval:Math.max(0,Math.ceil(dates.length/6)-1)}},
-      yAxis:{type:'value',name:'湿吨',min:0,max:axisMax,splitNumber:5,axisTick:{show:false},axisLine:{show:false},splitLine:{lineStyle:{color:'#e9eff4',type:'dashed'}},axisLabel:{color:'#8b96a6',fontSize:9,formatter:value=>value>=1000?`${(value/1000).toFixed(value>=10000?0:1)}k`:value}},
+      yAxis:{type:'value',name:'湿吨',nameGap:13,min:0,max:axisMax,splitNumber:4,axisTick:{show:false},axisLine:{show:false},splitLine:{lineStyle:{color:'#edf2f5',type:'dashed',opacity:.82}},axisLabel:{color:'#8b96a6',fontSize:9,formatter:value=>value>=1000?`${(value/1000).toFixed(value>=10000?0:1)}k`:value}},
+      graphic:(!this.balanceSeriesVisible.arrival&&!this.balanceSeriesVisible.consumption)?[{type:'text',left:'center',top:'middle',silent:true,style:{text:'点击上方图例恢复数据',fill:'#94a0af',font:'600 12px sans-serif'}}]:[],
       series:[
-        {name:'每日到货',type:'bar',data:arrivals,barMaxWidth:18,itemStyle:{borderRadius:[5,5,1,1],color:params=>{const a=arrivals[params.dataIndex],c=consumptions[params.dataIndex];return Number.isFinite(a)&&Number.isFinite(c)&&a<c?'rgba(220,151,40,.72)':'rgba(11,128,118,.62)';}},emphasis:{itemStyle:{color:'#0b8076'}}},
-        {name:'每日消耗',type:'line',data:consumptions,smooth:.24,showSymbol:false,connectNulls:false,symbol:'circle',symbolSize:7,sampling:'lttb',lineStyle:{color:'#173f68',width:2.5,cap:'round'},itemStyle:{color:'#173f68',borderColor:'#fff',borderWidth:2},endLabel:{show:Number.isFinite(endValue),distance:8,formatter:()=>`消耗 ${fmt(endValue)}`,color:'#173f68',fontSize:9,fontWeight:800,backgroundColor:'rgba(255,255,255,.95)',padding:[4,6],borderRadius:6},labelLayout:{moveOverlap:'shiftY'}}
+        ...(this.balanceSeriesVisible.arrival?[{name:'每日到货',type:'bar',data:arrivals,barMaxWidth:18,itemStyle:{borderRadius:[5,5,1,1],color:params=>{const a=arrivals[params.dataIndex],c=consumptions[params.dataIndex];return Number.isFinite(a)&&Number.isFinite(c)&&a<c?'rgba(220,151,40,.72)':'rgba(11,128,118,.62)';}},emphasis:{itemStyle:{color:'#0b8076'}}}]:[]),
+        ...(this.balanceSeriesVisible.consumption?[{name:'每日消耗',type:'line',data:consumptions,smooth:.20,showSymbol:true,symbol:'circle',symbolSize:5,connectNulls:false,sampling:'lttb',lineStyle:{color:'#173f68',width:2.6,cap:'round'},itemStyle:{color:'#173f68',borderColor:'#fff',borderWidth:1.5},emphasis:{scale:1.35}}]:[])
       ]
     },{notMerge:true,lazyUpdate:true});
     requestAnimationFrame(()=>this.chart?.resize());
@@ -2217,7 +2362,7 @@ class ChartRenderer {
 
   updateOperations(history) {
     const key = this.mode === 'inventory' ? 'inventory' : 'production';
-    const label = this.mode === 'inventory' ? '库存余量' : '累计消耗';
+    const label = this.mode === 'inventory' ? '库存余量' : '每日消耗';
     const color = this.mode === 'inventory' ? '#3772e6' : '#173f68';
     const rows = (history || []).filter(item => Number.isFinite(item?.[key]));
     this.lastDaily = rows;
@@ -2286,11 +2431,63 @@ class ChartRenderer {
   }
 
   renderFallback(daily) {
-    this.container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);">图表加载中...</div>';
+    const rows = (Array.isArray(daily) ? daily : []).filter(row => row?.date).slice(-30);
+    if (!rows.length) {
+      this.setInsights([]);
+      this.container.innerHTML = '<div style="display:grid;place-items:center;height:100%;min-height:280px;color:var(--muted);font-weight:700;">暂无可展示的数据</div>';
+      return;
+    }
+
+    const width = 780, height = 300, left = 58, right = 24, top = 30, bottom = 48;
+    const plotWidth = width - left - right, plotHeight = height - top - bottom;
+    const modeConfig = {
+      arrival: { key:'weight', label:'每日到货', color:'#0f8f83' },
+      production: { key:'production', label:'最新消耗', color:'#315a86' },
+      inventory: { key:'inventory', label:'库存余量', color:'#c58a24' },
+      quality: { key:'ni', label:'Ni 品位', color:'#7057c8' }
+    };
+    const config = modeConfig[this.mode] || modeConfig.arrival;
+    if (this.mode === 'balance') {
+      const fmt = value => new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value);
+      const arrivalRow = [...rows].reverse().find(item=>Number.isFinite(item.weight)&&item.weight>0);
+      const consumptionRow = [...rows].reverse().find(item=>Number.isFinite(item.production)&&item.production>0);
+      this.setSeriesLegend([
+        {key:'arrival',type:'arrival',label:'每日到货',value:Number.isFinite(arrivalRow?.weight)?`${fmt(arrivalRow.weight)} 湿吨`:'—',date:arrivalRow?.date?.slice(5),active:this.balanceSeriesVisible.arrival},
+        {key:'consumption',type:'consumption',label:'每日消耗',value:Number.isFinite(consumptionRow?.production)?`${fmt(consumptionRow.production)} 湿吨`:'—',date:consumptionRow?.date?.slice(5),active:this.balanceSeriesVisible.consumption}
+      ]);
+    }
+    const values = rows.map(row => Number(row?.[config.key])).map(value => Number.isFinite(value) ? value : 0);
+    const maxValue = Math.max(...values, 1);
+    const minValue = this.mode === 'quality' ? Math.min(...values) : 0;
+    const range = Math.max(maxValue - minValue, maxValue * .08, 1);
+    const x = index => left + (rows.length === 1 ? plotWidth / 2 : index * plotWidth / (rows.length - 1));
+    const y = value => top + plotHeight - ((value - minValue) / range) * plotHeight;
+    const points = values.map((value,index) => `${x(index).toFixed(1)},${y(value).toFixed(1)}`).join(' ');
+    const areaPoints = `${left},${top + plotHeight} ${points} ${x(rows.length - 1)},${top + plotHeight}`;
+    const grid = [0,.25,.5,.75,1].map(step => {
+      const gy = top + plotHeight * step;
+      const value = maxValue - range * step;
+      const label = this.mode === 'quality' ? `${value.toFixed(2)}%` : value >= 1000 ? `${Math.round(value/1000)}k` : Math.round(value);
+      return `<line x1="${left}" y1="${gy}" x2="${width-right}" y2="${gy}" stroke="#e5edf3" stroke-dasharray="5 5"/><text x="${left-10}" y="${gy+4}" text-anchor="end" fill="#8b98a9" font-size="11">${label}</text>`;
+    }).join('');
+    const ticks = [0,Math.floor((rows.length-1)/2),rows.length-1].filter((value,index,array)=>array.indexOf(value)===index).map(index =>
+      `<text x="${x(index)}" y="${height-18}" text-anchor="middle" fill="#8b98a9" font-size="11">${String(rows[index].date).slice(5)}</text>`
+    ).join('');
+    const latest = values.at(-1);
+    const latestLabel = this.mode === 'quality' ? `${latest.toFixed(2)}%` : `${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(latest)} 湿吨`;
+
+    this.setInsights([{label:'离线简化图',value:config.label,tone:'neutral'},{label:'最新',value:latestLabel,tone:'good'}]);
+    this.container.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${config.label}离线简化趋势图" style="display:block;width:100%;height:100%;min-height:280px">
+      <defs><linearGradient id="offline-chart-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${config.color}" stop-opacity=".22"/><stop offset="1" stop-color="${config.color}" stop-opacity=".02"/></linearGradient></defs>
+      ${grid}<polygon points="${areaPoints}" fill="url(#offline-chart-area)"/><polyline points="${points}" fill="none" stroke="${config.color}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="${x(rows.length-1)}" cy="${y(latest)}" r="5" fill="${config.color}" stroke="#fff" stroke-width="3"/>
+      <text x="${left}" y="18" fill="#64748b" font-size="11" font-weight="700">离线可用 · ${config.label}</text>${ticks}
+    </svg>`;
   }
 
   destroy() {
     EventManager.remove(window, 'resize', this.resizeHandler);
+    EventManager.remove(this.seriesLegendElement,'click',this.seriesLegendHandler);
     if (this.chart) {
       this.chart.dispose();
       this.chart = null;
@@ -2317,6 +2514,7 @@ const NikelTrak = (function() {
       sheetRange: '陆运总表!A:AE',
       paymentSheetRange: '陆运付款明细!A:P',
       inventorySheetRange: '生产及库存!A:H',
+      qualityTargets: { niTarget: 1.15, mgoLimit: 3.50 },
       apiKey: 'AIzaSyBZWmFXhinFmLzf_T7uw77ICwaF5BMzhzg',
       storageKey: 'slnc-data-v2',
       paymentStorageKey: 'slnc-payment-data-v3-supplier-status'
@@ -2328,6 +2526,7 @@ const NikelTrak = (function() {
       sheetRange: '陆运总表!A:AE',
       paymentSheetRange: '陆运付款明细!A:P',
       inventorySheetRange: '生产及库存!A:H',
+      qualityTargets: { niTarget: 1.15, mgoLimit: 3.50 },
       apiKey: 'AIzaSyBZWmFXhinFmLzf_T7uw77ICwaF5BMzhzg',
       storageKey: 'hync-data-v2',
       paymentStorageKey: 'hync-payment-data-v3-supplier-status'
@@ -2339,6 +2538,7 @@ const NikelTrak = (function() {
     sheetRange: '陆运总表!A:AE',
     paymentSheetRange: '陆运付款明细!A:P',
     inventorySheetRange: '生产及库存!A:H',
+    qualityTargets: { niTarget: 1.15, mgoLimit: 4.00 },
     apiKey: 'AIzaSyBZWmFXhinFmLzf_T7uw77ICwaF5BMzhzg',
     storageKey: 'hxni-data-v3-weight-fix',
     paymentStorageKey: 'hxni-payment-data-v3-supplier-status'
@@ -2363,7 +2563,7 @@ const NikelTrak = (function() {
   let rangeInternalEnd = '';
   let smartViewMode = 'all'; // all | risk
   let autoRefreshTimer = null;
-  const DEFAULT_SMART_SETTINGS = { niTarget: 1.15, mgoLimit: 4.00, autoRefresh: false };
+  const DEFAULT_SMART_SETTINGS = { niTarget: 1.15, mgoLimit: 3.50, autoRefresh: false };
   let smartSettings = { ...DEFAULT_SMART_SETTINGS };
 
   // 组件实例
@@ -2372,10 +2572,12 @@ const NikelTrak = (function() {
   let supplierChart = null;
   let supplierChartResizeBound = false;
   let chartViewMode = 'balance';
-  let chartRange = '90';
+  let chartRange = '30';
   let supplierExpanded = false;
   let tableActivated = false;
   let tableObserver = null;
+  let lastCacheUpdatedAt = null;
+  let usingCachedData = false;
 
   // 防抖渲染
   const debouncedRender = debounce(render, 160);
@@ -2415,6 +2617,7 @@ const NikelTrak = (function() {
     quickSearch: $('#quick-search'),
     clearQuickSearch: $('#clear-quick-search'),
     smartSummaryText: $('#smart-summary-text'),
+    dataFreshness: $('#data-freshness'),
     smartMetrics: $('#smart-metrics'),
     smartAlertList: $('#smart-alert-list'),
     smartAlertCount: $('#smart-alert-count'),
@@ -2450,7 +2653,12 @@ const NikelTrak = (function() {
     advancedFilters: $('#advanced-filters'),
     thresholdToggle: $('#threshold-toggle'),
     smartParams: $('#smart-params'),
-    fullscreenBtnV3: $('#fullscreen-btn-v3')
+    fullscreenBtnV3: $('#fullscreen-btn-v3'),
+    projectOverviewBtn: $('#project-overview-btn'),
+    projectOverviewModal: $('#project-overview-modal'),
+    projectOverviewClose: $('#project-overview-close'),
+    projectOverviewBody: $('#project-overview-body'),
+    projectOverviewStatus: $('#project-overview-status')
   };
 
   // ============================================================
@@ -2693,6 +2901,54 @@ const NikelTrak = (function() {
     }
   }
 
+  const INDEXED_CACHE_DB = 'nikeltrak-dashboard-cache-v1';
+  const INDEXED_CACHE_STORE = 'datasets';
+
+  function openIndexedCache() {
+    return new Promise((resolve,reject) => {
+      if (!('indexedDB' in window)) { resolve(null); return; }
+      const request = indexedDB.open(INDEXED_CACHE_DB,1);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains(INDEXED_CACHE_STORE)) db.createObjectStore(INDEXED_CACHE_STORE);
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  }
+
+  async function readIndexedCacheEntry(key) {
+    try {
+      const db = await openIndexedCache();
+      if (!db) return null;
+      return await new Promise((resolve,reject) => {
+        const request = db.transaction(INDEXED_CACHE_STORE,'readonly').objectStore(INDEXED_CACHE_STORE).get(key);
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => reject(request.error);
+      });
+    } catch (error) { console.warn('IndexedDB 缓存读取失败',error); return null; }
+  }
+
+  async function readIndexedCache(key) {
+    const entry = await readIndexedCacheEntry(key);
+    return entry?.data || null;
+  }
+
+  async function writeIndexedCache(key,data) {
+    try {
+      const db = await openIndexedCache();
+      if (!db) return false;
+      await new Promise((resolve,reject) => {
+        const updatedAt = Date.now();
+        const request = db.transaction(INDEXED_CACHE_STORE,'readwrite').objectStore(INDEXED_CACHE_STORE).put({data,updatedAt},key);
+        request.onsuccess = () => resolve(true);
+        request.onerror = () => reject(request.error);
+      });
+      lastCacheUpdatedAt = Date.now();
+      return true;
+    } catch (error) { console.warn('IndexedDB 缓存写入失败',error); return false; }
+  }
+
   async function loadInventoryFromGoogleSheets(projectId) {
     const project = PROJECTS[projectId];
     if (!project?.inventorySheetRange) return { date: '', wetTons: null, history: [] };
@@ -2706,7 +2962,12 @@ const NikelTrak = (function() {
 
     const headers = values[0].map(value => String(value || '').trim().toLowerCase().replace(/[\s（）()_\-]/g, ''));
     const dateIndex = Math.max(0, headers.findIndex(header => header.includes('日期') || header === 'date'));
-    const productionIndex = headers.findIndex(header => header.includes('累计消耗'));
+    const dailyProductionIndex = headers.findIndex(header =>
+      !header.includes('累计') && (header.includes('每日消耗') || header.includes('当日消耗') || header === '日消耗' || header === '消耗')
+    );
+    const cumulativeProductionIndex = headers.findIndex(header => header.includes('累计消耗'));
+    const productionIndex = dailyProductionIndex >= 0 ? dailyProductionIndex : cumulativeProductionIndex;
+    const sourceConsumptionMode = dailyProductionIndex >= 0 ? 'daily' : cumulativeProductionIndex >= 0 ? 'cumulative' : 'missing';
     const inventoryIndex = headers.findIndex(header => header.includes('库存余量'));
     const dailyTotals = new Map();
     let latestSourceDate = '';
@@ -2722,11 +2983,12 @@ const NikelTrak = (function() {
       if ((production === null || production < 0) && (inventory === null || inventory < 0)) return;
       if (!dailyTotals.has(date)) dailyTotals.set(date, { production: 0, productionCount: 0, inventory: 0, inventoryCount: 0 });
       const item = dailyTotals.get(date);
-      if (production !== null && production >= 0) { item.production += production; item.productionCount += 1; }
+      // 空白或占位 0 不代表真实消耗，避免被主图绘成持续贴地的 0 线。
+      if (production !== null && production > 0) { item.production += production; item.productionCount += 1; }
       if (inventory !== null && inventory >= 0) { item.inventory += inventory; item.inventoryCount += 1; }
     });
 
-    const history = [...dailyTotals.entries()]
+    const rawHistory = [...dailyTotals.entries()]
       .sort((a, b) => a[0].localeCompare(b[0]))
       .map(([date, item]) => ({
         date,
@@ -2734,11 +2996,40 @@ const NikelTrak = (function() {
         inventory: item.inventoryCount ? item.inventory : null,
         wetTons: item.inventoryCount ? item.inventory : null
       }));
+    let history = rawHistory;
+    let consumptionMode = sourceConsumptionMode === 'daily' ? 'daily' : 'reported-daily';
+
+    // 若表头为“累计消耗”，只在数列具有明显单调累计特征时换算成每日差值。
+    // 对于虽然叫“累计消耗”但实际每天独立填报、数值上下波动的旧表，继续按原值使用，避免误算。
+    if (sourceConsumptionMode === 'cumulative') {
+      const reported = rawHistory.filter(item => Number.isFinite(item.production) && item.production > 0);
+      const changes = reported.slice(1).map((item,index) => item.production - reported[index].production);
+      const nonDecreasingRatio = changes.length ? changes.filter(value => value >= 0).length / changes.length : 0;
+      const looksCumulative = reported.length >= 4 && nonDecreasingRatio >= .75 && reported.at(-1).production > reported[0].production;
+      if (looksCumulative) {
+        let previous = null;
+        history = rawHistory.map(item => {
+          const cumulative = Number.isFinite(item.production) ? item.production : null;
+          let dailyConsumption = null;
+          if (cumulative !== null) {
+            if (previous !== null) {
+              const delta = cumulative - previous;
+              // 累计值重置时，以重置后的正值作为新周期首日消耗。
+              dailyConsumption = delta > 0 ? delta : delta < 0 && cumulative > 0 ? cumulative : null;
+            }
+            previous = cumulative;
+          }
+          return {...item,cumulativeProduction:cumulative,production:dailyConsumption};
+        });
+        consumptionMode = 'cumulative-derived';
+      }
+    }
     const latestInventory = [...history].reverse().find(item => Number.isFinite(item.inventory));
     return {
       date: latestInventory?.date || latestSourceDate,
       wetTons: latestInventory?.inventory ?? null,
-      history
+      history,
+      consumptionMode
     };
   }
 
@@ -3333,11 +3624,15 @@ const NikelTrak = (function() {
   }
 
   function loadSmartSettings() {
-    smartSettings = { ...DEFAULT_SMART_SETTINGS };
+    const projectTargets = PROJECTS[currentProject]?.qualityTargets || DEFAULT_SMART_SETTINGS;
+    smartSettings = { ...DEFAULT_SMART_SETTINGS, ...projectTargets };
     try {
       const saved = JSON.parse(localStorage.getItem(smartStorageKey('smart-settings')) || 'null');
       if (saved && typeof saved === 'object') smartSettings = { ...smartSettings, ...saved };
     } catch (e) {}
+    // 项目品质标准为固定业务规则，不被旧版浏览器缓存覆盖。
+    smartSettings.niTarget = Number(projectTargets.niTarget);
+    smartSettings.mgoLimit = Number(projectTargets.mgoLimit);
     if (els.niTarget) els.niTarget.value = Number(smartSettings.niTarget || DEFAULT_SMART_SETTINGS.niTarget).toFixed(2);
     if (els.mgoLimit) els.mgoLimit.value = Number(smartSettings.mgoLimit || DEFAULT_SMART_SETTINGS.mgoLimit).toFixed(2);
     if (els.autoRefreshToggle) els.autoRefreshToggle.checked = !!smartSettings.autoRefresh;
@@ -3378,6 +3673,7 @@ const NikelTrak = (function() {
     const mgoLimit = Number(els.mgoLimit?.value || smartSettings.mgoLimit || 4);
     if (!rows.length) {
       els.smartSummaryText.textContent = '当前筛选范围没有匹配数据。';
+      if (els.dataFreshness) { els.dataFreshness.className = 'data-freshness stale'; els.dataFreshness.textContent = '当前范围暂无可核对数据'; }
       els.smartMetrics.innerHTML = '';
       els.smartAlertList.innerHTML = '<div class="no-alert">暂无可分析数据</div>';
       els.smartAlertCount.textContent = '0';
@@ -3405,7 +3701,29 @@ const NikelTrak = (function() {
         : latestProduction < productionAverage * .95 ? '最新消耗处于近期均值下方' : '最新消耗接近近期均值';
       const qualitySentence = (ni == null || ni >= niTarget) && (mgo == null || mgo <= mgoLimit)
         ? '品位总体可控' : ni != null && ni < niTarget ? 'Ni 品位需要关注' : 'MgO 指标需要关注';
-      els.smartSummaryText.textContent = `${inventorySentence}，${productionSentence}，${qualitySentence}。`;
+      const arrivalByDate = new Map((daily || []).map(item => [item.date,item.weight]));
+      const commonRows = productionRows.filter(item => Number.isFinite(arrivalByDate.get(item.date)));
+      let shortageStreak = 0;
+      for (let index = commonRows.length - 1; index >= 0; index -= 1) {
+        if (arrivalByDate.get(commonRows[index].date) < commonRows[index].production) shortageStreak += 1;
+        else break;
+      }
+      const shortageSentence = shortageStreak ? `，已连续 ${shortageStreak} 个共同数据日到货低于消耗` : '';
+      els.smartSummaryText.textContent = `${inventorySentence}，${productionSentence}，${qualitySentence}${shortageSentence}。`;
+
+      if (els.dataFreshness) {
+        const arrivalDate = daily.at(-1)?.date || '';
+        const productionDate = productionRows.at(-1)?.date || '';
+        const inventoryDate = inventoryRows.at(-1)?.date || '';
+        const sourceDates = [arrivalDate,productionDate,inventoryDate].filter(Boolean);
+        const dayValues = sourceDates.map(date => Date.parse(`${date}T00:00:00Z`) / 86400000).filter(Number.isFinite);
+        const spread = dayValues.length === 3 ? Math.max(...dayValues) - Math.min(...dayValues) : Infinity;
+        const state = spread === 0 ? 'complete' : spread <= 1 ? 'partial' : 'stale';
+        els.dataFreshness.className = `data-freshness ${state === 'complete' ? '' : state}`.trim();
+        const stateText = state === 'complete' ? '数据完整' : state === 'partial' ? '部分数据待更新' : '数据日期不一致';
+        const shortDate = date => date ? date.slice(5) : '—';
+        els.dataFreshness.innerHTML = `<strong>${stateText}</strong> 到货 ${shortDate(arrivalDate)} · 消耗 ${shortDate(productionDate)} · 库存 ${shortDate(inventoryDate)}`;
+      }
       els.smartMetrics.innerHTML = '';
       els.smartAlertList.innerHTML = '';
       els.smartAlertCount.textContent = '0';
@@ -3563,11 +3881,13 @@ const NikelTrak = (function() {
   function renderStats(rows, daily) {
     const latest = daily.length ? daily[daily.length - 1] : null;
     const previousArrival = daily.length > 1 ? daily[daily.length - 2] : null;
-    const totalWet = rows.reduce((s, r) => s + (r.weight || 0), 0);
     const ni = weightedAverageWithDryWeight(rows, 'ni');
     const mgo = weightedAverageWithDryWeight(rows, 'mgo');
     const inventoryValue = Number.isFinite(inventorySnapshot.wetTons)
       ? formatTons(inventorySnapshot.wetTons, 0)
+      : '-';
+    const inventoryDaysValue = Number.isFinite(inventorySnapshot.wetTons)
+      ? `${(inventorySnapshot.wetTons / 30000).toFixed(1)} 天`
       : '-';
     const inventoryNote = inventorySnapshot.date
       ? `${inventorySnapshot.date}${Number.isFinite(inventorySnapshot.wetTons) ? '' : ' · 暂无库存数据'}`
@@ -3596,7 +3916,7 @@ const NikelTrak = (function() {
 
     const items = [
       { label:'最新到货', value:latest ? formatTons(latest.weight,0) : '-', note:latest ? latest.date : '无数据', delta:arrivalDelta, focus:'arrival' },
-      { label:'累计到货', value:formatTons(totalWet,0), note:`${daily.length} 个到货日`, focus:'arrival' },
+      { label:'理论库存天数', value:inventoryDaysValue, note:'按每日 30,000 湿吨测算', focus:'inventory' },
       { label:'最新消耗', value:consumptionValue, note:consumptionNote, delta:consumptionDelta, focus:'production' },
       { label:'库存余量', value:inventoryValue, note:inventoryNote, delta:inventoryDelta, focus:'inventory' },
       { label:'Ni 品位', value:ni === null ? '-' : formatNumber(ni,2), note:'到货干吨加权', focus:'quality' },
@@ -3620,6 +3940,7 @@ const NikelTrak = (function() {
 
   function renderChart(daily) {
     if (!chartRenderer) chartRenderer = new ChartRenderer(els.chartContainer);
+    chartRenderer.setProject(currentProject);
     chartRenderer.setMode(chartViewMode);
     const limit = chartRange === 'all' ? Infinity : Number(chartRange || 30);
     let available = [];
@@ -3628,7 +3949,7 @@ const NikelTrak = (function() {
       daily.forEach(item => combined.set(item.date,{date:item.date,weight:Number.isFinite(item.weight)?item.weight:null,production:null,inventory:null}));
       (inventorySnapshot.history || []).forEach(item => {
         const row = combined.get(item.date) || {date:item.date,weight:null,production:null,inventory:null};
-        row.production = Number.isFinite(item.production) ? item.production : null;
+        row.production = Number.isFinite(item.production) && item.production > 0 ? item.production : null;
         row.inventory = Number.isFinite(item.inventory) ? item.inventory : null;
         combined.set(item.date,row);
       });
@@ -3640,14 +3961,19 @@ const NikelTrak = (function() {
       const key = chartViewMode === 'inventory' ? 'inventory' : 'production';
       available = (inventorySnapshot.history || []).filter(item => Number.isFinite(item[key]));
     }
-    const visible = Number.isFinite(limit) ? available.slice(-limit) : available;
+    const visible = chartViewMode === 'balance' ? available : Number.isFinite(limit) ? available.slice(-limit) : available;
+    if (els.chartContainer) {
+      els.chartContainer.dataset.consumptionMode = inventorySnapshot.consumptionMode || 'reported-daily';
+      els.chartContainer.dataset.chartRange = chartRange;
+    }
     chartRenderer.update(visible);
     updateChartModeUI();
 
-    if (visible.length) {
+    if (visible.length && chartViewMode !== 'balance') {
       const label = chartViewMode === 'balance' ? '供耗平衡' : chartViewMode === 'arrival' ? '每日到货' : chartViewMode === 'production' ? '消耗趋势' : chartViewMode === 'inventory' ? '库存余量' : '品位波动';
-      els.chartNote.textContent = `${visible[0].date} 至 ${visible[visible.length-1].date} · ${visible.length} 个有效日期 · ${label}`;
-    } else {
+      const consumptionNote = chartViewMode === 'balance' && inventorySnapshot.consumptionMode === 'cumulative-derived' ? ' · 消耗由累计差值换算' : '';
+      els.chartNote.textContent = `${visible[0].date} 至 ${visible[visible.length-1].date} · ${visible.length} 个有效日期 · ${label}${consumptionNote}`;
+    } else if (chartViewMode !== 'balance') {
       const label = chartViewMode === 'balance' ? '供耗' : chartViewMode === 'arrival' ? '到货' : chartViewMode === 'production' ? '生产' : chartViewMode === 'inventory' ? '库存' : '品位';
       els.chartNote.textContent = `暂无${label}数据`;
     }
@@ -4232,6 +4558,101 @@ const NikelTrak = (function() {
     document.body.style.overflow='';
   }
 
+  const projectOverviewMemory = new Map();
+  let projectOverviewLoading = false;
+
+  async function loadProjectOverviewRow(projectId) {
+    const remembered = projectOverviewMemory.get(projectId);
+    if (remembered && Date.now() - remembered.cachedAt < 300000) return remembered;
+
+    const project = PROJECTS[projectId];
+    let arrivalRows = projectId === currentProject && records.length ? records : await readIndexedCache(project.storageKey);
+    let inventoryData = projectId === currentProject && inventorySnapshot.history?.length
+      ? inventorySnapshot : await readIndexedCache(`${project.storageKey}-inventory`);
+    let source = projectId === currentProject && records.length ? '当前数据' : '快速缓存';
+    const savedDedupeStats = arrivalDedupeStats;
+
+    try {
+      if (!Array.isArray(arrivalRows) || !arrivalRows.length) {
+        arrivalRows = await loadFromGoogleSheets(projectId);
+        if (Array.isArray(arrivalRows) && arrivalRows.length) {
+          fillMissingValues(arrivalRows);
+          void writeIndexedCache(project.storageKey,arrivalRows);
+          source = '实时数据';
+        }
+      }
+      if (!inventoryData || !Array.isArray(inventoryData.history) || !inventoryData.history.length) {
+        inventoryData = await loadInventoryFromGoogleSheets(projectId);
+        if (inventoryData?.history?.length) void writeIndexedCache(`${project.storageKey}-inventory`,inventoryData);
+        source = source === '实时数据' ? source : '实时数据';
+      }
+    } catch (error) {
+      console.warn(`${projectId} 项目总览数据加载失败`,error);
+    } finally {
+      arrivalDedupeStats = savedDedupeStats;
+    }
+
+    arrivalRows = Array.isArray(arrivalRows) ? arrivalRows : [];
+    inventoryData = inventoryData && Array.isArray(inventoryData.history) ? inventoryData : {date:'',wetTons:null,history:[]};
+    const daily = aggregateDaily(arrivalRows);
+    const latestArrival = daily.at(-1);
+    const latestProduction = inventoryData.history.filter(item=>Number.isFinite(item.production)).at(-1);
+    const latestInventory = inventoryData.history.filter(item=>Number.isFinite(item.inventory)).at(-1);
+    const ni = weightedAverageWithDryWeight(arrivalRows,'ni');
+    const mgo = weightedAverageWithDryWeight(arrivalRows,'mgo');
+    const targets = project.qualityTargets || DEFAULT_SMART_SETTINGS;
+    const dates = [latestArrival?.date,latestProduction?.date,latestInventory?.date].filter(Boolean).sort();
+    const row = {
+      projectId,source,cachedAt:Date.now(),date:dates.at(-1)||'',
+      arrival:latestArrival?.weight ?? null,
+      production:latestProduction?.production ?? null,
+      inventory:latestInventory?.inventory ?? null,
+      inventoryDays:Number.isFinite(latestInventory?.inventory)?latestInventory.inventory/30000:null,
+      ni,mgo,niRisk:Number.isFinite(ni)&&ni<targets.niTarget,mgoRisk:Number.isFinite(mgo)&&mgo>targets.mgoLimit
+    };
+    projectOverviewMemory.set(projectId,row);
+    return row;
+  }
+
+  function projectOverviewRowHtml(row) {
+    const tons = value => Number.isFinite(value) ? `${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value)} 湿吨` : '—';
+    const pct = value => Number.isFinite(value) ? `${Number(value).toFixed(2)}%` : '—';
+    return `<tr>
+      <td><div class="overview-project"><span class="overview-project-badge">${row.projectId}</span><button type="button" data-overview-project="${row.projectId}">${row.projectId}</button></div></td>
+      <td>${tons(row.arrival)}</td>
+      <td>${tons(row.production)}</td>
+      <td>${tons(row.inventory)}</td>
+      <td>${Number.isFinite(row.inventoryDays)?row.inventoryDays.toFixed(1)+' 天':'—'}</td>
+      <td class="${row.niRisk?'overview-risk':''}">${pct(row.ni)}</td>
+      <td class="${row.mgoRisk?'overview-risk':''}">${pct(row.mgo)}</td>
+      <td><span class="overview-date">${row.date||'—'}</span><span class="overview-value-sub">${row.source}</span></td>
+    </tr>`;
+  }
+
+  async function openProjectOverview() {
+    if (!els.projectOverviewModal || projectOverviewLoading) return;
+    els.projectOverviewModal.classList.add('open');
+    document.body.style.overflow='hidden';
+    els.projectOverviewBody.innerHTML='<tr><td colspan="8" class="overview-loading">正在汇总三个项目…</td></tr>';
+    els.projectOverviewStatus.textContent='正在读取快速缓存并补充缺失项目…';
+    projectOverviewLoading=true;
+    const rows=[];
+    try {
+      for (const projectId of ['HYNC','SLNC','HXNI']) {
+        const row=await loadProjectOverviewRow(projectId);
+        rows.push(row);
+        els.projectOverviewBody.innerHTML=rows.map(projectOverviewRowHtml).join('');
+        els.projectOverviewStatus.textContent=`已完成 ${rows.length}/3 个项目 · 缓存不足时自动读取实时数据`;
+      }
+      els.projectOverviewStatus.textContent=`数据汇总完成 · ${new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})}`;
+    } finally { projectOverviewLoading=false; }
+  }
+
+  function closeProjectOverview() {
+    els.projectOverviewModal?.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
   function switchTab(tabName) {
     activeTab = tabName === 'payment' ? 'payment' : 'arrival';
     const arrivalIds=['arrival-panel-header','arrival-filters-row','arrival-range-row','table-pagination','arrival-table-shell','table-summary-container'];
@@ -4266,8 +4687,12 @@ const NikelTrak = (function() {
       if (inventoryResult.status === 'fulfilled' && inventoryResult.value) {
         inventorySnapshot = inventoryResult.value;
         inventoryOk = true;
+        void writeIndexedCache(`${project.storageKey}-inventory`, inventorySnapshot);
       } else {
-        inventorySnapshot = { date: '', wetTons: null, history: [] };
+        const cachedInventoryEntry = await readIndexedCacheEntry(`${project.storageKey}-inventory`);
+        const cachedInventory = cachedInventoryEntry?.data;
+        if (cachedInventoryEntry?.updatedAt) lastCacheUpdatedAt = Math.max(lastCacheUpdatedAt || 0,cachedInventoryEntry.updatedAt);
+        inventorySnapshot = cachedInventory && Array.isArray(cachedInventory.history) ? cachedInventory : { date: '', wetTons: null, history: [] };
         console.warn('库存数据连接失败', inventoryResult.reason);
       }
 
@@ -4277,6 +4702,7 @@ const NikelTrak = (function() {
         records = data;
         arrivalOk = true;
         cacheJsonSafely(project.storageKey, records);
+        void writeIndexedCache(project.storageKey, records);
         initMultiSelectOptions(records);
         setDefaultDateRange(records);
         DataCache.clear();
@@ -4285,6 +4711,15 @@ const NikelTrak = (function() {
         const saved = localStorage.getItem(project.storageKey);
         if (saved) {
           try { const parsed=JSON.parse(saved); if(Array.isArray(parsed)&&parsed.length){records=dedupeArrivalRecords(parsed,currentProject,'cache');fillMissingValues(records);cacheJsonSafely(project.storageKey,records);initMultiSelectOptions(records);setDefaultDateRange(records);render();} } catch(e){}
+        }
+        if (!records.length) {
+          const indexedEntry = await readIndexedCacheEntry(project.storageKey);
+          const indexed = indexedEntry?.data;
+          if (indexedEntry?.updatedAt) lastCacheUpdatedAt = Math.max(lastCacheUpdatedAt || 0,indexedEntry.updatedAt);
+          if (Array.isArray(indexed) && indexed.length) {
+            records = dedupeArrivalRecords(indexed,currentProject,'indexed-cache');
+            fillMissingValues(records);initMultiSelectOptions(records);setDefaultDateRange(records);DataCache.clear();render();
+          }
         }
       }
 
@@ -4306,10 +4741,11 @@ const NikelTrak = (function() {
       const inventoryNote = inventoryOk
         ? ` · 库存 ${Number.isFinite(inventorySnapshot.wetTons) ? new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(inventorySnapshot.wetTons)+' 湿吨' : '暂无数据'}`
         : ' · 库存连接失败';
+      usingCachedData = !arrivalOk || !inventoryOk;
       if (arrivalOk && paymentOk) updateSyncStatus('online', `已同步 · 到货 ${records.length} 条${dedupeNote} · 付款 ${paymentRecords.length} 笔${inventoryNote} · ${new Date().toLocaleTimeString()}`);
       else if (arrivalOk) updateSyncStatus('online', `到货已同步 · ${records.length} 条${dedupeNote} · 付款数据连接失败`);
       else if (paymentOk) updateSyncStatus('online', `付款已同步 · ${paymentRecords.length} 笔 · 到货数据连接失败`);
-      else updateSyncStatus('offline', '实时数据连接失败 · 正在使用本地缓存');
+      else updateSyncStatus('offline', cacheStatusText('实时数据连接失败'));
 
       if (showMsg) {
         if (arrivalOk && paymentOk && inventoryOk) showSuccess('到货、付款与库存数据已更新');
@@ -4320,7 +4756,8 @@ const NikelTrak = (function() {
       }
     } catch (error) {
       ErrorHandler.handle(error, 'refreshData');
-      updateSyncStatus('offline', '数据同步异常');
+      usingCachedData = true;
+      updateSyncStatus('offline', cacheStatusText('数据同步异常'));
     } finally {
       isLoading = false;
       document.body.classList.remove('is-syncing');
@@ -4359,6 +4796,16 @@ const NikelTrak = (function() {
       el.querySelector('.sync-dot').style.background = '#f59e0b';
     }
     textEl.textContent = text;
+  }
+
+  function formatCacheTime(timestamp) {
+    if (!timestamp) return '';
+    return new Date(timestamp).toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
+  }
+
+  function cacheStatusText(prefix = '离线状态') {
+    const time = formatCacheTime(lastCacheUpdatedAt);
+    return `${prefix} · 使用本地缓存${time ? ` · 更新于 ${time}` : ''}`;
   }
 
   function showNotification(msg, type = 'info') {
@@ -4481,6 +4928,25 @@ const NikelTrak = (function() {
       pagination = null;
     }
 
+    const [indexedEntry,indexedInventoryEntry] = await Promise.all([
+      readIndexedCacheEntry(project.storageKey),
+      readIndexedCacheEntry(`${project.storageKey}-inventory`)
+    ]);
+    const indexed = indexedEntry?.data;
+    const indexedInventory = indexedInventoryEntry?.data;
+    lastCacheUpdatedAt = Math.max(indexedEntry?.updatedAt || 0,indexedInventoryEntry?.updatedAt || 0) || null;
+    if (indexedInventory && Array.isArray(indexedInventory.history)) inventorySnapshot = indexedInventory;
+    if (Array.isArray(indexed) && indexed.length) {
+      usingCachedData = true;
+      records = dedupeArrivalRecords(indexed,currentProject,'indexed-cache');
+      fillMissingValues(records);
+      initMultiSelectOptions(records);
+      setDefaultDateRange(records);
+      DataCache.clear();
+      render();
+      updateSyncStatus('online', `本地快速缓存 · ${records.length} 条${lastCacheUpdatedAt ? ` · 更新于 ${formatCacheTime(lastCacheUpdatedAt)}` : ''} · 正在后台同步`);
+    }
+
     await refreshData(true);
   }
 
@@ -4488,7 +4954,7 @@ const NikelTrak = (function() {
   // 初始化
   // ============================================================
 
-  function init() {
+  async function init() {
     console.log('🚀 NikelTrak starting...');
     loadSmartSettings();
     updateQuickRangeChips();
@@ -4534,6 +5000,29 @@ const NikelTrak = (function() {
           updateSyncStatus('online', `📦 本地缓存 · ${records.length} 条${cacheDupNote}`);
         }
       } catch (e) { /* ignore */ }
+    }
+
+    const indexedInventoryEntry = await readIndexedCacheEntry(`${project.storageKey}-inventory`);
+    const indexedInventory = indexedInventoryEntry?.data;
+    if (indexedInventoryEntry?.updatedAt) lastCacheUpdatedAt = Math.max(lastCacheUpdatedAt || 0,indexedInventoryEntry.updatedAt);
+    if (indexedInventory && Array.isArray(indexedInventory.history)) {
+      inventorySnapshot = indexedInventory;
+      if (records.length) render();
+    }
+
+    if (!records.length) {
+      const indexedEntry = await readIndexedCacheEntry(project.storageKey);
+      const indexed = indexedEntry?.data;
+      if (indexedEntry?.updatedAt) lastCacheUpdatedAt = Math.max(lastCacheUpdatedAt || 0,indexedEntry.updatedAt);
+      if (Array.isArray(indexed) && indexed.length) {
+        usingCachedData = true;
+        records = dedupeArrivalRecords(indexed,currentProject,'indexed-cache');
+        fillMissingValues(records);
+        initMultiSelectOptions(records);
+        setDefaultDateRange(records);
+        render();
+        updateSyncStatus('online', `本地快速缓存 · ${records.length} 条${lastCacheUpdatedAt ? ` · 更新于 ${formatCacheTime(lastCacheUpdatedAt)}` : ''} · 正在后台同步`);
+      }
     }
 
     const savedPayment = localStorage.getItem(project.paymentStorageKey);
@@ -4584,7 +5073,6 @@ const NikelTrak = (function() {
     {id:'search', icon:'⌕', title:'聚焦智能搜索', desc:'搜索编号、供应商、矿区或品质条件', shortcut:'/', run:()=>els.quickSearch?.focus()},
     {id:'7days', icon:'7', title:'查看最近 7 天', desc:'快速切换到近 7 天到货视图', shortcut:'', run:()=>setQuickRange('7')},
     {id:'30days', icon:'30', title:'查看最近 30 天', desc:'快速切换到近 30 天到货视图', shortcut:'', run:()=>setQuickRange('30')},
-    {id:'arrivalchart', icon:'▥', title:'聚焦到货趋势', desc:'切换为高级到货量与趋势均线视图', shortcut:'', run:()=>setChartMode('arrival')},
     {id:'qualitychart', icon:'⌁', title:'聚焦品质趋势', desc:'切换为 Ni / MgO 品质趋势视图', shortcut:'', run:()=>setChartMode('quality')},
     {id:'risk', icon:'!', title:'只看异常数据', desc:'切换低 Ni / 高 MgO 风险视图', shortcut:'', run:()=>toggleRiskView()},
     {id:'filters', icon:'≡', title:'打开高级筛选', desc:'供应商、日期与更多筛选条件', shortcut:'', run:()=>toggleAdvancedFilters(true)},
@@ -4596,14 +5084,14 @@ const NikelTrak = (function() {
   ];
 
   function setChartMode(mode){
-    chartViewMode = ['balance','arrival','production','inventory','quality'].includes(mode) ? mode : 'balance';
+    chartViewMode = mode === 'inventory' || mode === 'quality' ? mode : 'balance';
     updateChartModeUI();
     renderChart(aggregateDaily(applyMainFilters(records)));
     document.getElementById('echarts-container')?.scrollIntoView({behavior:'smooth',block:'center'});
   }
 
   function setChartRange(value){
-    chartRange = ['30','90','all'].includes(value) ? value : '30';
+    chartRange = ['7','30','all'].includes(value) ? value : '30';
     renderChart(aggregateDaily(applyMainFilters(records)));
   }
 
@@ -4695,7 +5183,7 @@ const NikelTrak = (function() {
     if (els.exportViewBtn) EventManager.add(els.exportViewBtn,'click',exportCurrentView);
     if (els.fullscreenBtn) EventManager.add(els.fullscreenBtn,'click',toggleFullscreen);
     const resetSmartBtn=document.getElementById('reset-smart-settings');
-    if(resetSmartBtn) EventManager.add(resetSmartBtn,'click',()=>{ smartSettings={...DEFAULT_SMART_SETTINGS,autoRefresh:!!els.autoRefreshToggle?.checked}; if(els.niTarget) els.niTarget.value=smartSettings.niTarget.toFixed(2); if(els.mgoLimit) els.mgoLimit.value=smartSettings.mgoLimit.toFixed(2); persistSmartSettings(); render(); showSmartToast('阈值已恢复默认'); });
+    if(resetSmartBtn) EventManager.add(resetSmartBtn,'click',()=>{ const targets=PROJECTS[currentProject]?.qualityTargets||DEFAULT_SMART_SETTINGS; smartSettings={...DEFAULT_SMART_SETTINGS,...targets,autoRefresh:!!els.autoRefreshToggle?.checked}; if(els.niTarget) els.niTarget.value=smartSettings.niTarget.toFixed(2); if(els.mgoLimit) els.mgoLimit.value=smartSettings.mgoLimit.toFixed(2); persistSmartSettings(); render(); showSmartToast('阈值已恢复为项目标准'); });
     EventManager.add(document,'keydown',e=>{
       const tag=(e.target?.tagName||'').toLowerCase(); const typing=['input','textarea','select'].includes(tag);
       if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCommandPalette();return;}
@@ -4722,7 +5210,8 @@ const NikelTrak = (function() {
     if(els.stats) EventManager.add(els.stats,'click',e=>{
       const card=e.target.closest('[data-focus]'); if(!card) return;
       const focus=card.dataset.focus;
-      if(['arrival','production','inventory','quality'].includes(focus)) setChartMode(focus);
+      if(focus==='arrival'||focus==='production') setChartMode('balance');
+      else if(focus==='inventory'||focus==='quality') setChartMode(focus);
       else if(focus==='supplier') document.getElementById('supplier-donut')?.scrollIntoView({behavior:'smooth',block:'center'});
     });
     if(els.supplierList) EventManager.add(els.supplierList,'click',e=>{
@@ -4759,6 +5248,24 @@ const NikelTrak = (function() {
     if (els.refreshBtn) {
       EventManager.add(els.refreshBtn, 'click', () => refreshData(true));
     }
+
+    // 三项目经营总览
+    if (els.projectOverviewBtn) EventManager.add(els.projectOverviewBtn,'click',openProjectOverview);
+    if (els.projectOverviewClose) EventManager.add(els.projectOverviewClose,'click',closeProjectOverview);
+    if (els.projectOverviewModal) EventManager.add(els.projectOverviewModal,'click',e=>{
+      if (e.target === els.projectOverviewModal) closeProjectOverview();
+    });
+    if (els.projectOverviewBody) EventManager.add(els.projectOverviewBody,'click',async e=>{
+      const button=e.target.closest('[data-overview-project]');
+      if (!button) return;
+      const projectId=button.dataset.overviewProject;
+      closeProjectOverview();
+      if (els.projectSelect) els.projectSelect.value=projectId;
+      await switchProject(projectId);
+    });
+    EventManager.add(document,'keydown',e=>{
+      if (e.key === 'Escape' && els.projectOverviewModal?.classList.contains('open')) closeProjectOverview();
+    });
 
     // 导出
     const exportCsvBtn = document.getElementById('export-csv');
@@ -4852,7 +5359,8 @@ const NikelTrak = (function() {
     });
 
     EventManager.add(window, 'offline', () => {
-      updateSyncStatus('offline', '离线状态 · 正在使用本地缓存');
+      usingCachedData = true;
+      updateSyncStatus('offline', cacheStatusText('离线状态'));
       showWarning('网络连接已断开');
     });
   }
