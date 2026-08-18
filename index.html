@@ -1041,7 +1041,7 @@ body.v4-ready .chart-wrap{animation:v5ChartReveal .48s var(--v4-ease) both}
 .layout #echarts-container{height:330px}
 @media(max-width:760px){
   .chart-insights{justify-content:flex-start;overflow-x:auto;padding-bottom:1px;margin-top:1px;scrollbar-width:none}.chart-insights::-webkit-scrollbar{display:none}
-  .chart-insight{flex:0 0 auto}.layout .chart-wrap,.layout #echarts-container{height:292px;min-height:292px}
+  .chart-insight{flex:0 0 auto}.chart-insight:nth-child(n+3){display:none}.layout .chart-wrap,.layout #echarts-container{height:292px;min-height:292px}
 }
 
 /* V7 · EXECUTIVE MINERAL — 克制、精确、有质感 */
@@ -1061,6 +1061,7 @@ body{background:#f2f5f7;color:#18263b}
 .stats .stat:last-child{border-right:0}.stats .stat:before{display:none}.stats .stat:hover{transform:none;border-color:#e7ecef;box-shadow:none;background:#fbfdfd}
 .stats .stat strong{margin-top:10px;font-size:26px;font-weight:720;line-height:1.05;letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:#142239}
 .stats .stat small{margin-top:9px;color:#8290a2}.stats .v5-stat-top span{font-size:11px;font-weight:720;color:#526176}
+.kpi-delta{display:block;margin-top:5px;font-size:9px;font-style:normal;font-weight:750;color:#7b8899}.kpi-delta.up{color:#0b8076}.kpi-delta.down{color:#c47b18}.kpi-delta.neutral{color:#7b8899}
 
 .smart-center{display:block;margin:0 0 10px}.smart-summary-card{position:relative;min-height:48px;padding:0 18px 0 54px;display:flex;align-items:center;border:1px solid rgba(11,128,118,.24);border-radius:9px;background:linear-gradient(90deg,#f7fbfb,#fff);box-shadow:none}
 .smart-summary-card:before{content:"↗";position:absolute;left:17px;top:50%;transform:translateY(-50%);width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#0b8076;color:#fff;font-size:12px;font-weight:800}
@@ -1077,6 +1078,8 @@ body{background:#f2f5f7;color:#18263b}
 .supplier-overview .track{grid-column:3;height:4px;align-self:center}.supplier-overview .supplier-value{grid-column:4;grid-row:1;text-align:right;min-width:112px}.supplier-overview .supplier-share{display:inline;margin-left:9px}
 .supplier-rank{width:25px;height:25px;border-radius:6px;background:#e8f5f3}.supplier-meta{display:none}
 .supplier-expand{display:flex;align-items:center;gap:6px;margin:8px auto 0;padding:5px 10px;border:0;background:transparent;color:#748196;font-size:10px;font-weight:750}.supplier-expand:hover{color:#08736a}
+.table-lazy-placeholder td{height:110px;text-align:center!important;color:#8190a2!important;background:#fbfcfd!important}
+.v3-toolbar.is-detail-toolbar{margin:16px 0 8px;position:relative;top:auto}
 
 @media(max-width:980px){
   .stats{grid-template-columns:repeat(3,1fr)}.stats .stat:nth-child(3){border-right:0}.stats .stat:nth-child(-n+3){border-bottom:1px solid #e7ecef}
@@ -1224,8 +1227,9 @@ body{background:#f2f5f7;color:#18263b}
         </div>
         <div class="v5-chart-actions">
           <div class="v5-chart-tabs" role="tablist" aria-label="生产与库存切换">
+            <button class="v5-chart-tab active" type="button" data-chart-mode="balance">供耗平衡</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="arrival">每日到货</button>
-            <button class="v5-chart-tab active" type="button" data-chart-mode="production">累计消耗</button>
+            <button class="v5-chart-tab" type="button" data-chart-mode="production">消耗趋势</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="inventory">库存余量</button>
             <button class="v5-chart-tab" type="button" data-chart-mode="quality">品位波动</button>
           </div>
@@ -1870,7 +1874,7 @@ class ChartRenderer {
     this.lastSignature = '';
     this.lastDaily = [];
     this.operationHistory = [];
-    this.mode = 'arrival';
+    this.mode = 'balance';
     this.init();
   }
 
@@ -1899,7 +1903,7 @@ class ChartRenderer {
   }
 
   setMode(mode) {
-    const next = ['arrival','production','inventory','quality'].includes(mode) ? mode : 'arrival';
+    const next = ['balance','arrival','production','inventory','quality'].includes(mode) ? mode : 'balance';
     if (next === this.mode) return;
     this.mode = next;
     this.lastSignature = '';
@@ -1923,6 +1927,10 @@ class ChartRenderer {
 
   update(daily) {
     this.lastDaily = daily || [];
+    if (this.mode === 'balance') {
+      this.updateBalance(daily || []);
+      return;
+    }
     if (this.mode === 'production' || this.mode === 'inventory') {
       this.operationHistory = daily || [];
       this.updateOperations(daily || []);
@@ -2148,6 +2156,65 @@ class ChartRenderer {
     requestAnimationFrame(() => this.chart?.resize());
   }
 
+  updateBalance(history) {
+    const rows = (history || []).filter(item => item?.date && (Number.isFinite(item.weight) || Number.isFinite(item.production)));
+    this.lastDaily = rows;
+    const signature = 'balance|' + rows.map(item => `${item.date}:${item.weight ?? ''}:${item.production ?? ''}`).join('|');
+    if (signature === this.lastSignature) return;
+    this.lastSignature = signature;
+
+    if (!this.chart) { this.renderFallback(rows); return; }
+    if (!rows.length) {
+      this.setInsights([]);
+      this.chart.clear();
+      this.chart.setOption({title:{text:'暂无供耗数据',left:'center',top:'middle',textStyle:{color:'#94a0af',fontSize:13,fontWeight:600}}});
+      return;
+    }
+
+    const dates = rows.map(item => item.date.slice(5));
+    const arrivals = rows.map(item => Number.isFinite(item.weight) ? Number(item.weight) : null);
+    const consumptions = rows.map(item => Number.isFinite(item.production) ? Number(item.production) : null);
+    const comparable = rows.filter(item => Number.isFinite(item.weight) && Number.isFinite(item.production));
+    const latestComparable = comparable.at(-1);
+    const latestGap = latestComparable ? latestComparable.weight - latestComparable.production : null;
+    const recentComparable = comparable.slice(-7);
+    const recentGap = recentComparable.length
+      ? recentComparable.reduce((sum,item)=>sum+item.weight-item.production,0) / recentComparable.length : null;
+    const shortageDays = comparable.filter(item => item.weight < item.production).length;
+    const fmt = value => new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value);
+
+    this.setInsights([
+      {label:'最新供耗差',value:Number.isFinite(latestGap)?`${latestGap>=0?'+':''}${fmt(latestGap)} 湿吨`:'—',tone:Number.isFinite(latestGap)&&latestGap<0?'amber':''},
+      {label:'近7日均差',value:Number.isFinite(recentGap)?`${recentGap>=0?'+':''}${fmt(recentGap)} 湿吨`:'—',tone:Number.isFinite(recentGap)&&recentGap<0?'amber':''},
+      {label:'到货低于消耗',value:`${shortageDays} 天`,tone:shortageDays?'amber':''}
+    ]);
+
+    const values = [...arrivals,...consumptions].filter(Number.isFinite);
+    const maximum = values.length ? Math.max(...values) : 1;
+    const axisMax = Math.ceil((maximum * 1.12) / 1000) * 1000;
+    const endIndex = [...consumptions].map((value,index)=>Number.isFinite(value)?index:-1).filter(index=>index>=0).at(-1);
+    const endValue = Number.isInteger(endIndex) ? consumptions[endIndex] : null;
+
+    this.chart.setOption({
+      backgroundColor:'transparent',animation:true,animationDuration:360,animationEasing:'cubicOut',
+      legend:{show:true,left:12,top:2,itemWidth:12,itemHeight:7,textStyle:{color:'#64748b',fontSize:10},data:['每日到货','每日消耗']},
+      grid:{left:18,right:window.innerWidth<=760?112:132,top:38,bottom:30,containLabel:true},
+      tooltip:{trigger:'axis',confine:true,backgroundColor:'rgba(255,255,255,.98)',borderColor:'#e4eaf0',padding:[9,11],textStyle:{color:'#26364c',fontSize:10},formatter:params=>{
+        const list=Array.isArray(params)?params:[params];const index=list[0]?.dataIndex??0;const row=rows[index];
+        const arrival=Number.isFinite(row?.weight)?`${fmt(row.weight)} 湿吨`:'—';const consumption=Number.isFinite(row?.production)?`${fmt(row.production)} 湿吨`:'—';
+        const gap=Number.isFinite(row?.weight)&&Number.isFinite(row?.production)?`${row.weight-row.production>=0?'+':''}${fmt(row.weight-row.production)} 湿吨`:'—';
+        return `<b>${row?.date||''}</b><br>每日到货：<b>${arrival}</b><br>每日消耗：<b>${consumption}</b><br>供耗差：<b>${gap}</b>`;
+      }},
+      xAxis:{type:'category',data:dates,boundaryGap:true,axisTick:{show:false},axisLine:{lineStyle:{color:'#dfe6ed'}},axisLabel:{color:'#8b96a6',fontSize:9,hideOverlap:true,interval:Math.max(0,Math.ceil(dates.length/6)-1)}},
+      yAxis:{type:'value',name:'湿吨',min:0,max:axisMax,splitNumber:5,axisTick:{show:false},axisLine:{show:false},splitLine:{lineStyle:{color:'#e9eff4',type:'dashed'}},axisLabel:{color:'#8b96a6',fontSize:9,formatter:value=>value>=1000?`${(value/1000).toFixed(value>=10000?0:1)}k`:value}},
+      series:[
+        {name:'每日到货',type:'bar',data:arrivals,barMaxWidth:18,itemStyle:{borderRadius:[5,5,1,1],color:params=>{const a=arrivals[params.dataIndex],c=consumptions[params.dataIndex];return Number.isFinite(a)&&Number.isFinite(c)&&a<c?'rgba(220,151,40,.72)':'rgba(11,128,118,.62)';}},emphasis:{itemStyle:{color:'#0b8076'}}},
+        {name:'每日消耗',type:'line',data:consumptions,smooth:.24,showSymbol:false,connectNulls:false,symbol:'circle',symbolSize:7,sampling:'lttb',lineStyle:{color:'#173f68',width:2.5,cap:'round'},itemStyle:{color:'#173f68',borderColor:'#fff',borderWidth:2},endLabel:{show:Number.isFinite(endValue),distance:8,formatter:()=>`消耗 ${fmt(endValue)}`,color:'#173f68',fontSize:9,fontWeight:800,backgroundColor:'rgba(255,255,255,.95)',padding:[4,6],borderRadius:6},labelLayout:{moveOverlap:'shiftY'}}
+      ]
+    },{notMerge:true,lazyUpdate:true});
+    requestAnimationFrame(()=>this.chart?.resize());
+  }
+
   updateOperations(history) {
     const key = this.mode === 'inventory' ? 'inventory' : 'production';
     const label = this.mode === 'inventory' ? '库存余量' : '累计消耗';
@@ -2304,9 +2371,11 @@ const NikelTrak = (function() {
   let chartRenderer = null;
   let supplierChart = null;
   let supplierChartResizeBound = false;
-  let chartViewMode = 'production';
+  let chartViewMode = 'balance';
   let chartRange = '90';
   let supplierExpanded = false;
+  let tableActivated = false;
+  let tableObserver = null;
 
   // 防抖渲染
   const debouncedRender = debounce(render, 160);
@@ -3493,6 +3562,7 @@ const NikelTrak = (function() {
 
   function renderStats(rows, daily) {
     const latest = daily.length ? daily[daily.length - 1] : null;
+    const previousArrival = daily.length > 1 ? daily[daily.length - 2] : null;
     const totalWet = rows.reduce((s, r) => s + (r.weight || 0), 0);
     const ni = weightedAverageWithDryWeight(rows, 'ni');
     const mgo = weightedAverageWithDryWeight(rows, 'mgo');
@@ -3502,15 +3572,33 @@ const NikelTrak = (function() {
     const inventoryNote = inventorySnapshot.date
       ? `${inventorySnapshot.date}${Number.isFinite(inventorySnapshot.wetTons) ? '' : ' · 暂无库存数据'}`
       : '库存表暂无数据';
-    const latestConsumption = [...(inventorySnapshot.history || [])].reverse().find(item => Number.isFinite(item.production));
+    const productionRows = (inventorySnapshot.history || []).filter(item => Number.isFinite(item.production));
+    const inventoryRows = (inventorySnapshot.history || []).filter(item => Number.isFinite(item.inventory));
+    const latestConsumption = productionRows.at(-1);
+    const previousConsumption = productionRows.at(-2);
+    const previousInventory = inventoryRows.at(-2);
     const consumptionValue = latestConsumption ? formatTons(latestConsumption.production, 0) : '-';
     const consumptionNote = latestConsumption?.date || '暂无消耗数据';
 
+    const percentDelta = (current, previous, lowerIsBetter = false) => {
+      if (!Number.isFinite(current) || !Number.isFinite(previous) || previous === 0) return null;
+      const value = ((current - previous) / Math.abs(previous)) * 100;
+      const favorable = lowerIsBetter ? value < 0 : value > 0;
+      return {text:`较前值 ${value>=0?'↑':'↓'} ${Math.abs(value).toFixed(1)}%`,tone:Math.abs(value)<.5?'neutral':favorable?'up':'down'};
+    };
+    const arrivalDelta = percentDelta(latest?.weight, previousArrival?.weight);
+    const consumptionDelta = percentDelta(latestConsumption?.production, previousConsumption?.production);
+    if (consumptionDelta) consumptionDelta.tone = 'neutral';
+    const inventoryDeltaValue = Number.isFinite(inventorySnapshot.wetTons) && Number.isFinite(previousInventory?.inventory)
+      ? inventorySnapshot.wetTons - previousInventory.inventory : null;
+    const inventoryDelta = Number.isFinite(inventoryDeltaValue)
+      ? {text:`较前值 ${inventoryDeltaValue>=0?'+':'-'}${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(Math.abs(inventoryDeltaValue))} 湿吨`,tone:Math.abs(inventoryDeltaValue)<1?'neutral':inventoryDeltaValue>0?'up':'down'} : null;
+
     const items = [
-      { label:'最新到货', value:latest ? formatTons(latest.weight,0) : '-', note:latest ? latest.date : '无数据', focus:'arrival' },
+      { label:'最新到货', value:latest ? formatTons(latest.weight,0) : '-', note:latest ? latest.date : '无数据', delta:arrivalDelta, focus:'arrival' },
       { label:'累计到货', value:formatTons(totalWet,0), note:`${daily.length} 个到货日`, focus:'arrival' },
-      { label:'最新消耗', value:consumptionValue, note:consumptionNote, focus:'production' },
-      { label:'库存余量', value:inventoryValue, note:inventoryNote, focus:'inventory' },
+      { label:'最新消耗', value:consumptionValue, note:consumptionNote, delta:consumptionDelta, focus:'production' },
+      { label:'库存余量', value:inventoryValue, note:inventoryNote, delta:inventoryDelta, focus:'inventory' },
       { label:'Ni 品位', value:ni === null ? '-' : formatNumber(ni,2), note:'到货干吨加权', focus:'quality' },
       { label:'MgO 品位', value:mgo === null ? '-' : formatNumber(mgo,2), note:'到货干吨加权', focus:'quality' }
     ];
@@ -3520,6 +3608,7 @@ const NikelTrak = (function() {
         <div class="v5-stat-top"><span>${item.label}</span></div>
         <strong>${item.value}</strong>
         <small>${item.note}</small>
+        ${item.delta ? `<em class="kpi-delta ${item.delta.tone}">${item.delta.text}</em>` : ''}
       </article>`
     ).join('');
   }
@@ -3534,7 +3623,18 @@ const NikelTrak = (function() {
     chartRenderer.setMode(chartViewMode);
     const limit = chartRange === 'all' ? Infinity : Number(chartRange || 30);
     let available = [];
-    if (chartViewMode === 'arrival') available = daily.filter(item => Number.isFinite(item.weight));
+    if (chartViewMode === 'balance') {
+      const combined = new Map();
+      daily.forEach(item => combined.set(item.date,{date:item.date,weight:Number.isFinite(item.weight)?item.weight:null,production:null,inventory:null}));
+      (inventorySnapshot.history || []).forEach(item => {
+        const row = combined.get(item.date) || {date:item.date,weight:null,production:null,inventory:null};
+        row.production = Number.isFinite(item.production) ? item.production : null;
+        row.inventory = Number.isFinite(item.inventory) ? item.inventory : null;
+        combined.set(item.date,row);
+      });
+      available = [...combined.values()].filter(item=>Number.isFinite(item.weight)||Number.isFinite(item.production)).sort((a,b)=>a.date.localeCompare(b.date));
+    }
+    else if (chartViewMode === 'arrival') available = daily.filter(item => Number.isFinite(item.weight));
     else if (chartViewMode === 'quality') available = daily.filter(item => Number.isFinite(item.ni) || Number.isFinite(item.mgo));
     else {
       const key = chartViewMode === 'inventory' ? 'inventory' : 'production';
@@ -3545,10 +3645,10 @@ const NikelTrak = (function() {
     updateChartModeUI();
 
     if (visible.length) {
-      const label = chartViewMode === 'arrival' ? '每日到货' : chartViewMode === 'production' ? '累计消耗' : chartViewMode === 'inventory' ? '库存余量' : '品位波动';
+      const label = chartViewMode === 'balance' ? '供耗平衡' : chartViewMode === 'arrival' ? '每日到货' : chartViewMode === 'production' ? '消耗趋势' : chartViewMode === 'inventory' ? '库存余量' : '品位波动';
       els.chartNote.textContent = `${visible[0].date} 至 ${visible[visible.length-1].date} · ${visible.length} 个有效日期 · ${label}`;
     } else {
-      const label = chartViewMode === 'arrival' ? '到货' : chartViewMode === 'production' ? '生产' : chartViewMode === 'inventory' ? '库存' : '品位';
+      const label = chartViewMode === 'balance' ? '供耗' : chartViewMode === 'arrival' ? '到货' : chartViewMode === 'production' ? '生产' : chartViewMode === 'inventory' ? '库存' : '品位';
       els.chartNote.textContent = `暂无${label}数据`;
     }
   }
@@ -3904,34 +4004,35 @@ const NikelTrak = (function() {
     return applyMainFilters(records);
   });
 
-  // 2. Populate range internal dropdown
-  populateRangeInternalDropdowns(filteredMain);
+  // 2. Daily & Supplier：按筛选条件缓存，切换图表时直接复用
+  const daily = DataCache.get(`daily_${mainFilterKey}`, () => aggregateDaily(filteredMain));
+  const suppliers = DataCache.get(`suppliers_${mainFilterKey}`, () => aggregateSuppliers(filteredMain));
 
-  // 3. Table filter (带缓存)
-  const filteredTable = DataCache.get(`table_${mainFilterKey}_${tableFilterKey}`, () => {
-    return applyTableFilters(filteredMain);
-  });
-
-  // 4. Range internal
-  rangeInternalStart = els.rangeInternalStart.value || '';
-  rangeInternalEnd = els.rangeInternalEnd.value || '';
-  const filteredRange = applyRangeInternal(filteredTable);
-
-  // 5. Group by
-  const groupBy = getTableFilters().groupByInternal;
-  const displayData = groupBy ? groupByInternalCode(filteredRange) : filteredRange;
-
-  // 6. Daily & Supplier（复用同一筛选结果，仅渲染前5名）
-  const daily = aggregateDaily(filteredMain);
-  const suppliers = aggregateSuppliers(filteredMain);
+  // 3. 明细区域延迟计算：首屏先显示驾驶舱，滚动靠近表格后再处理上万条记录
+  let filteredRange = [];
+  let displayData = [];
+  if (tableActivated) {
+    populateRangeInternalDropdowns(filteredMain);
+    const filteredTable = DataCache.get(`table_${mainFilterKey}_${tableFilterKey}`, () => applyTableFilters(filteredMain));
+    rangeInternalStart = els.rangeInternalStart.value || '';
+    rangeInternalEnd = els.rangeInternalEnd.value || '';
+    filteredRange = applyRangeInternal(filteredTable);
+    const groupBy = getTableFilters().groupByInternal;
+    displayData = groupBy ? groupByInternalCode(filteredRange) : filteredRange;
+  }
 
   // 7. 渲染
   renderStats(filteredMain, daily);
   renderSmartCenter(filteredMain, daily, suppliers);
   renderChart(daily);
   renderSuppliers(suppliers);
-  renderTable(displayData);
-  renderTableSummary(filteredRange);
+  if (tableActivated) {
+    renderTable(displayData);
+    renderTableSummary(filteredRange);
+  } else {
+    els.recordsBody.innerHTML = '<tr class="table-lazy-placeholder"><td colspan="9">明细将在滚动到本区域时加载</td></tr>';
+    els.tableNote.textContent = `共 ${filteredMain.length} 条记录 · 明细延迟加载`;
+  }
 
   // 显示范围筛选信息
   if (rangeInternalStart || rangeInternalEnd) {
@@ -4392,6 +4493,30 @@ const NikelTrak = (function() {
     loadSmartSettings();
     updateQuickRangeChips();
 
+    // 将操作工具下移到明细区，让首屏只保留经营信息。
+    const tableCard = document.querySelector('.table-card');
+    const toolbar = document.querySelector('.v3-toolbar');
+    const advanced = document.getElementById('advanced-filters');
+    if (tableCard?.parentNode && toolbar) {
+      tableCard.parentNode.insertBefore(toolbar, tableCard);
+      toolbar.classList.add('is-detail-toolbar');
+      if (advanced) tableCard.parentNode.insertBefore(advanced, tableCard);
+    }
+
+    if ('IntersectionObserver' in window && tableCard) {
+      tableObserver = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        tableActivated = true;
+        tableObserver?.disconnect();
+        tableObserver = null;
+        DataCache.clear();
+        render();
+      }, {rootMargin:'80px 0px'});
+      tableObserver.observe(tableCard);
+    } else {
+      tableActivated = true;
+    }
+
     const project = PROJECTS[currentProject];
     const saved = localStorage.getItem(project.storageKey);
 
@@ -4444,6 +4569,7 @@ const NikelTrak = (function() {
         supplierChart = null;
       }
       if (autoRefreshTimer) clearInterval(autoRefreshTimer);
+      if (tableObserver) tableObserver.disconnect();
       EventManager.removeAll();
     });
   }
@@ -4453,6 +4579,7 @@ const NikelTrak = (function() {
   // ============================================================
   let commandActiveIndex = 0;
   const v4Commands = [
+    {id:'balancechart', icon:'⇄', title:'查看供耗平衡', desc:'对比每日到货与每日消耗', shortcut:'', run:()=>setChartMode('balance')},
     {id:'refresh', icon:'↻', title:'同步最新数据', desc:'同时刷新到货与付款数据', shortcut:'Alt R', run:()=>refreshData(true)},
     {id:'search', icon:'⌕', title:'聚焦智能搜索', desc:'搜索编号、供应商、矿区或品质条件', shortcut:'/', run:()=>els.quickSearch?.focus()},
     {id:'7days', icon:'7', title:'查看最近 7 天', desc:'快速切换到近 7 天到货视图', shortcut:'', run:()=>setQuickRange('7')},
@@ -4469,7 +4596,7 @@ const NikelTrak = (function() {
   ];
 
   function setChartMode(mode){
-    chartViewMode = ['arrival','production','inventory','quality'].includes(mode) ? mode : 'arrival';
+    chartViewMode = ['balance','arrival','production','inventory','quality'].includes(mode) ? mode : 'balance';
     updateChartModeUI();
     renderChart(aggregateDaily(applyMainFilters(records)));
     document.getElementById('echarts-container')?.scrollIntoView({behavior:'smooth',block:'center'});
