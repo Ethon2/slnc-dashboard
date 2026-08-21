@@ -1086,6 +1086,10 @@ body{background:#f2f5f7;color:#18263b}
 .smart-summary-card:before{content:"↗";position:absolute;left:17px;top:50%;transform:translateY(-50%);width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:#0b8076;color:#fff;font-size:12px;font-weight:800}
 .smart-summary-text{width:100%;padding:0;border:0!important;background:transparent!important;box-shadow:none!important;font-size:12px;line-height:1.55;color:#28384d}
 .data-freshness{flex:0 0 auto;display:flex;align-items:center;gap:8px;margin-left:16px;padding:6px 9px;border:1px solid #e1e8ed;border-radius:7px;background:#fff;color:#758296;font-size:9px;font-weight:700;white-space:nowrap}.data-freshness:before{content:"";width:6px;height:6px;border-radius:50%;background:#22a06b}.data-freshness.partial:before{background:#e39a22}.data-freshness.stale:before{background:#d34e4e}.data-freshness strong{color:#314157}
+.quality-stability{flex:0 0 auto;display:flex;align-items:center;gap:6px;margin-left:10px;padding:6px 9px;border:1px solid #dce8e5;border-radius:7px;background:#f8fcfb;color:#6e7e8d;font-size:9px;font-weight:700;white-space:nowrap}.quality-stability:before{content:"";width:6px;height:6px;border-radius:50%;background:#19a37c}.quality-stability strong{color:#176b63}.quality-stability.watch{border-color:#eadfc8;background:#fffbf4}.quality-stability.watch:before{background:#d89a2b}.quality-stability.watch strong{color:#9a6516}.quality-stability.risk{border-color:#edd7d7;background:#fff8f8}.quality-stability.risk:before{background:#d95656}.quality-stability.risk strong{color:#ad3f3f}.quality-stability.muted:before{background:#a8b3bf}.quality-stability.muted strong{color:#6f7c8c}
+.chart-anomaly-focus{min-height:32px;padding:0 11px;border:1px solid #e1e7ec;border-radius:7px;background:#fff;color:#66758a;font-size:10px;font-weight:760;white-space:nowrap;transition:.16s ease}.chart-anomaly-focus:hover{border-color:#cbd8df;color:#294057}.chart-anomaly-focus.active{border-color:rgba(196,123,24,.34);background:#fff8eb;color:#a66611;box-shadow:inset 0 0 0 1px rgba(196,123,24,.06)}.chart-anomaly-focus.active:before{content:"•";margin-right:5px;color:#d18b1f}
+.table-summary-host{margin:0 0 12px}.table-summary-host:empty{display:none}.table-summary-host .table-summary{margin-top:0;background:linear-gradient(110deg,#f7fafb,#fbfcfd);border-color:#e0e7ec}
+.date-detail-overlay{position:fixed;inset:0;z-index:10040;visibility:hidden;pointer-events:none;background:rgba(11,25,40,0);transition:background .22s ease,visibility .22s ease}.date-detail-overlay.open{visibility:visible;pointer-events:auto;background:rgba(11,25,40,.26)}.date-detail-drawer{position:absolute;top:0;right:0;width:min(430px,92vw);height:100%;display:flex;flex-direction:column;background:#f7f9fa;border-left:1px solid rgba(218,227,233,.9);box-shadow:-22px 0 60px rgba(12,29,46,.16);transform:translateX(102%);transition:transform .24s cubic-bezier(.22,.8,.24,1)}.date-detail-overlay.open .date-detail-drawer{transform:translateX(0)}.date-detail-header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 20px 16px;background:linear-gradient(110deg,#10283d,#0c5f5a);color:#fff}.date-detail-header h2{margin:0;font-size:18px}.date-detail-header p{margin:5px 0 0;color:rgba(255,255,255,.66);font-size:10px}.date-detail-close{width:34px;height:34px;display:grid;place-items:center;border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:19px}.date-detail-close:hover{background:rgba(255,255,255,.21)}.date-detail-body{padding:16px 18px 24px;overflow:auto}.date-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.date-detail-metric{padding:12px;border:1px solid #e1e7ec;border-radius:9px;background:#fff}.date-detail-metric span{display:block;color:#8290a2;font-size:9px;font-weight:720}.date-detail-metric strong{display:block;margin-top:6px;color:#203047;font-size:16px;font-weight:780;font-variant-numeric:tabular-nums}.date-detail-section{margin-top:13px;padding:13px;border:1px solid #e1e7ec;border-radius:9px;background:#fff}.date-detail-section h3{margin:0 0 9px;color:#26384e;font-size:11px}.date-detail-quality{display:grid;grid-template-columns:1fr 1fr;gap:8px}.date-detail-quality div{padding:9px;border-radius:7px;background:#f4f7f9}.date-detail-quality span{display:block;color:#8491a1;font-size:9px}.date-detail-quality strong{display:block;margin-top:4px;color:#26374d;font-size:15px}.date-detail-quality .is-risk{color:#c17917}.date-detail-supplier{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;padding:7px 0;border-top:1px solid #edf1f4;color:#34445a;font-size:10px}.date-detail-supplier:first-of-type{border-top:0}.date-detail-supplier strong{font-variant-numeric:tabular-nums}.date-detail-reasons{display:flex;flex-wrap:wrap;gap:6px}.date-detail-reason{padding:5px 7px;border-radius:6px;background:#fff6e7;color:#a36714;font-size:9px;font-weight:720}.date-detail-empty{padding:22px 8px;color:#8491a1;text-align:center;font-size:11px}.date-detail-action{width:100%;min-height:38px;margin-top:13px;border-radius:8px;background:#0b8076;color:#fff;font-size:11px;font-weight:780}.date-detail-action:hover{background:#08736a}
 
 .layout>.card{padding:19px;border-radius:10px;border-color:#dde5ea;box-shadow:0 8px 26px rgba(25,43,66,.045)}
 .layout .panel-header{margin-bottom:12px}.layout .panel-header h2{font-size:17px;font-weight:760}.layout .panel-header p{margin-top:4px;color:#8591a2}
@@ -1113,11 +1117,22 @@ body{background:#f2f5f7;color:#18263b}
 @media(max-width:760px){
   .app{padding:9px}.topbar{min-height:64px;padding:11px 13px}.title-block h1{font-size:18px}.topbar .actions{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.project-selector label{display:none}.project-selector{width:100%;padding-left:6px}.project-selector select{width:100%}.topbar .button.primary{width:100%;padding:0 11px}.topbar .overview-trigger{grid-column:1/-1;width:100%;height:34px}
   .stats{grid-template-columns:1fr 1fr}.stats .stat{min-height:96px;padding:13px 14px;border-bottom:1px solid #e7ecef}.stats .stat:nth-child(2n){border-right:0}.stats .stat:nth-last-child(-n+2){border-bottom:0}.stats .stat strong{font-size:21px}.stats .stat:nth-child(3){border-right:1px solid #e7ecef}
-  .smart-summary-card{min-height:52px;padding:8px 11px 8px 44px;flex-wrap:wrap}.smart-summary-card:before{left:11px}.smart-summary-text{font-size:11px}.data-freshness{width:100%;margin:6px 0 0;padding:5px 7px;white-space:normal;line-height:1.45}
+  .smart-summary-card{min-height:52px;padding:8px 11px 8px 44px;flex-wrap:wrap}.smart-summary-card:before{left:11px}.smart-summary-text{font-size:11px}.quality-stability,.data-freshness{width:100%;margin:6px 0 0;padding:5px 7px;white-space:normal;line-height:1.45}.v5-chart-actions{align-items:stretch}.chart-anomaly-focus{width:100%}.date-detail-drawer{width:100%;max-width:none}.date-detail-header{padding:16px 15px}.date-detail-body{padding:13px 12px 22px}
   .layout>.card{padding:12px}.layout .chart-wrap,.layout #echarts-container{height:276px;min-height:276px}
   .supplier-overview{padding:13px 12px}.supplier-overview .supplier-row{grid-template-columns:26px minmax(0,1fr) auto;padding:8px 1px}.supplier-overview .supplier-value{min-width:auto}.supplier-overview .supplier-share{display:block;margin-left:0}.supplier-overview .track{grid-column:2/-1}
   .overview-overlay{padding:8px}.overview-dialog{max-height:94vh;border-radius:12px}.overview-header{padding:15px 14px}.overview-header h2{font-size:16px}.overview-status{margin:10px 10px 0}.overview-table-wrap{margin:8px 10px 0}.overview-foot{padding:9px 12px 12px}
 }
+
+/* V8 · ADVANCED ANALYTICS LAYER */
+#sync-status-bar{gap:7px}.regression-status{display:none;padding:4px 7px;border:1px solid #dce6e2;border-radius:6px;background:#f8fbfa;color:#68788a;font-size:8px;font-weight:760}.regression-status.pass{display:inline-flex;color:#18715f;border-color:#d6e9e3;background:#f5fbf9}.regression-status.fail{display:inline-flex;color:#b44d4d;border-color:#eddada;background:#fff8f8}
+.advanced-action-btn{min-height:32px;padding:0 10px;border:1px solid #e1e7ec;border-radius:7px;background:#fff;color:#5f6f83;font-size:10px;font-weight:760;white-space:nowrap}.advanced-action-btn:hover{border-color:#bdd8d3;color:#08736a;background:#f8fcfb}
+.trend-shift-strip{display:flex;align-items:center;gap:7px;min-height:0;margin:-3px 0 8px;overflow-x:auto;scrollbar-width:none}.trend-shift-strip:empty{display:none}.trend-shift-strip::-webkit-scrollbar{display:none}.trend-shift-item{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid #e2e8ed;border-radius:7px;background:#fafcfd;color:#68778b;font-size:9px;font-weight:700}.trend-shift-item:before{content:"";width:5px;height:5px;border-radius:50%;background:#6f87a0}.trend-shift-item.up:before{background:#178b7b}.trend-shift-item.down:before,.trend-shift-item.risk:before{background:#d08c23}.trend-shift-item strong{color:#293a50}
+.table-summary-host{position:sticky;top:8px;z-index:24;padding-top:1px}.table-summary-host .table-summary{box-shadow:0 8px 22px rgba(24,43,64,.08);backdrop-filter:blur(12px);background:rgba(249,251,252,.94)}
+.arrival-data-table{table-layout:fixed;min-width:620px}.arrival-data-table.show-extended{min-width:1080px}.arrival-data-table:not(.show-extended) .optional-col{display:none}.arrival-data-table th{position:relative}.column-resizer{position:absolute;top:0;right:-3px;width:7px;height:100%;cursor:col-resize;z-index:4;touch-action:none}.column-resizer:after{content:"";position:absolute;top:25%;bottom:25%;left:3px;width:1px;background:transparent}.arrival-data-table th:hover .column-resizer:after,.column-resizer.resizing:after{background:#8fbeb8}.arrival-data-table td[data-isolate]{cursor:zoom-in}.arrival-data-table td[data-isolate]:hover{background:#f1f8f7;color:#08736a}.isolate-status{display:none;align-items:center;gap:8px;margin:-3px 0 10px;padding:7px 9px;border:1px solid #d7e8e4;border-radius:7px;background:#f7fbfa;color:#547067;font-size:9px;font-weight:720}.isolate-status.active{display:flex}.isolate-status button{margin-left:auto;padding:3px 7px;border:0;border-radius:5px;background:#e8f4f1;color:#08736a;font-size:9px;font-weight:760}
+.process-mining-panel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 12px}.process-mining-panel:empty{display:none}.process-stage{padding:11px;border:1px solid #e1e7ec;border-radius:9px;background:#fbfcfd}.process-stage span{display:block;color:#8190a2;font-size:9px;font-weight:720}.process-stage strong{display:block;margin-top:6px;color:#24354b;font-size:15px;font-weight:790}.process-stage small{display:block;margin-top:4px;color:#8895a5;font-size:8px;line-height:1.4}.process-stage.warn strong{color:#ae6b16}
+.date-compare-card{margin-top:13px;padding:13px;border:1px solid #dce6eb;border-radius:9px;background:linear-gradient(120deg,#f8fbfb,#fff)}.date-compare-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}.date-compare-head h3{margin:0;color:#283a50;font-size:11px}.date-compare-head span{color:#8491a1;font-size:8px}.date-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.date-compare-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px;border-radius:6px;background:#f4f7f8;font-size:9px}.date-compare-item span{color:#748296}.date-compare-item strong{color:#34465b;font-variant-numeric:tabular-nums}.date-compare-item strong.up{color:#087b70}.date-compare-item strong.down{color:#bd7417}
+.advanced-overlay{position:fixed;inset:0;z-index:10050;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,24,39,.48);backdrop-filter:blur(6px)}.advanced-overlay.open{display:flex}.advanced-dialog{width:min(820px,100%);max-height:min(88vh,780px);overflow:auto;border:1px solid rgba(255,255,255,.45);border-radius:15px;background:#f7f9fa;box-shadow:0 28px 80px rgba(11,28,46,.28);animation:modalIn .18s ease}.advanced-dialog-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;background:linear-gradient(110deg,#10283d,#0c5f5a);color:#fff}.advanced-dialog-head h2{margin:0;font-size:18px}.advanced-dialog-head p{margin:5px 0 0;color:rgba(255,255,255,.67);font-size:9px}.advanced-close{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:19px}.advanced-close:hover{background:rgba(255,255,255,.21)}.advanced-dialog-body{padding:18px 20px 22px}.scenario-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.scenario-fields label{display:flex;flex-direction:column;gap:6px;color:#68778a;font-size:10px;font-weight:720}.scenario-fields input,.query-input-row input{height:40px;padding:0 11px;border:1px solid #dce4ea;border-radius:8px;background:#fff;color:#24344a;font-size:12px;font-variant-numeric:tabular-nums}.scenario-fields input:focus,.query-input-row input:focus{border-color:#68aaa3;box-shadow:0 0 0 3px rgba(11,128,118,.09);outline:none}.scenario-run{width:100%;height:40px;margin-top:12px;border-radius:8px;background:#0b8076;color:#fff;font-size:11px;font-weight:780}.scenario-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:13px}.scenario-result{padding:11px;border:1px solid #e1e7ec;border-radius:8px;background:#fff}.scenario-result span{display:block;color:#8290a2;font-size:8px}.scenario-result strong{display:block;margin-top:5px;color:#25364c;font-size:14px}.scenario-result.risk strong{color:#b96e16}.scenario-chart{height:230px;margin-top:12px;border:1px solid #e1e7ec;border-radius:9px;background:#fff;overflow:hidden}.scenario-chart svg{width:100%;height:100%;display:block}.query-dialog{width:min(680px,100%)}.query-input-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}.query-input-row button{padding:0 18px;border-radius:8px;background:#0b8076;color:#fff;font-size:11px;font-weight:780}.query-suggestions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.query-suggestions button{padding:6px 8px;border:1px solid #e0e7ec;border-radius:7px;background:#fff;color:#66758a;font-size:9px}.query-suggestions button:hover{border-color:#bcd9d4;color:#08736a}.query-answer{min-height:104px;margin-top:12px;padding:15px;border:1px solid #e1e7ec;border-radius:9px;background:#fff;color:#314258;font-size:12px;line-height:1.7}.query-answer strong{color:#08736a}.query-answer .query-meta{display:block;margin-top:7px;color:#8793a3;font-size:9px}
+@media(max-width:760px){.advanced-action-btn{width:100%}.table-summary-host{top:5px}.table-summary-host .table-summary{grid-template-columns:repeat(3,1fr);gap:6px;padding:8px}.table-summary .summary-item .value{font-size:12px}.process-mining-panel{grid-template-columns:1fr 1fr}.advanced-overlay{padding:7px}.advanced-dialog{max-height:94vh;border-radius:12px}.advanced-dialog-head{padding:14px}.advanced-dialog-body{padding:13px}.scenario-fields{grid-template-columns:1fr}.scenario-results{grid-template-columns:1fr 1fr}.scenario-chart{height:190px}.date-compare-grid{grid-template-columns:1fr}}
 
 
 /* V6 decision-first refinements */
@@ -1162,6 +1177,7 @@ body{background:#f2f5f7;color:#18263b}
       <span class="sync-dot"></span>
       <span id="sync-text">正在连接 Google Sheets…</span>
     </div>
+    <button class="regression-status" id="regression-status" type="button" title="自动回归测试状态">自检待运行</button>
   </div>
 
   <!-- SMART COMMAND BAR -->
@@ -1228,6 +1244,7 @@ body{background:#f2f5f7;color:#18263b}
         <div><h2>智能结论</h2><p>自动识别趋势与品质风险</p></div>
       </div>
       <div class="smart-summary-text" id="smart-summary-text">正在分析当前数据…</div>
+      <div class="quality-stability muted" id="quality-stability"><strong>品质待分析</strong></div>
       <div class="data-freshness" id="data-freshness">正在核对数据日期…</div>
       <div class="smart-metrics" id="smart-metrics"></div>
       <div class="smart-params" id="smart-params">
@@ -1264,9 +1281,13 @@ body{background:#f2f5f7;color:#18263b}
             <button class="v5-chart-tab active" type="button" data-chart-range="30">30天</button>
             <button class="v5-chart-tab" type="button" data-chart-range="all">全部</button>
           </div>
+          <button class="chart-anomaly-focus" id="chart-anomaly-focus" type="button" aria-pressed="false">异常日期</button>
+          <button class="advanced-action-btn" id="scenario-open-btn" type="button">情景模拟</button>
+          <button class="advanced-action-btn" id="data-query-open-btn" type="button">问数据</button>
         </div>
       </div>
       <div class="chart-insights" id="chart-insights" aria-live="polite"></div>
+      <div class="trend-shift-strip" id="trend-shift-strip" aria-live="polite"></div>
       <div class="balance-series-legend" id="balance-series-legend" aria-live="polite"></div>
       <div class="chart-wrap">
         <div id="echarts-container"></div>
@@ -1291,6 +1312,7 @@ body{background:#f2f5f7;color:#18263b}
       <button type="button" class="tab-btn active" id="tab-btn-arrival" onclick="NikelTrak.switchTab('arrival')">到货分析</button>
       <button type="button" class="tab-btn" id="tab-btn-payment" onclick="NikelTrak.switchTab('payment')">陆运付款明细</button>
     </div>
+    <div id="table-summary-container" class="table-summary-host"></div>
     <div class="panel-header" id="arrival-panel-header">
       <div>
         <h2 id="table-title">明细记录</h2>
@@ -1301,9 +1323,11 @@ body{background:#f2f5f7;color:#18263b}
           <input type="checkbox" id="group-by-internal" checked>
           按内部编号汇总
         </label>
+        <button class="button secondary" id="toggle-detail-columns" type="button" aria-pressed="false">展开字段</button>
         <button class="button secondary" id="reset-all-filters" type="button" style="margin-left:8px;">重置筛选</button>
       </div>
     </div>
+    <div class="isolate-status" id="isolate-status" aria-live="polite"></div>
 
     <!-- TABLE FILTERS -->
     <div class="table-filter-row" id="arrival-filters-row">
@@ -1456,18 +1480,18 @@ body{background:#f2f5f7;color:#18263b}
     </div>
 
     <div class="table-shell" id="arrival-table-shell">
-      <table>
+      <table class="arrival-data-table" id="arrival-data-table">
         <thead>
           <tr>
-            <th>内部编号</th>
-            <th>供应商</th>
-            <th>日期</th>
-            <th>矿区</th>
-            <th class="num">到货湿吨</th>
-            <th class="num">Ni</th>
-            <th class="num">MgO</th>
-            <th class="num">Cr</th>
-            <th class="num">MC</th>
+            <th class="col-internal" data-col-key="internal">内部编号</th>
+            <th class="col-supplier optional-col" data-col-key="supplier">供应商</th>
+            <th class="col-date" data-col-key="date">日期</th>
+            <th class="col-mine optional-col" data-col-key="mine">矿区</th>
+            <th class="num col-weight" data-col-key="weight">到货湿吨</th>
+            <th class="num col-ni" data-col-key="ni">Ni</th>
+            <th class="num col-mgo" data-col-key="mgo">MgO</th>
+            <th class="num col-cr optional-col" data-col-key="cr">Cr</th>
+            <th class="num col-mc optional-col" data-col-key="mc">MC</th>
           </tr>
         </thead>
         <tbody id="records-body"></tbody>
@@ -1485,6 +1509,8 @@ body{background:#f2f5f7;color:#18263b}
         </div>
         <button class="button secondary" id="reset-payment-filters" type="button">重置付款筛选</button>
       </div>
+
+      <div class="process-mining-panel" id="process-mining-panel"></div>
 
       <div class="payment-filter-row" id="payment-filters-row">
         <div class="field"><label for="payment-supplier-filter">供应商</label><select id="payment-supplier-filter"><option value="all">全部供应商</option></select></div>
@@ -1527,9 +1553,6 @@ body{background:#f2f5f7;color:#18263b}
         </div>
       </div>
     </div>
-
-    <!-- TABLE SUMMARY -->
-    <div id="table-summary-container" style="margin-top:12px;"></div>
   </section>
 </main>
 <div class="smart-toast" id="smart-toast"></div>
@@ -1556,6 +1579,58 @@ body{background:#f2f5f7;color:#18263b}
     </div>
     <div class="overview-foot">理论库存天数按每日 30,000 湿吨统一测算</div>
   </div>
+</div>
+
+<div class="date-detail-overlay" id="date-detail-overlay" aria-hidden="true">
+  <aside class="date-detail-drawer" role="dialog" aria-modal="true" aria-labelledby="date-detail-title">
+    <div class="date-detail-header">
+      <div><h2 id="date-detail-title">日期详情</h2><p id="date-detail-subtitle">点击图表日期查看经营数据</p></div>
+      <button class="date-detail-close" id="date-detail-close" type="button" aria-label="关闭日期详情">×</button>
+    </div>
+    <div class="date-detail-body" id="date-detail-body"></div>
+  </aside>
+</div>
+
+<div class="advanced-overlay" id="scenario-modal" aria-hidden="true">
+  <section class="advanced-dialog" role="dialog" aria-modal="true" aria-labelledby="scenario-title">
+    <div class="advanced-dialog-head">
+      <div><h2 id="scenario-title">库存情景模拟</h2><p>使用明确假设测算，不改变源数据</p></div>
+      <button class="advanced-close" type="button" data-close-advanced="scenario-modal" aria-label="关闭情景模拟">×</button>
+    </div>
+    <div class="advanced-dialog-body">
+      <div class="scenario-fields">
+        <label>起始库存（湿吨）<input id="scenario-inventory" type="number" min="0" step="1000"></label>
+        <label>预计每日到货（湿吨）<input id="scenario-arrival" type="number" min="0" step="1000"></label>
+        <label>计划每日消耗（湿吨）<input id="scenario-consumption" type="number" min="0" step="1000" value="30000"></label>
+        <label>模拟天数<input id="scenario-days" type="number" min="7" max="365" step="1" value="60"></label>
+      </div>
+      <button class="scenario-run" id="scenario-run" type="button">运行模拟</button>
+      <div class="scenario-results" id="scenario-results"></div>
+      <div class="scenario-chart" id="scenario-chart"></div>
+    </div>
+  </section>
+</div>
+
+<div class="advanced-overlay" id="data-query-modal" aria-hidden="true">
+  <section class="advanced-dialog query-dialog" role="dialog" aria-modal="true" aria-labelledby="data-query-title">
+    <div class="advanced-dialog-head">
+      <div><h2 id="data-query-title">问数据</h2><p>本地分析，不发送采购数据</p></div>
+      <button class="advanced-close" type="button" data-close-advanced="data-query-modal" aria-label="关闭问数据">×</button>
+    </div>
+    <div class="advanced-dialog-body">
+      <div class="query-input-row">
+        <input id="data-query-input" type="text" placeholder="例如：近30天到货最高是哪天" autocomplete="off">
+        <button id="data-query-run" type="button">查询</button>
+      </div>
+      <div class="query-suggestions">
+        <button type="button" data-query-example="库存最低是哪天">库存最低日</button>
+        <button type="button" data-query-example="近30天到货最高是哪天">近30天到货峰值</button>
+        <button type="button" data-query-example="哪个供应商到货最多">最大供应商</button>
+        <button type="button" data-query-example="未付款有多少笔">未付款记录</button>
+      </div>
+      <div class="query-answer" id="data-query-answer">输入问题后按 Enter 查询。</div>
+    </div>
+  </section>
 </div>
 
 <script>
@@ -1954,7 +2029,7 @@ class ChartRenderer {
     });
 
     this.chart.on('click', params => {
-      if (this.mode === 'production' || this.mode === 'inventory') return;
+      if (this.mode === 'production') return;
       const idx = params?.dataIndex;
       if (!Number.isInteger(idx) || !this.lastDaily?.[idx]?.date) return;
       window.dispatchEvent(new CustomEvent('nikeltrak:chart-date-click', { detail: { date: this.lastDaily[idx].date } }));
@@ -2317,8 +2392,9 @@ class ChartRenderer {
     const chartNote = document.getElementById('chart-note');
     if (chartNote) {
       const modeNote = this.container?.dataset?.consumptionMode === 'cumulative-derived' ? ' · 消耗由累计差值换算' : '';
+      const focusNote = this.container?.dataset?.anomalyFocus === 'true' ? ' · 已聚焦异常日期' : '';
       chartNote.textContent = bothHidden ? '已隐藏全部系列 · 点击上方图例恢复数据'
-        : rows.length ? `${rows[0].date} 至 ${rows.at(-1).date} · ${rows.length} 个有效日期 · 供耗平衡${modeNote}`
+        : rows.length ? `${rows[0].date} 至 ${rows.at(-1).date} · ${rows.length} 个有效日期 · 供耗平衡${modeNote}${focusNote}`
         : '当前图例没有可展示数据';
     }
     if (!this.chart) { this.renderFallback(rows); return; }
@@ -2573,6 +2649,10 @@ const NikelTrak = (function() {
   let supplierChartResizeBound = false;
   let chartViewMode = 'balance';
   let chartRange = '30';
+  let anomalyDateFocus = false;
+  let habitsReady = false;
+  let detailColumnsExpanded = false;
+  let isolateState = null;
   let supplierExpanded = false;
   let tableActivated = false;
   let tableObserver = null;
@@ -2617,6 +2697,7 @@ const NikelTrak = (function() {
     quickSearch: $('#quick-search'),
     clearQuickSearch: $('#clear-quick-search'),
     smartSummaryText: $('#smart-summary-text'),
+    qualityStability: $('#quality-stability'),
     dataFreshness: $('#data-freshness'),
     smartMetrics: $('#smart-metrics'),
     smartAlertList: $('#smart-alert-list'),
@@ -2658,7 +2739,33 @@ const NikelTrak = (function() {
     projectOverviewModal: $('#project-overview-modal'),
     projectOverviewClose: $('#project-overview-close'),
     projectOverviewBody: $('#project-overview-body'),
-    projectOverviewStatus: $('#project-overview-status')
+    projectOverviewStatus: $('#project-overview-status'),
+    chartAnomalyFocus: $('#chart-anomaly-focus'),
+    dateDetailOverlay: $('#date-detail-overlay'),
+    dateDetailTitle: $('#date-detail-title'),
+    dateDetailSubtitle: $('#date-detail-subtitle'),
+    dateDetailBody: $('#date-detail-body'),
+    dateDetailClose: $('#date-detail-close'),
+    toggleDetailColumns: $('#toggle-detail-columns'),
+    arrivalDataTable: $('#arrival-data-table'),
+    isolateStatus: $('#isolate-status'),
+    trendShiftStrip: $('#trend-shift-strip'),
+    processMiningPanel: $('#process-mining-panel'),
+    scenarioOpenBtn: $('#scenario-open-btn'),
+    scenarioModal: $('#scenario-modal'),
+    scenarioInventory: $('#scenario-inventory'),
+    scenarioArrival: $('#scenario-arrival'),
+    scenarioConsumption: $('#scenario-consumption'),
+    scenarioDays: $('#scenario-days'),
+    scenarioRun: $('#scenario-run'),
+    scenarioResults: $('#scenario-results'),
+    scenarioChart: $('#scenario-chart'),
+    dataQueryOpenBtn: $('#data-query-open-btn'),
+    dataQueryModal: $('#data-query-modal'),
+    dataQueryInput: $('#data-query-input'),
+    dataQueryRun: $('#data-query-run'),
+    dataQueryAnswer: $('#data-query-answer'),
+    regressionStatus: $('#regression-status')
   };
 
   // ============================================================
@@ -2782,24 +2889,67 @@ const NikelTrak = (function() {
     return unique;
   }
 
+  const SecureDataGateway = {
+    storageKey:'nikeltrak-secure-proxy-url-v1',
+    get endpoint() {
+      try { return String(localStorage.getItem(this.storageKey) || '').trim().replace(/\/$/,''); }
+      catch (error) { return ''; }
+    },
+    configure(url) {
+      const value = String(url || '').trim().replace(/\/$/,'');
+      if (value && !/^https:\/\//i.test(value) && !/^http:\/\/127\.0\.0\.1(?::\d+)?/i.test(value)) throw new Error('代理地址必须使用 HTTPS');
+      if (value) localStorage.setItem(this.storageKey,value); else localStorage.removeItem(this.storageKey);
+      return value;
+    },
+    async read(project, sheetRange, timeoutMs = 15000) {
+      if (this.endpoint) {
+        try {
+          const params = new URLSearchParams({spreadsheetId:project.spreadsheetId,range:sheetRange});
+          const proxied = await fetchJsonWithTimeout(`${this.endpoint}/sheets/values?${params}`,timeoutMs);
+          if (Array.isArray(proxied?.values)) return {...proxied,_gateway:'secure-proxy'};
+          throw new Error('代理响应缺少 values');
+        } catch (error) {
+          console.warn('安全代理暂不可用，已回退只读直连',error);
+        }
+      }
+      const range = encodeURIComponent(sheetRange);
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${project.spreadsheetId}/values/${range}` +
+        `?key=${project.apiKey}&valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=FORMATTED_STRING`;
+      return {...await fetchJsonWithTimeout(url,timeoutMs),_gateway:'direct-readonly'};
+    }
+  };
+
+  function resolveSheetColumns(headers, definitions) {
+    const resolved = {};
+    Object.entries(definitions).forEach(([key,definition])=>{
+      resolved[key] = findPaymentColumn(headers,definition.aliases,definition.fallback);
+    });
+    return resolved;
+  }
+
   async function loadFromGoogleSheets(projectId) {
     const project = PROJECTS[projectId];
     if (!project) return null;
 
     try {
-      const range = encodeURIComponent(project.sheetRange);
-      const url =
-        `https://sheets.googleapis.com/v4/spreadsheets/${project.spreadsheetId}/values/${range}` +
-        `?key=${project.apiKey}` +
-        `&valueRenderOption=UNFORMATTED_VALUE` +
-        `&dateTimeRenderOption=FORMATTED_STRING`;
-
-      const data = await fetchJsonWithTimeout(url, 45000);
+      const data = await SecureDataGateway.read(project,project.sheetRange,45000);
       if (!data.values || data.values.length === 0) {
         console.warn('📭 Tidak ada data di Google Sheets');
         return null;
       }
 
+      const headers = data.values[0] || [];
+      const col = resolveSheetColumns(headers,{
+        internalCode:{aliases:['内部编号','内部批次号','批次编号','internal code','internalcode'],fallback:0},
+        supplier:{aliases:['供应商名称','供应商','供货商','supplier','vendor'],fallback:4},
+        date:{aliases:['到场时间','到货日期','到场日期','日期','arrival date','arrivaldate'],fallback:2},
+        mine:{aliases:['供应矿区','矿区','矿源','mine','mining area'],fallback:6},
+        weight:{aliases:['当日重量湿吨','当日重量（湿吨）','当日重量(湿吨)','到货湿吨','到货重量','湿吨','wet weight','wmt'],fallback:15},
+        ni:{aliases:['ni','ni%','镍品位','ni品位'],fallback:18},
+        cr:{aliases:['cr','cr%','铬品位','cr品位'],fallback:24},
+        mgo:{aliases:['mgo','mgo%','氧化镁','mgo品位'],fallback:26},
+        mc:{aliases:['mc','mc%','水份','水分','moisture'],fallback:30}
+      });
       const rows = data.values.slice(1);
       console.log(`📊 Ditemukan ${rows.length} baris data`);
 
@@ -2808,20 +2958,15 @@ const NikelTrak = (function() {
         const row = rows[i];
         if (!row || row.length === 0) continue;
 
-        const internalCode = String(row[0] || '').trim(); // A 内部编号
-        const supplier = String(row[4] || '').trim();     // E 供应商名称
-        const dateRaw = row[2] || '';                     // C 到场时间
-        const mine = String(row[6] || '').trim();         // G 供应矿区
-
-        // 到货重量统一以 P 列“当日重量（湿吨）”为准。
-        // 不使用 Q 列过磅单重量，也不使用 R 列 Anindya 重量。
-        const weight = parseFlexibleNumber(row[15]) || 0; // P 当日重量（湿吨）
-
-        // 品质字段
-        const ni = parseFlexibleNumber(row[18]);          // S Ni(%)
-        const cr = parseFlexibleNumber(row[24]);          // Y Cr(%)
-        const mgo = parseFlexibleNumber(row[26]);         // AA MgO(%)
-        const mc = parseFlexibleNumber(row[30]);          // AE MC(%)
+        const internalCode = String(row[col.internalCode] || '').trim();
+        const supplier = String(row[col.supplier] || '').trim();
+        const dateRaw = row[col.date] || '';
+        const mine = String(row[col.mine] || '').trim();
+        const weight = parseFlexibleNumber(row[col.weight]) || 0;
+        const ni = parseFlexibleNumber(row[col.ni]);
+        const cr = parseFlexibleNumber(row[col.cr]);
+        const mgo = parseFlexibleNumber(row[col.mgo]);
+        const mc = parseFlexibleNumber(row[col.mc]);
 
         if (!dateRaw || weight <= 0 || !supplier) continue;
 
@@ -2839,7 +2984,9 @@ const NikelTrak = (function() {
           cr: cr > 0 ? cr : null,
           mgo: mgo > 0 ? mgo : null,
           mc: mc > 0 ? mc : null,
-          source: 'Google Sheets'
+          source: 'Google Sheets',
+          sourceRow: i + 2,
+          sourceGateway: data._gateway || 'direct-readonly'
         });
       }
 
@@ -2949,14 +3096,84 @@ const NikelTrak = (function() {
     } catch (error) { console.warn('IndexedDB 缓存写入失败',error); return false; }
   }
 
+  const LocalAnalyticsDB = {
+    name:'nikeltrak-local-analytics-v1',store:'artifacts',dbPromise:null,
+    open() {
+      if (this.dbPromise) return this.dbPromise;
+      this.dbPromise = new Promise((resolve,reject)=>{
+        if (!('indexedDB' in window)) { resolve(null); return; }
+        const request=indexedDB.open(this.name,1);
+        request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains(this.store))request.result.createObjectStore(this.store);};
+        request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);
+      });
+      return this.dbPromise;
+    },
+    async put(key,value) {
+      try {
+        const db=await this.open();if(!db)return false;
+        await new Promise((resolve,reject)=>{const request=db.transaction(this.store,'readwrite').objectStore(this.store).put({value,updatedAt:Date.now()},key);request.onsuccess=()=>resolve();request.onerror=()=>reject(request.error);});
+        return true;
+      } catch(error){console.warn('本地分析数据库写入失败',error);return false;}
+    },
+    async get(key) {
+      try {
+        const db=await this.open();if(!db)return null;
+        return await new Promise((resolve,reject)=>{const request=db.transaction(this.store,'readonly').objectStore(this.store).get(key);request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>reject(request.error);});
+      } catch(error){return null;}
+    }
+  };
+
+  const IncrementalAnalytics = {
+    worker:null,pending:new Map(),sequence:0,latest:new Map(),
+    ensureWorker() {
+      if (this.worker || typeof Worker === 'undefined') return this.worker;
+      const source = `
+        const states=new Map();
+        const keyOf=r=>r.sourceRow?('ROW|'+r.sourceRow):[r.internalCode,r.date,r.supplier,r.mine,r.weight].join('|');
+        const hashOf=r=>JSON.stringify([r.weight,r.ni,r.mgo,r.cr,r.mc]);
+        const contribution=r=>{const wet=Number(r.weight)||0,mc=Number(r.mc)||0,dry=wet*(1-mc/100);const result={wet,niN:0,niD:0,mgoN:0,mgoD:0,crN:0,crD:0,mcN:0,mcD:0};for(const key of ['ni','mgo','cr']){const value=Number(r[key]);if(value>0&&dry>0){result[key+'N']=value*dry;result[key+'D']=dry;}}if(mc>0&&wet>0){result.mcN=mc*wet;result.mcD=wet;}return result;};
+        const emptyAcc=()=>({recordCount:0,totalWet:0,niN:0,niD:0,mgoN:0,mgoD:0,crN:0,crD:0,mcN:0,mcD:0});
+        const apply=(acc,c,factor)=>{acc.recordCount+=factor;acc.totalWet+=c.wet*factor;for(const key of ['niN','niD','mgoN','mgoD','crN','crD','mcN','mcD'])acc[key]+=c[key]*factor;};
+        onmessage=e=>{const {id,project,rows}=e.data;const state=states.get(project)||{rows:new Map(),acc:emptyAcc()};const next=new Map();let inserted=0,updated=0,removed=0;for(const r of rows){const key=keyOf(r),hash=hashOf(r),previous=state.rows.get(key);if(previous&&previous.hash===hash){next.set(key,previous);continue;}if(previous){apply(state.acc,previous.contribution,-1);updated++;}else inserted++;const entry={hash,contribution:contribution(r)};apply(state.acc,entry.contribution,1);next.set(key,entry);}for(const [key,entry] of state.rows){if(!next.has(key)){apply(state.acc,entry.contribution,-1);removed++;}}state.rows=next;states.set(project,state);const a=state.acc;const metrics={recordCount:a.recordCount,totalWet:a.totalWet,ni:a.niD?a.niN/a.niD:null,mgo:a.mgoD?a.mgoN/a.mgoD:null,cr:a.crD?a.crN/a.crD:null,mc:a.mcD?a.mcN/a.mcD:null};postMessage({id,project,delta:{inserted,updated,removed},metrics,computedAt:Date.now()});};
+      `;
+      const blob=new Blob([source],{type:'text/javascript'});this.worker=new Worker(URL.createObjectURL(blob));
+      this.worker.onmessage=event=>{const message=event.data||{};this.latest.set(message.project,message);const pending=this.pending.get(message.id);if(pending){this.pending.delete(message.id);pending.resolve(message);}};
+      this.worker.onerror=error=>console.warn('后台增量计算失败，继续使用主线程结果',error);
+      return this.worker;
+    },
+    update(project,rows) {
+      const worker=this.ensureWorker();
+      if(!worker)return Promise.resolve({project,delta:{inserted:rows.length,updated:0,removed:0},metrics:MetricEngine.summarize(rows),computedAt:Date.now()});
+      const id=++this.sequence;
+      return new Promise(resolve=>{this.pending.set(id,{resolve});worker.postMessage({id,project,rows:rows.map(r=>({sourceRow:r.sourceRow,internalCode:r.internalCode,date:r.date,supplier:r.supplier,mine:r.mine,weight:r.weight,ni:r.ni,mgo:r.mgo,cr:r.cr,mc:r.mc}))});});
+    }
+  };
+
+  let lastAnalyticsSignature = '';
+  function scheduleAdvancedAnalytics(rows) {
+    if (!Array.isArray(rows) || !rows.length) return;
+    const total = rows.reduce((sum,row)=>sum+(Number(row.weight)||0),0);
+    const qualityChecksum = rows.reduce((sum,row)=>sum+(Number(row.ni)||0)*31+(Number(row.mgo)||0)*17+(Number(row.mc)||0)*7,0);
+    const bounds=dateBounds(rows);
+    const signature=`${currentProject}|${rows.length}|${total.toFixed(2)}|${qualityChecksum.toFixed(3)}|${bounds.min}|${bounds.max}|${inventorySnapshot.date||''}|${inventorySnapshot.wetTons??''}|${inventorySnapshot.history?.length||0}`;
+    if(signature===lastAnalyticsSignature)return;
+    lastAnalyticsSignature=signature;
+    const run=async()=>{
+      const result=await IncrementalAnalytics.update(currentProject,rows);
+      await Promise.all([
+        LocalAnalyticsDB.put(`${currentProject}:normalized-records`,rows),
+        LocalAnalyticsDB.put(`${currentProject}:semantic-metrics`,result)
+      ]);
+      runRegressionTests(rows,inventorySnapshot,result.metrics);
+    };
+    if('requestIdleCallback' in window)requestIdleCallback(()=>void run(),{timeout:1800});else setTimeout(()=>void run(),60);
+  }
+
   async function loadInventoryFromGoogleSheets(projectId) {
     const project = PROJECTS[projectId];
     if (!project?.inventorySheetRange) return { date: '', wetTons: null, history: [] };
 
-    const range = encodeURIComponent(project.inventorySheetRange);
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${project.spreadsheetId}/values/${range}` +
-      `?key=${project.apiKey}&valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=FORMATTED_STRING`;
-    const data = await fetchJsonWithTimeout(url, 15000);
+    const data = await SecureDataGateway.read(project,project.inventorySheetRange,15000);
     const values = Array.isArray(data.values) ? data.values : [];
     if (values.length <= 1) return { date: '', wetTons: null, history: [] };
 
@@ -3078,9 +3295,7 @@ const NikelTrak = (function() {
   async function loadPaymentFromGoogleSheets(projectId) {
     const project = PROJECTS[projectId];
     if (!project || !project.paymentSheetRange) return [];
-    const range = encodeURIComponent(project.paymentSheetRange);
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${project.spreadsheetId}/values/${range}?key=${project.apiKey}`;
-    const data = await fetchJsonWithTimeout(url, 12000);
+    const data = await SecureDataGateway.read(project,project.paymentSheetRange,12000);
     if (!data.values || data.values.length <= 1) return [];
 
     const headers = data.values[0] || [];
@@ -3565,55 +3780,67 @@ const NikelTrak = (function() {
     });
   }
 
-  function aggregateDaily(rows) {
-    if (!rows || !rows.length) return [];
+  const METRIC_CATALOG = Object.freeze({
+    arrivalWet:{label:'到货湿吨',unit:'湿吨',aggregation:'sum',source:'到货明细.weight'},
+    ni:{label:'加权 Ni',unit:'%',aggregation:'dry-weighted-average',source:'到货明细.ni'},
+    mgo:{label:'加权 MgO',unit:'%',aggregation:'dry-weighted-average',source:'到货明细.mgo'},
+    cr:{label:'加权 Cr',unit:'%',aggregation:'dry-weighted-average',source:'到货明细.cr'},
+    mc:{label:'加权 MC',unit:'%',aggregation:'wet-weighted-average',source:'到货明细.mc'},
+    consumption:{label:'每日消耗',unit:'湿吨',aggregation:'reported-or-cumulative-delta',source:'生产及库存.production'},
+    inventory:{label:'库存余量',unit:'湿吨',aggregation:'latest-valid',source:'生产及库存.inventory'}
+  });
 
-    const map = new Map();
-    rows.forEach(row => {
-      if (!row.date) return;
-      if (!map.has(row.date)) {
-        map.set(row.date, { date: row.date, weight: 0, rows: [] });
-      }
-      const item = map.get(row.date);
-      item.weight += row.weight || 0;
-      item.rows.push(row);
-    });
-
-    return [...map.values()]
-      .sort((a, b) => a.date.localeCompare(b.date))
-      .map(item => ({
-        date: item.date,
-        weight: item.weight,
-        ni: weightedAverageWithDryWeight(item.rows, 'ni'),
-        mgo: weightedAverageWithDryWeight(item.rows, 'mgo'),
-        count: item.rows.length
+  const MetricEngine = {
+    catalog:METRIC_CATALOG,
+    summarize(rows,operationSnapshot = inventorySnapshot) {
+      const list = Array.isArray(rows) ? rows : [];
+      const history = operationSnapshot?.history || [];
+      const inventory = [...history].reverse().find(item=>Number.isFinite(item.inventory));
+      const consumption = [...history].reverse().find(item=>Number.isFinite(item.production));
+      return {
+        recordCount:list.length,
+        totalWet:list.reduce((sum,row)=>sum+(Number(row.weight)||0),0),
+        ni:weightedAverageWithDryWeight(list,'ni'),
+        mgo:weightedAverageWithDryWeight(list,'mgo'),
+        cr:weightedAverageWithDryWeight(list,'cr'),
+        mc:weightedAverageWithWetWeight(list,'mc'),
+        inventory:inventory?.inventory ?? null,
+        inventoryDate:inventory?.date || '',
+        consumption:consumption?.production ?? null,
+        consumptionDate:consumption?.date || ''
+      };
+    },
+    daily(rows) {
+      if (!Array.isArray(rows) || !rows.length) return [];
+      const map = new Map();
+      rows.forEach(row=>{
+        if (!row.date) return;
+        if (!map.has(row.date)) map.set(row.date,{date:row.date,weight:0,rows:[]});
+        const item=map.get(row.date); item.weight+=Number(row.weight)||0; item.rows.push(row);
+      });
+      return [...map.values()].sort((a,b)=>a.date.localeCompare(b.date)).map(item=>({
+        date:item.date,weight:item.weight,
+        ni:weightedAverageWithDryWeight(item.rows,'ni'),mgo:weightedAverageWithDryWeight(item.rows,'mgo'),
+        cr:weightedAverageWithDryWeight(item.rows,'cr'),mc:weightedAverageWithWetWeight(item.rows,'mc'),count:item.rows.length
       }));
-  }
-
-  function aggregateSuppliers(rows) {
-    if (!rows || !rows.length) return [];
-
-    const map = new Map();
-    rows.forEach(row => {
-      if (!row.supplier) return;
-      if (!map.has(row.supplier)) {
-        map.set(row.supplier, { supplier: row.supplier, weight: 0, rows: [] });
-      }
-      const item = map.get(row.supplier);
-      item.weight += row.weight || 0;
-      item.rows.push(row);
-    });
-
-    return [...map.values()]
-      .sort((a, b) => b.weight - a.weight)
-      .map(item => ({
-        ...item,
-        ni: weightedAverageWithDryWeight(item.rows, 'ni'),
-        mgo: weightedAverageWithDryWeight(item.rows, 'mgo'),
-        cr: weightedAverageWithDryWeight(item.rows, 'cr'),
-        mc: weightedAverageWithWetWeight(item.rows, 'mc'),
+    },
+    suppliers(rows) {
+      if (!Array.isArray(rows) || !rows.length) return [];
+      const map=new Map();
+      rows.forEach(row=>{
+        if(!row.supplier)return;
+        if(!map.has(row.supplier))map.set(row.supplier,{supplier:row.supplier,weight:0,rows:[]});
+        const item=map.get(row.supplier);item.weight+=Number(row.weight)||0;item.rows.push(row);
+      });
+      return [...map.values()].sort((a,b)=>b.weight-a.weight).map(item=>({...item,
+        ni:weightedAverageWithDryWeight(item.rows,'ni'),mgo:weightedAverageWithDryWeight(item.rows,'mgo'),
+        cr:weightedAverageWithDryWeight(item.rows,'cr'),mc:weightedAverageWithWetWeight(item.rows,'mc')
       }));
-  }
+    }
+  };
+
+  function aggregateDaily(rows) { return MetricEngine.daily(rows); }
+  function aggregateSuppliers(rows) { return MetricEngine.suppliers(rows); }
 
   // ============================================================
   // 智能驾驶舱
@@ -3667,12 +3894,38 @@ const NikelTrak = (function() {
     return { current, previous: prev, change: percentChange(current, prev) };
   }
 
+  function calculateQualityStability(daily, windowSize = 7) {
+    const points = (daily || []).filter(item => Number.isFinite(item.ni) || Number.isFinite(item.mgo)).slice(-windowSize);
+    const deviation = values => {
+      const valid = values.filter(Number.isFinite);
+      if (valid.length < 3) return null;
+      const mean = valid.reduce((sum,value)=>sum+value,0) / valid.length;
+      return Math.sqrt(valid.reduce((sum,value)=>sum+((value-mean) ** 2),0) / valid.length);
+    };
+    const niDeviation = deviation(points.map(item=>item.ni));
+    const mgoDeviation = deviation(points.map(item=>item.mgo));
+    if (niDeviation == null && mgoDeviation == null) {
+      return { tone:'muted', label:'品质样本不足', note:'至少需要 3 个有效品质日', niDeviation, mgoDeviation, count:points.length };
+    }
+    const niLevel = niDeviation == null ? 0 : niDeviation <= .03 ? 0 : niDeviation <= .06 ? 1 : 2;
+    const mgoLevel = mgoDeviation == null ? 0 : mgoDeviation <= .35 ? 0 : mgoDeviation <= .70 ? 1 : 2;
+    const level = Math.max(niLevel,mgoLevel);
+    const label = level === 0 ? '品质稳定' : level === 1 ? '品质轻微波动' : '品质波动较大';
+    const tone = level === 0 ? '' : level === 1 ? 'watch' : 'risk';
+    const detail = [
+      niDeviation == null ? '' : `Ni σ ${niDeviation.toFixed(2)}`,
+      mgoDeviation == null ? '' : `MgO σ ${mgoDeviation.toFixed(2)}`
+    ].filter(Boolean).join(' · ');
+    return { tone, label, note:`近 ${points.length} 个有效品质日${detail ? ` · ${detail}` : ''}`, niDeviation, mgoDeviation, count:points.length };
+  }
+
   function renderSmartCenter(rows, daily, suppliers) {
     if (!els.smartSummaryText || !els.smartMetrics || !els.smartAlertList) return;
     const niTarget = Number(els.niTarget?.value || smartSettings.niTarget || 1.15);
     const mgoLimit = Number(els.mgoLimit?.value || smartSettings.mgoLimit || 4);
     if (!rows.length) {
       els.smartSummaryText.textContent = '当前筛选范围没有匹配数据。';
+      if (els.qualityStability) { els.qualityStability.className = 'quality-stability muted'; els.qualityStability.innerHTML = '<strong>品质待分析</strong>'; }
       if (els.dataFreshness) { els.dataFreshness.className = 'data-freshness stale'; els.dataFreshness.textContent = '当前范围暂无可核对数据'; }
       els.smartMetrics.innerHTML = '';
       els.smartAlertList.innerHTML = '<div class="no-alert">暂无可分析数据</div>';
@@ -3710,6 +3963,13 @@ const NikelTrak = (function() {
       }
       const shortageSentence = shortageStreak ? `，已连续 ${shortageStreak} 个共同数据日到货低于消耗` : '';
       els.smartSummaryText.textContent = `${inventorySentence}，${productionSentence}，${qualitySentence}${shortageSentence}。`;
+
+      const stability = calculateQualityStability(daily);
+      if (els.qualityStability) {
+        els.qualityStability.className = `quality-stability ${stability.tone}`.trim();
+        els.qualityStability.innerHTML = `<strong>${escapeHtml(stability.label)}</strong><span>${escapeHtml(stability.note)}</span>`;
+        els.qualityStability.title = '按最近 7 个有效品质日的 Ni、MgO 日加权值标准差判断';
+      }
 
       if (els.dataFreshness) {
         const arrivalDate = daily.at(-1)?.date || '';
@@ -3820,6 +4080,96 @@ const NikelTrak = (function() {
     updateQuickRangeChips(); DataCache.clear(); render(); showSmartToast('已恢复保存的筛选视图');
   }
 
+  const HABIT_MULTI_IDS = ['ms-internal','ms-date','ms-mine','ms-ni','ms-cr','ms-mgo','ms-mc'];
+
+  function captureMultiSelectHabits() {
+    const result = {};
+    HABIT_MULTI_IDS.forEach(id => {
+      const boxes = [...document.querySelectorAll(`#${id} .dropdown-items input[type="checkbox"]`)];
+      if (!boxes.length) return;
+      const checked = boxes.filter(box=>box.checked).map(box=>box.value);
+      const unchecked = boxes.filter(box=>!box.checked).map(box=>box.value);
+      result[id] = checked.length <= unchecked.length
+        ? { mode:'checked', values:checked }
+        : { mode:'excluded', values:unchecked };
+    });
+    return result;
+  }
+
+  function persistUsageHabits(force = false) {
+    if (!habitsReady && !force) return;
+    const habit = {
+      version:1,
+      supplier:els.supplierFilter?.value || 'all',
+      range:els.rangeFilter?.value || 'all',
+      dateFrom:els.dateFrom?.value || '',
+      dateTo:els.dateTo?.value || '',
+      keyword:els.quickSearch?.value || '',
+      groupBy:els.groupByInternal?.checked !== false,
+      rangeStart:els.rangeInternalStart?.value || '',
+      rangeEnd:els.rangeInternalEnd?.value || '',
+      smartViewMode,
+      chartViewMode,
+      chartRange,
+      anomalyDateFocus,
+      detailColumnsExpanded,
+      multi:captureMultiSelectHabits()
+    };
+    try {
+      localStorage.setItem('nikeltrak-last-project',currentProject);
+      localStorage.setItem(smartStorageKey('usage-habits-v1'),JSON.stringify(habit));
+    } catch (error) {}
+  }
+
+  const persistUsageHabitsDebounced = debounce(()=>persistUsageHabits(),320);
+
+  function restoreUsageHabits() {
+    let habit = null;
+    try { habit = JSON.parse(localStorage.getItem(smartStorageKey('usage-habits-v1')) || 'null'); } catch (error) {}
+    if (!habit || habit.version !== 1) return false;
+    if (els.supplierFilter) {
+      const supplier = habit.supplier || 'all';
+      els.supplierFilter.value = [...els.supplierFilter.options].some(option=>option.value===supplier) ? supplier : 'all';
+    }
+    if (els.rangeFilter) {
+      const allowed = [...els.rangeFilter.options].map(option=>option.value);
+      els.rangeFilter.value = allowed.includes(habit.range) ? habit.range : 'all';
+    }
+    if (els.dateFrom) els.dateFrom.value = habit.dateFrom || '';
+    if (els.dateTo) els.dateTo.value = habit.dateTo || '';
+    if (els.quickSearch) els.quickSearch.value = habit.keyword || '';
+    if (els.groupByInternal) els.groupByInternal.checked = habit.groupBy !== false;
+    if (els.rangeInternalStart) els.rangeInternalStart.value = habit.rangeStart || '';
+    if (els.rangeInternalEnd) els.rangeInternalEnd.value = habit.rangeEnd || '';
+    rangeInternalStart = habit.rangeStart || '';
+    rangeInternalEnd = habit.rangeEnd || '';
+    smartViewMode = habit.smartViewMode === 'risk' ? 'risk' : 'all';
+    chartViewMode = ['balance','inventory','quality'].includes(habit.chartViewMode) ? habit.chartViewMode : 'balance';
+    chartRange = ['7','30','all'].includes(habit.chartRange) ? habit.chartRange : '30';
+    anomalyDateFocus = habit.anomalyDateFocus === true;
+    detailColumnsExpanded = habit.detailColumnsExpanded === true;
+    if (habit.multi && typeof habit.multi === 'object') {
+      Object.entries(habit.multi).forEach(([id,state])=>{
+        const set = new Set(state?.values || []);
+        document.querySelectorAll(`#${id} .dropdown-items input[type="checkbox"]`).forEach(box=>{
+          box.checked = state?.mode === 'checked' ? set.has(box.value) : !set.has(box.value);
+        });
+        updateMultiSelectDisplay(id);
+      });
+    }
+    els.anomalyToggle?.classList.toggle('active',smartViewMode === 'risk');
+    if (els.anomalyToggle) els.anomalyToggle.textContent = smartViewMode === 'risk' ? '异常中' : '异常';
+    if (els.chartAnomalyFocus) {
+      els.chartAnomalyFocus.classList.toggle('active',anomalyDateFocus);
+      els.chartAnomalyFocus.setAttribute('aria-pressed',String(anomalyDateFocus));
+    }
+    updateDetailColumnsUI();
+    applyRememberedColumnWidths();
+    updateQuickRangeChips();
+    updateChartModeUI();
+    return true;
+  }
+
   function toggleAdvancedFilters(forceOpen = null) {
     if (!els.advancedFilters) return;
     const open = forceOpen === null ? els.advancedFilters.classList.contains('is-collapsed') : !!forceOpen;
@@ -3881,8 +4231,9 @@ const NikelTrak = (function() {
   function renderStats(rows, daily) {
     const latest = daily.length ? daily[daily.length - 1] : null;
     const previousArrival = daily.length > 1 ? daily[daily.length - 2] : null;
-    const ni = weightedAverageWithDryWeight(rows, 'ni');
-    const mgo = weightedAverageWithDryWeight(rows, 'mgo');
+    const semanticMetrics = MetricEngine.summarize(rows,inventorySnapshot);
+    const ni = semanticMetrics.ni;
+    const mgo = semanticMetrics.mgo;
     const inventoryValue = Number.isFinite(inventorySnapshot.wetTons)
       ? formatTons(inventorySnapshot.wetTons, 0)
       : '-';
@@ -3936,6 +4287,142 @@ const NikelTrak = (function() {
   function updateChartModeUI() {
     document.querySelectorAll('[data-chart-mode]').forEach(btn => btn.classList.toggle('active', btn.dataset.chartMode === chartViewMode));
     document.querySelectorAll('[data-chart-range]').forEach(btn => btn.classList.toggle('active', btn.dataset.chartRange === chartRange));
+    if (els.chartAnomalyFocus) {
+      els.chartAnomalyFocus.classList.toggle('active',anomalyDateFocus);
+      els.chartAnomalyFocus.setAttribute('aria-pressed',String(anomalyDateFocus));
+    }
+  }
+
+  function calculateAnomalyDateMap(daily) {
+    const result = new Map();
+    const add = (date,reason) => {
+      if (!date || !reason) return;
+      if (!result.has(date)) result.set(date,[]);
+      if (!result.get(date).includes(reason)) result.get(date).push(reason);
+    };
+    const niTarget = Number(els.niTarget?.value || smartSettings.niTarget || 1.15);
+    const mgoLimit = Number(els.mgoLimit?.value || smartSettings.mgoLimit || 4);
+    (daily || []).forEach(item=>{
+      if (Number.isFinite(item.ni) && item.ni > 0 && item.ni < niTarget) add(item.date,`Ni ${item.ni.toFixed(2)}% 低于 ${niTarget.toFixed(2)}%`);
+      if (Number.isFinite(item.mgo) && item.mgo > mgoLimit) add(item.date,`MgO ${item.mgo.toFixed(2)}% 高于 ${mgoLimit.toFixed(2)}%`);
+    });
+    const arrivals = new Map((daily || []).map(item=>[item.date,item.weight]));
+    const history = [...(inventorySnapshot.history || [])].filter(item=>item?.date).sort((a,b)=>a.date.localeCompare(b.date));
+    history.forEach((item,index)=>{
+      const arrival = arrivals.get(item.date);
+      if (Number.isFinite(arrival) && Number.isFinite(item.production) && arrival < item.production) {
+        add(item.date,`到货低于消耗 ${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(item.production-arrival)} 湿吨`);
+      }
+      const previous = history[index-1];
+      if (Number.isFinite(item.inventory) && Number.isFinite(previous?.inventory) && previous.inventory !== 0) {
+        const change = ((item.inventory-previous.inventory)/Math.abs(previous.inventory))*100;
+        if (Math.abs(change) >= 10) add(item.date,`库存较前值${change>=0?'上升':'下降'} ${Math.abs(change).toFixed(1)}%`);
+      }
+    });
+    return result;
+  }
+
+  function toggleAnomalyDateFocus() {
+    anomalyDateFocus = !anomalyDateFocus;
+    updateChartModeUI();
+    renderChart(aggregateDaily(applyMainFilters(records)));
+    persistUsageHabitsDebounced();
+    showSmartToast(anomalyDateFocus ? '图表已聚焦异常日期' : '图表已恢复全部日期');
+  }
+
+  function closeDateDetail() {
+    if (!els.dateDetailOverlay) return;
+    els.dateDetailOverlay.classList.remove('open');
+    els.dateDetailOverlay.setAttribute('aria-hidden','true');
+  }
+
+  function openDateDetail(date) {
+    if (!date || !els.dateDetailOverlay || !els.dateDetailBody) return;
+    const filteredRows = applyMainFilters(records);
+    const dayRows = filteredRows.filter(row=>row.date===date);
+    const day = aggregateDaily(dayRows)[0] || {date,weight:null,ni:null,mgo:null,count:0};
+    const operation = (inventorySnapshot.history || []).find(item=>item.date===date) || {};
+    const suppliers = aggregateSuppliers(dayRows).slice(0,5);
+    const anomalyReasons = calculateAnomalyDateMap(aggregateDaily(records)).get(date) || [];
+    const niTarget = Number(els.niTarget?.value || smartSettings.niTarget || 1.15);
+    const mgoLimit = Number(els.mgoLimit?.value || smartSettings.mgoLimit || 4);
+    const fmtTons = value => Number.isFinite(value) ? new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value)+' 湿吨' : '—';
+    const gap = Number.isFinite(day.weight) && Number.isFinite(operation.production) ? day.weight-operation.production : null;
+    const comparisonRows=(els.supplierFilter?.value&&els.supplierFilter.value!=='all')?records.filter(row=>row.supplier===els.supplierFilter.value):records;
+    const comparisonDaily=aggregateDaily(comparisonRows);
+    const dailyMap=new Map(comparisonDaily.map(item=>[item.date,item]));
+    const operationMap=new Map((inventorySnapshot.history||[]).map(item=>[item.date,item]));
+    const previousArrivalDate=[...dailyMap.keys()].filter(itemDate=>itemDate<date).sort().at(-1)||'';
+    const previousOperationDate=[...operationMap.keys()].filter(itemDate=>itemDate<date).sort().at(-1)||'';
+    const previousDay=dailyMap.get(previousArrivalDate)||{};
+    const previousOperation=operationMap.get(previousOperationDate)||{};
+    const diffText=(current,previous,quality=false)=>{
+      if(!Number.isFinite(current)||!Number.isFinite(previous))return {text:'—',tone:''};
+      const diff=current-previous;
+      const text=quality?`${diff>=0?'+':''}${diff.toFixed(2)} 个百分点`:`${diff>=0?'+':''}${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(diff)} 湿吨`;
+      return {text,tone:diff>0?'up':diff<0?'down':''};
+    };
+    const comparisons=[
+      ['每日到货',diffText(day.weight,previousDay.weight)],['每日消耗',diffText(operation.production,previousOperation.production)],
+      ['库存余量',diffText(operation.inventory,previousOperation.inventory)],['Ni',diffText(day.ni,previousDay.ni,true)],['MgO',diffText(day.mgo,previousDay.mgo,true)]
+    ];
+    const compareDateNote=[previousArrivalDate?`到货 ${previousArrivalDate}`:'',previousOperationDate?`运营 ${previousOperationDate}`:''].filter(Boolean).join(' · ');
+    const comparisonHtml=(previousArrivalDate||previousOperationDate)?`<div class="date-compare-card"><div class="date-compare-head"><h3>与前一有效值对比</h3><span>${compareDateNote}</span></div><div class="date-compare-grid">${comparisons.map(([label,result])=>`<div class="date-compare-item"><span>${label}</span><strong class="${result.tone}">${result.text}</strong></div>`).join('')}</div></div>`:'';
+    if (els.dateDetailTitle) els.dateDetailTitle.textContent = date;
+    if (els.dateDetailSubtitle) els.dateDetailSubtitle.textContent = `${currentProject} · 当日经营详情`;
+    const supplierHtml = suppliers.length ? suppliers.map(item=>`
+      <div class="date-detail-supplier"><span>${escapeHtml(item.supplier)}</span><strong>${fmtTons(item.weight)}</strong></div>
+    `).join('') : '<div class="date-detail-empty">当天没有到货供应商记录</div>';
+    const reasonsHtml = anomalyReasons.length ? `<div class="date-detail-section"><h3>异常提示</h3><div class="date-detail-reasons">${anomalyReasons.map(reason=>`<span class="date-detail-reason">${escapeHtml(reason)}</span>`).join('')}</div></div>` : '';
+    els.dateDetailBody.innerHTML = `
+      <div class="date-detail-grid">
+        <div class="date-detail-metric"><span>每日到货</span><strong>${fmtTons(day.weight)}</strong></div>
+        <div class="date-detail-metric"><span>每日消耗</span><strong>${fmtTons(operation.production)}</strong></div>
+        <div class="date-detail-metric"><span>库存余量</span><strong>${fmtTons(operation.inventory)}</strong></div>
+        <div class="date-detail-metric"><span>当日供耗差</span><strong>${gap == null ? '—' : `${gap>=0?'+':''}${fmtTons(gap)}`}</strong></div>
+      </div>
+      <div class="date-detail-section">
+        <h3>到货品质 · ${day.count || 0} 条记录</h3>
+        <div class="date-detail-quality">
+          <div><span>加权 Ni · 下限 ${niTarget.toFixed(2)}%</span><strong class="${Number.isFinite(day.ni)&&day.ni<niTarget?'is-risk':''}">${Number.isFinite(day.ni)?day.ni.toFixed(2)+'%':'—'}</strong></div>
+          <div><span>加权 MgO · 上限 ${mgoLimit.toFixed(2)}%</span><strong class="${Number.isFinite(day.mgo)&&day.mgo>mgoLimit?'is-risk':''}">${Number.isFinite(day.mgo)?day.mgo.toFixed(2)+'%':'—'}</strong></div>
+        </div>
+      </div>
+      ${comparisonHtml}
+      ${reasonsHtml}
+      <div class="date-detail-section"><h3>当日供应商</h3>${supplierHtml}</div>
+      <button class="date-detail-action" type="button" data-filter-detail-date="${escapeHtml(date)}">筛选当天明细</button>
+    `;
+    els.dateDetailOverlay.classList.add('open');
+    els.dateDetailOverlay.setAttribute('aria-hidden','false');
+  }
+
+  function detectTrendShifts(daily,history=inventorySnapshot.history||[]) {
+    const average=values=>values.length?values.reduce((sum,value)=>sum+value,0)/values.length:null;
+    const compareWindows=(rows,key,size=5)=>{
+      const values=rows.map(item=>Number(item[key])).filter(Number.isFinite);
+      if(values.length<size*2)return null;
+      const current=average(values.slice(-size)),previous=average(values.slice(-size*2,-size));
+      if(!Number.isFinite(current)||!Number.isFinite(previous)||previous===0)return null;
+      return {current,previous,change:(current-previous)/Math.abs(previous)*100};
+    };
+    const items=[];
+    const arrival=compareWindows(daily,'weight');
+    const consumption=compareWindows(history.filter(item=>Number.isFinite(item.production)),'production');
+    const inventory=compareWindows(history.filter(item=>Number.isFinite(item.inventory)),'inventory');
+    const ni=compareWindows(daily.filter(item=>Number.isFinite(item.ni)),'ni');
+    const mgo=compareWindows(daily.filter(item=>Number.isFinite(item.mgo)),'mgo');
+    const addPercent=(metric,label,threshold=10)=>{if(metric&&Math.abs(metric.change)>=threshold)items.push({label,value:`${metric.change>=0?'上移':'下移'} ${Math.abs(metric.change).toFixed(1)}%`,tone:metric.change>=0?'up':'down'});};
+    addPercent(arrival,'到货节奏',12);addPercent(consumption,'消耗水平',10);addPercent(inventory,'库存平台',6);
+    if(ni&&Math.abs(ni.current-ni.previous)>=.04)items.push({label:'Ni 中枢',value:`${ni.current>=ni.previous?'上移':'下移'} ${Math.abs(ni.current-ni.previous).toFixed(2)} 个百分点`,tone:ni.current>=ni.previous?'up':'risk'});
+    if(mgo&&Math.abs(mgo.current-mgo.previous)>=.35)items.push({label:'MgO 中枢',value:`${mgo.current>=mgo.previous?'上移':'下移'} ${Math.abs(mgo.current-mgo.previous).toFixed(2)} 个百分点`,tone:mgo.current>=mgo.previous?'risk':'down'});
+    return items.slice(0,4);
+  }
+
+  function renderTrendShifts(daily){
+    if(!els.trendShiftStrip)return;
+    const items=detectTrendShifts(daily);
+    els.trendShiftStrip.innerHTML=items.map(item=>`<span class="trend-shift-item ${item.tone}"><strong>${escapeHtml(item.label)}</strong>${escapeHtml(item.value)}</span>`).join('');
   }
 
   function renderChart(daily) {
@@ -3943,6 +4430,7 @@ const NikelTrak = (function() {
     chartRenderer.setProject(currentProject);
     chartRenderer.setMode(chartViewMode);
     const limit = chartRange === 'all' ? Infinity : Number(chartRange || 30);
+    const anomalyDates = calculateAnomalyDateMap(daily);
     let available = [];
     if (chartViewMode === 'balance') {
       const combined = new Map();
@@ -3961,21 +4449,28 @@ const NikelTrak = (function() {
       const key = chartViewMode === 'inventory' ? 'inventory' : 'production';
       available = (inventorySnapshot.history || []).filter(item => Number.isFinite(item[key]));
     }
+    const anomalyCount = available.reduce((count,item)=>count+(anomalyDates.has(item.date)?1:0),0);
+    if (anomalyDateFocus) available = available.filter(item=>anomalyDates.has(item.date));
     const visible = chartViewMode === 'balance' ? available : Number.isFinite(limit) ? available.slice(-limit) : available;
     if (els.chartContainer) {
       els.chartContainer.dataset.consumptionMode = inventorySnapshot.consumptionMode || 'reported-daily';
       els.chartContainer.dataset.chartRange = chartRange;
+      els.chartContainer.dataset.anomalyFocus = String(anomalyDateFocus);
     }
+    if (els.chartAnomalyFocus) els.chartAnomalyFocus.textContent = `异常日期 ${anomalyCount}`;
+    renderTrendShifts(daily);
     chartRenderer.update(visible);
     updateChartModeUI();
 
     if (visible.length && chartViewMode !== 'balance') {
       const label = chartViewMode === 'balance' ? '供耗平衡' : chartViewMode === 'arrival' ? '每日到货' : chartViewMode === 'production' ? '消耗趋势' : chartViewMode === 'inventory' ? '库存余量' : '品位波动';
       const consumptionNote = chartViewMode === 'balance' && inventorySnapshot.consumptionMode === 'cumulative-derived' ? ' · 消耗由累计差值换算' : '';
-      els.chartNote.textContent = `${visible[0].date} 至 ${visible[visible.length-1].date} · ${visible.length} 个有效日期 · ${label}${consumptionNote}`;
+      els.chartNote.textContent = `${visible[0].date} 至 ${visible[visible.length-1].date} · ${visible.length} 个有效日期 · ${label}${consumptionNote}${anomalyDateFocus?' · 已聚焦异常日期':''}`;
     } else if (chartViewMode !== 'balance') {
       const label = chartViewMode === 'balance' ? '供耗' : chartViewMode === 'arrival' ? '到货' : chartViewMode === 'production' ? '生产' : chartViewMode === 'inventory' ? '库存' : '品位';
-      els.chartNote.textContent = `暂无${label}数据`;
+      els.chartNote.textContent = anomalyDateFocus ? `当前范围暂无${label}异常日期` : `暂无${label}数据`;
+    } else if (anomalyDateFocus && !visible.length) {
+      els.chartNote.textContent = '当前范围暂无供耗或品质异常日期';
     }
   }
 
@@ -4058,6 +4553,95 @@ const NikelTrak = (function() {
     });
   }
 
+  function updateDetailColumnsUI() {
+    els.arrivalDataTable?.classList.toggle('show-extended',detailColumnsExpanded);
+    if(els.toggleDetailColumns){
+      els.toggleDetailColumns.textContent=detailColumnsExpanded?'收起字段':'展开字段';
+      els.toggleDetailColumns.setAttribute('aria-pressed',String(detailColumnsExpanded));
+    }
+  }
+
+  function toggleDetailColumns() {
+    detailColumnsExpanded=!detailColumnsExpanded;
+    updateDetailColumnsUI();
+    persistUsageHabitsDebounced();
+  }
+
+  function columnWidthStorageKey(){return smartStorageKey('arrival-column-widths-v1');}
+
+  function readColumnWidths(){try{return JSON.parse(localStorage.getItem(columnWidthStorageKey())||'{}')||{};}catch(error){return{};}}
+
+  function applyRememberedColumnWidths(){
+    const widths=readColumnWidths();
+    document.querySelectorAll('#arrival-data-table th[data-col-key]').forEach(th=>{
+      const width=Number(widths[th.dataset.colKey]);
+      if(Number.isFinite(width)&&width>=70)th.style.width=`${width}px`;
+    });
+  }
+
+  function initializeColumnResizers(){
+    document.querySelectorAll('#arrival-data-table th[data-col-key]').forEach(th=>{
+      if(th.querySelector('.column-resizer'))return;
+      const handle=document.createElement('span');handle.className='column-resizer';handle.setAttribute('aria-hidden','true');th.appendChild(handle);
+      let startX=0,startWidth=0;
+      const move=event=>{const width=Math.max(70,Math.min(520,startWidth+(event.clientX-startX)));th.style.width=`${width}px`;};
+      const stop=()=>{
+        document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',stop);handle.classList.remove('resizing');
+        const widths=readColumnWidths();widths[th.dataset.colKey]=Math.round(th.getBoundingClientRect().width);
+        try{localStorage.setItem(columnWidthStorageKey(),JSON.stringify(widths));}catch(error){}
+      };
+      EventManager.add(handle,'pointerdown',event=>{event.preventDefault();event.stopPropagation();startX=event.clientX;startWidth=th.getBoundingClientRect().width;handle.classList.add('resizing');document.addEventListener('pointermove',move);document.addEventListener('pointerup',stop,{once:true});});
+    });
+    applyRememberedColumnWidths();
+  }
+
+  function captureIsolationBaseline(){
+    return {
+      supplier:els.supplierFilter?.value||'all',range:els.rangeFilter?.value||'all',dateFrom:els.dateFrom?.value||'',dateTo:els.dateTo?.value||'',
+      multi:captureMultiSelectHabits()
+    };
+  }
+
+  function applyMultiStateSnapshot(snapshot={}){
+    Object.entries(snapshot).forEach(([id,state])=>{
+      const set=new Set(state?.values||[]);
+      document.querySelectorAll(`#${id} .dropdown-items input[type="checkbox"]`).forEach(box=>box.checked=state?.mode==='checked'?set.has(box.value):!set.has(box.value));
+      updateMultiSelectDisplay(id);
+    });
+  }
+
+  function restoreIsolation(){
+    if(!isolateState)return;
+    const baseline=isolateState.baseline||{};
+    if(els.supplierFilter)els.supplierFilter.value=baseline.supplier||'all';
+    if(els.rangeFilter)els.rangeFilter.value=baseline.range||'all';
+    if(els.dateFrom)els.dateFrom.value=baseline.dateFrom||'';
+    if(els.dateTo)els.dateTo.value=baseline.dateTo||'';
+    applyMultiStateSnapshot(baseline.multi||{});
+    isolateState=null;renderIsolateStatus();updateQuickRangeChips();DataCache.clear();render();
+  }
+
+  function isolateTableValue(type,value){
+    if(!type||!value)return;
+    if(isolateState?.type===type&&isolateState?.value===value){restoreIsolation();showSmartToast('已恢复隔离前的筛选');return;}
+    const baseline=isolateState?.baseline||captureIsolationBaseline();
+    if(type==='supplier'&&els.supplierFilter){els.supplierFilter.value=[...els.supplierFilter.options].some(option=>option.value===value)?value:'all';}
+    if(type==='date'&&/^\d{4}-\d{2}-\d{2}$/.test(value)){if(els.rangeFilter)els.rangeFilter.value='all';if(els.dateFrom)els.dateFrom.value=value;if(els.dateTo)els.dateTo.value=value;}
+    if(type==='internal'){
+      document.querySelectorAll('#ms-internal .dropdown-items input[type="checkbox"]').forEach(box=>box.checked=box.value===value);
+      updateMultiSelectDisplay('ms-internal');
+    }
+    isolateState={type,value,baseline};renderIsolateStatus();updateQuickRangeChips();DataCache.clear();render();showSmartToast(`已隔离：${value}`);
+  }
+
+  function renderIsolateStatus(){
+    if(!els.isolateStatus)return;
+    if(!isolateState){els.isolateStatus.className='isolate-status';els.isolateStatus.innerHTML='';return;}
+    const label=isolateState.type==='supplier'?'供应商':isolateState.type==='date'?'日期':'内部编号';
+    els.isolateStatus.className='isolate-status active';
+    els.isolateStatus.innerHTML=`正在隔离 ${label}：<strong>${escapeHtml(isolateState.value)}</strong><button type="button" data-clear-isolate>恢复原筛选</button>`;
+  }
+
   function renderTablePage(pageData) {
     if (!pageData || !pageData.length) {
       els.recordsBody.innerHTML = `<tr><td colspan="9" class="empty">没有匹配的明细记录</td></tr>`;
@@ -4069,16 +4653,17 @@ const NikelTrak = (function() {
     els.recordsBody.innerHTML = pageData.map(row => {
       const niRisk = row.ni != null && row.ni > 0 && row.ni < niTarget;
       const mgoRisk = row.mgo != null && row.mgo > mgoLimit;
+      const exactDate=/^\d{4}-\d{2}-\d{2}$/.test(row.date||'')?row.date:'';
       return `<tr class="${niRisk || mgoRisk ? 'risk-row' : ''}">
-        <td>${escapeHtml(row.internalCode || '-')}</td>
-        <td>${escapeHtml(row.supplier || '-')}</td>
-        <td>${row.date || '-'}</td>
-        <td>${escapeHtml(row.mine || '-')}</td>
-        <td class="num">${(row.weight || 0).toFixed(2)}</td>
-        <td class="num"><span class="quality-badge ${row.ni==null||row.ni<=0?'neutral':niRisk?'warn':'ok'}">${formatNumber(row.ni,2)}</span></td>
-        <td class="num"><span class="quality-badge ${row.mgo==null||row.mgo<=0?'neutral':mgoRisk?'caution':'ok'}">${formatNumber(row.mgo,2)}</span></td>
-        <td class="num">${formatNumber(row.cr,2)}</td>
-        <td class="num">${formatNumber(row.mc,2)}</td>
+        <td class="col-internal" data-isolate="internal" data-isolate-value="${escapeHtml(row.internalCode||'-')}">${escapeHtml(row.internalCode || '-')}</td>
+        <td class="col-supplier optional-col" data-isolate="supplier" data-isolate-value="${escapeHtml(row.supplier||'-')}">${escapeHtml(row.supplier || '-')}</td>
+        <td class="col-date"${exactDate?` data-isolate="date" data-isolate-value="${exactDate}"`:''}>${row.date || '-'}</td>
+        <td class="col-mine optional-col">${escapeHtml(row.mine || '-')}</td>
+        <td class="num col-weight">${(row.weight || 0).toFixed(2)}</td>
+        <td class="num col-ni"><span class="quality-badge ${row.ni==null||row.ni<=0?'neutral':niRisk?'warn':'ok'}">${formatNumber(row.ni,2)}</span></td>
+        <td class="num col-mgo"><span class="quality-badge ${row.mgo==null||row.mgo<=0?'neutral':mgoRisk?'caution':'ok'}">${formatNumber(row.mgo,2)}</span></td>
+        <td class="num col-cr optional-col">${formatNumber(row.cr,2)}</td>
+        <td class="num col-mc optional-col">${formatNumber(row.mc,2)}</td>
       </tr>`;
     }).join('');
   }
@@ -4118,12 +4703,8 @@ const NikelTrak = (function() {
       return;
     }
 
-    const totalWet = rows.reduce((s, r) => s + (r.weight || 0), 0);
-    const ni = weightedAverageWithDryWeight(rows, 'ni');
-    const mgo = weightedAverageWithDryWeight(rows, 'mgo');
-    const cr = weightedAverageWithDryWeight(rows, 'cr');
-    const mc = weightedAverageWithWetWeight(rows, 'mc');
-    const count = rows.length;
+    const metrics = MetricEngine.summarize(rows);
+    const {totalWet,ni,mgo,cr,mc,recordCount:count} = metrics;
 
     container.innerHTML = `
       <div class="table-summary">
@@ -4305,6 +4886,8 @@ const NikelTrak = (function() {
     if (els.rangeInternalEnd) els.rangeInternalEnd.value = '';
     if (els.quickSearch) els.quickSearch.value = '';
     smartViewMode = 'all';
+    isolateState = null;
+    renderIsolateStatus();
     els.anomalyToggle?.classList.remove('active');
     if (els.anomalyToggle) els.anomalyToggle.textContent = '异常';
 
@@ -4376,8 +4959,112 @@ const NikelTrak = (function() {
   } else {
     els.sourceNote.textContent = '📊 Tidak ada data';
   }
+  scheduleAdvancedAnalytics(records);
+  if (habitsReady) persistUsageHabitsDebounced();
 }
 
+
+  // ============================================================
+  // 高级分析：情景模拟、自然语言查询、自动回归
+  // ============================================================
+
+  function openAdvancedModal(id){
+    const modal=document.getElementById(id);if(!modal)return;
+    modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+  }
+
+  function closeAdvancedModal(id){
+    const modal=document.getElementById(id);if(!modal)return;
+    modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+  }
+
+  function averageRecent(values,count=7){const valid=values.filter(Number.isFinite).slice(-count);return valid.length?valid.reduce((sum,value)=>sum+value,0)/valid.length:0;}
+
+  function openScenarioSimulator(){
+    const daily=aggregateDaily(applyMainFilters(records));
+    const production=(inventorySnapshot.history||[]).map(item=>item.production).filter(Number.isFinite);
+    if(els.scenarioInventory)els.scenarioInventory.value=Math.round(Number(inventorySnapshot.wetTons)||0);
+    if(els.scenarioArrival)els.scenarioArrival.value=Math.round(averageRecent(daily.map(item=>item.weight),7));
+    if(els.scenarioConsumption)els.scenarioConsumption.value=Math.round(averageRecent(production,7)||30000);
+    openAdvancedModal('scenario-modal');runScenarioSimulation();
+  }
+
+  function renderScenarioSvg(values,consumption){
+    if(!els.scenarioChart)return;
+    const width=760,height=220,pad={l:48,r:18,t:20,b:30};
+    const max=Math.max(...values,consumption*7,1),min=Math.min(0,...values);
+    const span=Math.max(1,max-min);const x=index=>pad.l+index*(width-pad.l-pad.r)/Math.max(1,values.length-1);const y=value=>pad.t+(1-(value-min)/span)*(height-pad.t-pad.b);
+    const points=values.map((value,index)=>`${x(index).toFixed(1)},${y(value).toFixed(1)}`).join(' ');
+    const area=`${x(0)},${height-pad.b} ${points} ${x(values.length-1)},${height-pad.b}`;
+    const threshold=consumption*7;
+    els.scenarioChart.innerHTML=`<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="模拟库存曲线"><defs><linearGradient id="scenarioArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(11,128,118,.24)"/><stop offset="1" stop-color="rgba(11,128,118,0)"/></linearGradient></defs><line x1="${pad.l}" x2="${width-pad.r}" y1="${y(threshold)}" y2="${y(threshold)}" stroke="#d49a35" stroke-dasharray="5 5"/><text x="${width-pad.r}" y="${y(threshold)-5}" text-anchor="end" fill="#a9731c" font-size="9">7天库存线</text><polygon points="${area}" fill="url(#scenarioArea)"/><polyline points="${points}" fill="none" stroke="#0b8076" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><line x1="${pad.l}" x2="${width-pad.r}" y1="${height-pad.b}" y2="${height-pad.b}" stroke="#dde5ea"/><text x="${pad.l}" y="${height-9}" fill="#8794a4" font-size="9">第 0 天</text><text x="${width-pad.r}" y="${height-9}" text-anchor="end" fill="#8794a4" font-size="9">第 ${values.length-1} 天</text><text x="${pad.l-8}" y="${pad.t+4}" text-anchor="end" fill="#8794a4" font-size="9">${new Intl.NumberFormat('zh-CN',{notation:'compact',maximumFractionDigits:1}).format(max)}</text></svg>`;
+  }
+
+  function runScenarioSimulation(){
+    const inventory=Math.max(0,Number(els.scenarioInventory?.value)||0),arrival=Math.max(0,Number(els.scenarioArrival?.value)||0),consumption=Math.max(0,Number(els.scenarioConsumption?.value)||0);
+    const days=Math.max(7,Math.min(365,Math.round(Number(els.scenarioDays?.value)||60)));
+    const values=[inventory];let stock=inventory,shortageDay=null;
+    for(let day=1;day<=days;day+=1){stock+=arrival-consumption;values.push(stock);if(shortageDay===null&&stock<=0)shortageDay=day;}
+    const ending=values.at(-1),net=arrival-consumption,runway=net<0?inventory/Math.abs(net):Infinity;
+    if(els.scenarioResults)els.scenarioResults.innerHTML=[
+      ['每日净变化',`${net>=0?'+':''}${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(net)} 湿吨`,net<0?'risk':''],
+      [`${days}天后库存`,`${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(ending)} 湿吨`,ending<0?'risk':''],
+      ['预计可维持',Number.isFinite(runway)?`${runway.toFixed(1)} 天`:'持续增加',Number.isFinite(runway)&&runway<14?'risk':''],
+      ['库存触零',shortageDay===null?'模拟期内不会':`第 ${shortageDay} 天`,shortageDay!==null?'risk':'']
+    ].map(([label,value,tone])=>`<div class="scenario-result ${tone}"><span>${label}</span><strong>${value}</strong></div>`).join('');
+    renderScenarioSvg(values,consumption);
+  }
+
+  function openDataQuery(){openAdvancedModal('data-query-modal');requestAnimationFrame(()=>els.dataQueryInput?.focus());}
+
+  function answerDataQuery(raw){
+    const query=String(raw||'').trim().toLowerCase();
+    if(!query)return '请输入一个经营数据问题。';
+    const daysMatch=query.match(/近\s*(\d+)\s*天/);const days=daysMatch?Math.max(1,Math.min(365,Number(daysMatch[1]))):null;
+    const latestDate=[...records.map(row=>row.date),(inventorySnapshot.history||[]).map(item=>item.date)].flat().filter(Boolean).sort().at(-1)||'';
+    const cutoff=days&&latestDate?new Date(Date.parse(`${latestDate}T00:00:00Z`)-(days-1)*86400000).toISOString().slice(0,10):'';
+    const scopedRows=cutoff?records.filter(row=>row.date>=cutoff&&row.date<=latestDate):records;
+    const daily=aggregateDaily(scopedRows),history=(inventorySnapshot.history||[]).filter(item=>!cutoff||item.date>=cutoff);
+    const fmt=value=>new Intl.NumberFormat('zh-CN',{maximumFractionDigits:0}).format(value||0);
+    const pick=(items,key,mode='max')=>items.filter(item=>Number.isFinite(item[key])).sort((a,b)=>mode==='min'?a[key]-b[key]:b[key]-a[key])[0];
+    let answer='';let meta=`${currentProject}${days?` · 近${days}天`:' · 全部有效数据'}`;
+    if(query.includes('未付款')){const unpaid=paymentRecords.filter(row=>(row.paymentStatusKey||normalizePaymentStatus(row.paymentStatus))==='unpaid');const total=unpaid.reduce((sum,row)=>sum+(row.totalUSD||0),0);answer=`未付款记录 <strong>${unpaid.length} 笔</strong>${total?`，合计 ${formatCurrency(total,'USD')}`:''}。`;meta=`${currentProject} · 陆运付款明细`;}
+    else if(query.includes('供应商')&&(query.includes('最多')||query.includes('最大')||query.includes('第一'))){const supplier=aggregateSuppliers(scopedRows)[0];answer=supplier?`到货最多的是 <strong>${escapeHtml(supplier.supplier)}</strong>，共 ${fmt(supplier.weight)} 湿吨。`:'当前没有供应商数据。';}
+    else if(query.includes('库存')&&(query.includes('最低')||query.includes('最少'))){const row=pick(history,'inventory','min');answer=row?`库存最低日是 <strong>${row.date}</strong>，库存 ${fmt(row.inventory)} 湿吨。`:'当前没有库存历史数据。';}
+    else if(query.includes('库存')&&(query.includes('最高')||query.includes('最多'))){const row=pick(history,'inventory','max');answer=row?`库存最高日是 <strong>${row.date}</strong>，库存 ${fmt(row.inventory)} 湿吨。`:'当前没有库存历史数据。';}
+    else if(query.includes('库存')&&query.includes('天')){const value=Number(inventorySnapshot.wetTons);answer=Number.isFinite(value)?`当前理论库存可维持 <strong>${(value/30000).toFixed(1)} 天</strong>，按每日30,000湿吨测算。`:'当前没有库存余量。';}
+    else if(query.includes('消耗')&&(query.includes('最高')||query.includes('最大'))){const row=pick(history,'production','max');answer=row?`每日消耗最高日是 <strong>${row.date}</strong>，消耗 ${fmt(row.production)} 湿吨。`:'当前没有消耗数据。';}
+    else if(query.includes('到货')&&(query.includes('最高')||query.includes('最大')||query.includes('最多'))){const row=pick(daily,'weight','max');answer=row?`每日到货最高日是 <strong>${row.date}</strong>，到货 ${fmt(row.weight)} 湿吨。`:'当前没有到货数据。';}
+    else if(query.includes('到货')&&(query.includes('最低')||query.includes('最少'))){const row=pick(daily,'weight','min');answer=row?`每日到货最低有效日是 <strong>${row.date}</strong>，到货 ${fmt(row.weight)} 湿吨。`:'当前没有到货数据。';}
+    else if(query.includes('总到货')||query.includes('累计到货')){const total=scopedRows.reduce((sum,row)=>sum+(row.weight||0),0);answer=`累计到货 <strong>${fmt(total)} 湿吨</strong>，共 ${scopedRows.length} 条记录。`;}
+    else if(query.includes('ni')){const summary=MetricEngine.summarize(scopedRows);const row=pick(daily,'ni',query.includes('最低')?'min':'max');answer=query.includes('平均')||query.includes('加权')?`加权 Ni 为 <strong>${summary.ni==null?'—':summary.ni.toFixed(2)+'%'}</strong>。`:row?`Ni ${query.includes('最低')?'最低':'最高'}日是 <strong>${row.date}</strong>，为 ${row.ni.toFixed(2)}%。`:'当前没有有效 Ni 数据。';}
+    else if(query.includes('mgo')){const summary=MetricEngine.summarize(scopedRows);const row=pick(daily,'mgo',query.includes('最低')?'min':'max');answer=query.includes('平均')||query.includes('加权')?`加权 MgO 为 <strong>${summary.mgo==null?'—':summary.mgo.toFixed(2)+'%'}</strong>。`:row?`MgO ${query.includes('最低')?'最低':'最高'}日是 <strong>${row.date}</strong>，为 ${row.mgo.toFixed(2)}%。`:'当前没有有效 MgO 数据。';}
+    else answer='暂时无法识别这个问题。可询问到货峰值、库存最低日、供应商排名、Ni/MgO或未付款记录。';
+    return `${answer}<span class="query-meta">${escapeHtml(meta)} · 本地规则引擎</span>`;
+  }
+
+  function runDataQuery(){if(els.dataQueryAnswer)els.dataQueryAnswer.innerHTML=answerDataQuery(els.dataQueryInput?.value||'');}
+
+  function runRegressionTests(rows,operationSnapshot,workerMetrics=null){
+    const tests=[];const add=(name,pass,detail='')=>tests.push({name,pass:!!pass,detail});
+    const list=Array.isArray(rows)?rows:[];const semantic=MetricEngine.summarize(list,operationSnapshot);const daily=MetricEngine.daily(list);
+    const independentTotal=list.reduce((sum,row)=>sum+(Number(row.weight)||0),0);const dailyTotal=daily.reduce((sum,row)=>sum+(Number(row.weight)||0),0);
+    add('记录集合可用',list.length>0,`${list.length} 条`);
+    add('日期格式有效',list.every(row=>/^\d{4}-\d{2}-\d{2}$/.test(row.date||'')),'YYYY-MM-DD');
+    add('到货总量一致',Math.abs(independentTotal-semantic.totalWet)<.01,`${independentTotal}`);
+    add('日汇总守恒',Math.abs(dailyTotal-independentTotal)<.01,`${dailyTotal}`);
+    add('业务键无重复',new Set(list.map(arrivalBusinessKey)).size===list.length,'去重后记录');
+    const history=operationSnapshot?.history||[];add('库存日期有序',history.every((item,index)=>index===0||String(history[index-1].date)<=String(item.date)),`${history.length} 日`);
+    if(workerMetrics){
+      const same=(left,right,tolerance)=>left==null&&right==null||(Number.isFinite(left)&&Number.isFinite(right)&&Math.abs(left-right)<=tolerance);
+      add('后台总量一致',same(workerMetrics.totalWet,semantic.totalWet,.01),'Worker vs MetricEngine');
+      add('后台 Ni 一致',same(workerMetrics.ni,semantic.ni,.000001),'Worker vs MetricEngine');
+      add('后台 MgO 一致',same(workerMetrics.mgo,semantic.mgo,.000001),'Worker vs MetricEngine');
+    }
+    const passed=tests.every(test=>test.pass);const result={project:currentProject,passed,tests,ranAt:Date.now(),recordCount:list.length};
+    if(els.regressionStatus){els.regressionStatus.className=`regression-status ${passed?'pass':'fail'}`;els.regressionStatus.textContent=passed?`自检通过 ${tests.length}/${tests.length}`:`自检失败 ${tests.filter(test=>!test.pass).length}`;els.regressionStatus.title=tests.map(test=>`${test.pass?'✓':'×'} ${test.name}${test.detail?`：${test.detail}`:''}`).join('\n');}
+    if(!passed)console.error('自动回归测试失败',result);void LocalAnalyticsDB.put(`${currentProject}:regression-latest`,result);return result;
+  }
 
   // ============================================================
   // 陆运付款明细
@@ -4447,6 +5134,35 @@ const NikelTrak = (function() {
     });
   }
 
+  function expandBatchCodes(value,limit=3000){
+    const text=String(value||'').toUpperCase();
+    const matches=[...text.matchAll(/([A-Z]+(?:-[A-Z]+)*)-(\d{3,})/g)].map(match=>({prefix:match[1],number:Number(match[2]),digits:match[2].length}));
+    if(matches.length>=2&&matches[0].prefix===matches[1].prefix&&matches[1].number>=matches[0].number&&matches[1].number-matches[0].number<=limit){
+      const result=[];for(let number=matches[0].number;number<=matches[1].number;number+=1)result.push(`${matches[0].prefix}-${String(number).padStart(matches[0].digits,'0')}`);return result;
+    }
+    return [...new Set(matches.map(item=>`${item.prefix}-${String(item.number).padStart(item.digits,'0')}`))];
+  }
+
+  function renderProcessMining(paymentRows=paymentRecords){
+    if(!els.processMiningPanel)return;
+    const arrivalsByCode=new Map();
+    records.forEach(row=>{const code=String(row.internalCode||'').toUpperCase();if(!code||code==='-')return;const item=arrivalsByCode.get(code)||{first:row.date,last:row.date};if(row.date<item.first)item.first=row.date;if(row.date>item.last)item.last=row.date;arrivalsByCode.set(code,item);});
+    let linked=0,paid=0,lagTotal=0,lagCount=0,unlinked=0;
+    (paymentRows||[]).forEach(payment=>{
+      const codes=expandBatchCodes(payment.batchCode);const matched=codes.map(code=>arrivalsByCode.get(code)).filter(Boolean);
+      if(matched.length){linked+=1;const lastArrival=matched.map(item=>item.last).sort().at(-1);if(payment.invoiceDate&&payment.invoiceDate!=='-'&&lastArrival){const lag=(Date.parse(`${payment.invoiceDate}T00:00:00Z`)-Date.parse(`${lastArrival}T00:00:00Z`))/86400000;if(Number.isFinite(lag)&&lag>=0){lagTotal+=lag;lagCount+=1;}}}else unlinked+=1;
+      if((payment.paymentStatusKey||normalizePaymentStatus(payment.paymentStatus))==='paid')paid+=1;
+    });
+    const rows=paymentRows||[];const linkRate=rows.length?linked/rows.length*100:0;const paidRate=rows.length?paid/rows.length*100:0;const averageLag=lagCount?lagTotal/lagCount:null;
+    const cards=[
+      ['到货批次',`${arrivalsByCode.size} 个`,'当前项目有效内部编号',''],
+      ['到货→发票',`${linked} / ${rows.length}`,rows.length?`关联率 ${linkRate.toFixed(1)}%`:'暂无结算记录',linkRate<70&&rows.length?'warn':''],
+      ['平均开票周期',averageLag==null?'—':`${averageLag.toFixed(1)} 天`,`${lagCount} 笔可计算`,''],
+      ['发票→付款',`${paid} / ${rows.length}`,rows.length?`完成率 ${paidRate.toFixed(1)}% · 未关联 ${unlinked}`:'暂无结算记录',paidRate<70&&rows.length?'warn':'']
+    ];
+    els.processMiningPanel.innerHTML=cards.map(([label,value,note,tone])=>`<div class="process-stage ${tone}"><span>${label}</span><strong>${value}</strong><small>${note}</small></div>`).join('');
+  }
+
   function updatePaymentPagination(totalRows) {
     const totalPages = Math.max(1, Math.ceil(totalRows / paymentPageSize));
     if (paymentCurrentPage > totalPages) paymentCurrentPage = totalPages;
@@ -4468,6 +5184,7 @@ const NikelTrak = (function() {
   function renderPaymentCenter() {
     if (!els.paymentRecordsBody || !els.paymentKpis) return;
     const rows = getFilteredPayments();
+    renderProcessMining(rows);
 
     // 单次遍历完成 KPI 聚合，避免 filter/reduce/map/sort 多次扫描同一批数据。
     let totalWet = 0, totalUSD = 0, totalIDR = 0, paidUSD = 0, paidIDR = 0, paidCount = 0;
@@ -4669,6 +5386,7 @@ const NikelTrak = (function() {
 
   async function refreshData(showMsg = true) {
     if (isLoading) return;
+    if (habitsReady) persistUsageHabits(true);
     isLoading = true;
     document.body.classList.add('is-syncing');
     els.refreshBtn.textContent = '正在刷新…';
@@ -4705,12 +5423,13 @@ const NikelTrak = (function() {
         void writeIndexedCache(project.storageKey, records);
         initMultiSelectOptions(records);
         setDefaultDateRange(records);
+        restoreUsageHabits();
         DataCache.clear();
         render();
       } else {
         const saved = localStorage.getItem(project.storageKey);
         if (saved) {
-          try { const parsed=JSON.parse(saved); if(Array.isArray(parsed)&&parsed.length){records=dedupeArrivalRecords(parsed,currentProject,'cache');fillMissingValues(records);cacheJsonSafely(project.storageKey,records);initMultiSelectOptions(records);setDefaultDateRange(records);render();} } catch(e){}
+          try { const parsed=JSON.parse(saved); if(Array.isArray(parsed)&&parsed.length){records=dedupeArrivalRecords(parsed,currentProject,'cache');fillMissingValues(records);cacheJsonSafely(project.storageKey,records);initMultiSelectOptions(records);setDefaultDateRange(records);restoreUsageHabits();render();} } catch(e){}
         }
         if (!records.length) {
           const indexedEntry = await readIndexedCacheEntry(project.storageKey);
@@ -4718,7 +5437,7 @@ const NikelTrak = (function() {
           if (indexedEntry?.updatedAt) lastCacheUpdatedAt = Math.max(lastCacheUpdatedAt || 0,indexedEntry.updatedAt);
           if (Array.isArray(indexed) && indexed.length) {
             records = dedupeArrivalRecords(indexed,currentProject,'indexed-cache');
-            fillMissingValues(records);initMultiSelectOptions(records);setDefaultDateRange(records);DataCache.clear();render();
+            fillMissingValues(records);initMultiSelectOptions(records);setDefaultDateRange(records);restoreUsageHabits();DataCache.clear();render();
           }
         }
       }
@@ -4894,10 +5613,14 @@ const NikelTrak = (function() {
   async function switchProject(projectId) {
     if (projectId === currentProject && records.length) return;
 
+    persistUsageHabits(true);
+    habitsReady = false;
     currentProject = projectId;
+    try { localStorage.setItem('nikeltrak-last-project',currentProject); } catch (error) {}
     supplierExpanded = false;
     arrivalDedupeStats = { projectId, raw: 0, unique: 0, removed: 0, samples: [], source: '' };
     const project = PROJECTS[projectId];
+    if (els.projectSelect) els.projectSelect.value = projectId;
     document.getElementById('page-title').textContent = project.name;
 
     records = [];
@@ -4942,12 +5665,15 @@ const NikelTrak = (function() {
       fillMissingValues(records);
       initMultiSelectOptions(records);
       setDefaultDateRange(records);
+      restoreUsageHabits();
       DataCache.clear();
       render();
       updateSyncStatus('online', `本地快速缓存 · ${records.length} 条${lastCacheUpdatedAt ? ` · 更新于 ${formatCacheTime(lastCacheUpdatedAt)}` : ''} · 正在后台同步`);
     }
 
     await refreshData(true);
+    habitsReady = true;
+    persistUsageHabits(true);
   }
 
   // ============================================================
@@ -4956,6 +5682,12 @@ const NikelTrak = (function() {
 
   async function init() {
     console.log('🚀 NikelTrak starting...');
+    try {
+      const lastProject = localStorage.getItem('nikeltrak-last-project');
+      if (lastProject && PROJECTS[lastProject]) currentProject = lastProject;
+    } catch (error) {}
+    if (els.projectSelect) els.projectSelect.value = currentProject;
+    if (PROJECTS[currentProject]) document.getElementById('page-title').textContent = PROJECTS[currentProject].name;
     loadSmartSettings();
     updateQuickRangeChips();
 
@@ -4995,6 +5727,7 @@ const NikelTrak = (function() {
           cacheJsonSafely(project.storageKey, records);
           initMultiSelectOptions(records);
           setDefaultDateRange(records);
+          restoreUsageHabits();
           render();
           const cacheDupNote = arrivalDedupeStats.removed ? ` · 已排除重复 ${arrivalDedupeStats.removed} 条` : '';
           updateSyncStatus('online', `📦 本地缓存 · ${records.length} 条${cacheDupNote}`);
@@ -5020,6 +5753,7 @@ const NikelTrak = (function() {
         fillMissingValues(records);
         initMultiSelectOptions(records);
         setDefaultDateRange(records);
+        restoreUsageHabits();
         render();
         updateSyncStatus('online', `本地快速缓存 · ${records.length} 条${lastCacheUpdatedAt ? ` · 更新于 ${formatCacheTime(lastCacheUpdatedAt)}` : ''} · 正在后台同步`);
       }
@@ -5038,13 +5772,16 @@ const NikelTrak = (function() {
       } catch (e) { /* ignore */ }
     }
 
-    refreshData(false);
     bindEvents();
+    habitsReady = true;
+    persistUsageHabits(true);
+    refreshData(false);
     updateAutoRefresh();
     requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('v4-ready')));
 
     // 清理
     EventManager.add(window, 'beforeunload', () => {
+      persistUsageHabits(true);
       if (pagination) {
         pagination.destroy();
         pagination = null;
@@ -5087,12 +5824,14 @@ const NikelTrak = (function() {
     chartViewMode = mode === 'inventory' || mode === 'quality' ? mode : 'balance';
     updateChartModeUI();
     renderChart(aggregateDaily(applyMainFilters(records)));
+    persistUsageHabitsDebounced();
     document.getElementById('echarts-container')?.scrollIntoView({behavior:'smooth',block:'center'});
   }
 
   function setChartRange(value){
     chartRange = ['7','30','all'].includes(value) ? value : '30';
     renderChart(aggregateDaily(applyMainFilters(records)));
+    persistUsageHabitsDebounced();
   }
 
   function setQuickRange(value){
@@ -5173,11 +5912,34 @@ const NikelTrak = (function() {
     });
     EventManager.add(window,'nikeltrak:chart-date-click',e=>{
       const date=e.detail?.date; if(!date) return;
-      if(els.rangeFilter) els.rangeFilter.value='all';
-      if(els.dateFrom) els.dateFrom.value=date;
-      if(els.dateTo) els.dateTo.value=date;
-      updateQuickRangeChips(); DataCache.clear(); debouncedRender(); showSmartToast(`已下钻 ${date} 当天明细`);
+      openDateDetail(date);
     });
+    if (els.chartAnomalyFocus) EventManager.add(els.chartAnomalyFocus,'click',toggleAnomalyDateFocus);
+    if (els.scenarioOpenBtn) EventManager.add(els.scenarioOpenBtn,'click',openScenarioSimulator);
+    if (els.scenarioRun) EventManager.add(els.scenarioRun,'click',runScenarioSimulation);
+    if (els.dataQueryOpenBtn) EventManager.add(els.dataQueryOpenBtn,'click',openDataQuery);
+    if (els.dataQueryRun) EventManager.add(els.dataQueryRun,'click',runDataQuery);
+    if (els.dataQueryInput) EventManager.add(els.dataQueryInput,'keydown',event=>{if(event.key==='Enter'){event.preventDefault();runDataQuery();}});
+    document.querySelectorAll('[data-query-example]').forEach(button=>EventManager.add(button,'click',()=>{if(els.dataQueryInput)els.dataQueryInput.value=button.dataset.queryExample||'';runDataQuery();}));
+    document.querySelectorAll('[data-close-advanced]').forEach(button=>EventManager.add(button,'click',()=>closeAdvancedModal(button.dataset.closeAdvanced)));
+    document.querySelectorAll('.advanced-overlay').forEach(modal=>EventManager.add(modal,'click',event=>{if(event.target===modal)closeAdvancedModal(modal.id);}));
+    if (els.regressionStatus) EventManager.add(els.regressionStatus,'click',()=>showSmartToast(els.regressionStatus.title||'自动回归测试尚未运行'));
+    if (els.dateDetailClose) EventManager.add(els.dateDetailClose,'click',closeDateDetail);
+    if (els.dateDetailOverlay) {
+      EventManager.add(els.dateDetailOverlay,'click',e=>{ if(e.target===els.dateDetailOverlay) closeDateDetail(); });
+      EventManager.add(els.dateDetailOverlay,'click',e=>{
+        const button=e.target.closest('[data-filter-detail-date]');
+        if(!button) return;
+        const date=button.dataset.filterDetailDate;
+        if(els.rangeFilter) els.rangeFilter.value='all';
+        if(els.dateFrom) els.dateFrom.value=date;
+        if(els.dateTo) els.dateTo.value=date;
+        tableActivated=true; tableObserver?.disconnect(); tableObserver=null;
+        updateQuickRangeChips(); closeDateDetail(); DataCache.clear(); render();
+        document.querySelector('.table-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+        showSmartToast(`已筛选 ${date} 当天明细`);
+      });
+    }
     if (els.saveViewBtn) EventManager.add(els.saveViewBtn,'click',saveCurrentView);
     if (els.restoreViewBtn) EventManager.add(els.restoreViewBtn,'click',restoreCurrentView);
     if (els.exportViewBtn) EventManager.add(els.exportViewBtn,'click',exportCurrentView);
@@ -5187,6 +5949,8 @@ const NikelTrak = (function() {
     EventManager.add(document,'keydown',e=>{
       const tag=(e.target?.tagName||'').toLowerCase(); const typing=['input','textarea','select'].includes(tag);
       if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCommandPalette();return;}
+      if(e.key==='Escape'&&document.querySelector('.advanced-overlay.open')){e.preventDefault();closeAdvancedModal(document.querySelector('.advanced-overlay.open').id);return;}
+      if(e.key==='Escape'&&els.dateDetailOverlay?.classList.contains('open')){e.preventDefault();closeDateDetail();return;}
       if(e.key==='Escape'&&document.getElementById('v4-command-overlay')?.classList.contains('open')){e.preventDefault();closeCommandPalette();return;}
       if(e.key==='/'&&!typing){e.preventDefault();els.quickSearch?.focus();}
       if(e.altKey&&e.key.toLowerCase()==='r'){e.preventDefault();refreshData(true);}
@@ -5243,6 +6007,14 @@ const NikelTrak = (function() {
     if (els.groupByInternal) {
       EventManager.add(els.groupByInternal, 'change', debouncedRender);
     }
+    if (els.toggleDetailColumns) EventManager.add(els.toggleDetailColumns,'click',toggleDetailColumns);
+    if (els.recordsBody) EventManager.add(els.recordsBody,'dblclick',event=>{
+      const cell=event.target.closest('[data-isolate]');if(!cell)return;
+      isolateTableValue(cell.dataset.isolate,cell.dataset.isolateValue);
+    });
+    if (els.isolateStatus) EventManager.add(els.isolateStatus,'click',event=>{if(event.target.closest('[data-clear-isolate]'))restoreIsolation();});
+    updateDetailColumnsUI();
+    initializeColumnResizers();
 
     // Refresh
     if (els.refreshBtn) {
@@ -5389,6 +6161,13 @@ const NikelTrak = (function() {
     exportCurrentView,
     saveCurrentView,
     restoreCurrentView,
+    configureSecureProxy: url => SecureDataGateway.configure(url),
+    getSecureProxyStatus: () => ({configured:!!SecureDataGateway.endpoint,endpoint:SecureDataGateway.endpoint||''}),
+    getMetricCatalog: () => ({...METRIC_CATALOG}),
+    getIncrementalStatus: () => IncrementalAnalytics.latest.get(currentProject) || null,
+    runRegressionTests: () => runRegressionTests(records,inventorySnapshot,IncrementalAnalytics.latest.get(currentProject)?.metrics||null),
+    queryData: question => answerDataQuery(question),
+    openScenarioSimulator,
     getRecords: () => records,
     getPaymentRecords: () => paymentRecords,
     getState: () => ({ currentProject, rangeInternalStart, rangeInternalEnd, chartViewMode })
