@@ -2591,7 +2591,6 @@ const NikelTrak = (function() {
       paymentSheetRange: '陆运付款明细!A:P',
       inventorySheetRange: '生产及库存!A:H',
       qualityTargets: { niTarget: 1.15, mgoLimit: 3.50 },
-      apiKey: 'AIzaSyBZWmFXhinFmLzf_T7uw77ICwaF5BMzhzg',
       storageKey: 'slnc-data-v2',
       paymentStorageKey: 'slnc-payment-data-v3-supplier-status'
     },
@@ -2603,7 +2602,6 @@ const NikelTrak = (function() {
       paymentSheetRange: '陆运付款明细!A:P',
       inventorySheetRange: '生产及库存!A:H',
       qualityTargets: { niTarget: 1.15, mgoLimit: 3.50 },
-      apiKey: 'AIzaSyBZWmFXhinFmLzf_T7uw77ICwaF5BMzhzg',
       storageKey: 'hync-data-v2',
       paymentStorageKey: 'hync-payment-data-v3-supplier-status'
     },
@@ -2615,7 +2613,6 @@ const NikelTrak = (function() {
     paymentSheetRange: '陆运付款明细!A:P',
     inventorySheetRange: '生产及库存!A:H',
     qualityTargets: { niTarget: 1.15, mgoLimit: 4.00 },
-    apiKey: 'AIzaSyBZWmFXhinFmLzf_T7uw77ICwaF5BMzhzg',
     storageKey: 'hxni-data-v3-weight-fix',
     paymentStorageKey: 'hxni-payment-data-v3-supplier-status'
   }
@@ -2889,11 +2886,16 @@ const NikelTrak = (function() {
     return unique;
   }
 
+  const DEFAULT_SECURE_PROXY_URL = 'https://nikeltrak-sheets-proxy.liangzheng121.workers.dev';
+
   const SecureDataGateway = {
     storageKey:'nikeltrak-secure-proxy-url-v1',
     get endpoint() {
-      try { return String(localStorage.getItem(this.storageKey) || '').trim().replace(/\/$/,''); }
-      catch (error) { return ''; }
+      try {
+        return String(localStorage.getItem(this.storageKey) || DEFAULT_SECURE_PROXY_URL)
+          .trim().replace(/\/$/,'');
+      }
+      catch (error) { return DEFAULT_SECURE_PROXY_URL; }
     },
     configure(url) {
       const value = String(url || '').trim().replace(/\/$/,'');
@@ -2902,20 +2904,11 @@ const NikelTrak = (function() {
       return value;
     },
     async read(project, sheetRange, timeoutMs = 15000) {
-      if (this.endpoint) {
-        try {
-          const params = new URLSearchParams({spreadsheetId:project.spreadsheetId,range:sheetRange});
-          const proxied = await fetchJsonWithTimeout(`${this.endpoint}/sheets/values?${params}`,timeoutMs);
-          if (Array.isArray(proxied?.values)) return {...proxied,_gateway:'secure-proxy'};
-          throw new Error('代理响应缺少 values');
-        } catch (error) {
-          console.warn('安全代理暂不可用，已回退只读直连',error);
-        }
-      }
-      const range = encodeURIComponent(sheetRange);
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${project.spreadsheetId}/values/${range}` +
-        `?key=${project.apiKey}&valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=FORMATTED_STRING`;
-      return {...await fetchJsonWithTimeout(url,timeoutMs),_gateway:'direct-readonly'};
+      if (!this.endpoint) throw new Error('安全代理地址未配置');
+      const params = new URLSearchParams({spreadsheetId:project.spreadsheetId,range:sheetRange});
+      const proxied = await fetchJsonWithTimeout(`${this.endpoint}/sheets/values?${params}`,timeoutMs);
+      if (!Array.isArray(proxied?.values)) throw new Error('安全代理响应缺少 values');
+      return {...proxied,_gateway:'secure-proxy'};
     }
   };
 
@@ -2986,7 +2979,7 @@ const NikelTrak = (function() {
           mc: mc > 0 ? mc : null,
           source: 'Google Sheets',
           sourceRow: i + 2,
-          sourceGateway: data._gateway || 'direct-readonly'
+          sourceGateway: data._gateway || 'secure-proxy'
         });
       }
 
